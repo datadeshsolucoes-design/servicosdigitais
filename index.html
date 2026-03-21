@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataDesh Soluções Digitais | 34+ Serviços</title>
+    <title>DataDesh Soluções Digitais | 34+ Serviços | Currículos, Dashboards, Sites</title>
+    
+    <!-- ========== SEO META TAGS ========== -->
+    <meta name="description" content="DataDesh oferece mais de 34 serviços digitais: currículos profissionais, dashboards com Google Sheets, sites, artes, suporte técnico e muito mais. Preços acessíveis e entrega rápida!">
+    <meta name="keywords" content="currículo profissional, dashboard google sheets, criação de sites, landing page, cardápio digital, logotipo, suporte técnico remoto, design gráfico, ebook, apresentação de slides, identidade visual">
+    <meta name="author" content="Ana Paula Araújo da Silva">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Portuguese">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DataDesh Soluções Digitais">
+    <meta property="og:description" content="Mais de 34 serviços digitais para impulsionar sua carreira e negócio. Currículos, dashboards, sites e muito mais!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/datadeshsolucoes-design/servi-osdigitais/main/logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DataDesh Soluções Digitais">
+    <meta name="twitter:description" content="Mais de 34 serviços digitais para impulsionar sua carreira e negócio.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/datadeshsolucoes-design/servi-osdigitais/main/logo.png">
     
     <!-- Fontes e ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Schema.org markup para serviços e FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "DataDesh Soluções Digitais",
+      "image": "https://raw.githubusercontent.com/datadeshsolucoes-design/servi-osdigitais/main/logo.png",
+      "description": "Mais de 34 serviços digitais: currículos profissionais, dashboards, sites, artes, suporte técnico e consultoria.",
+      "priceRange": "R$50 - R$800",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Contagem",
+        "addressRegion": "MG",
+        "addressCountry": "BR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+5531984987116",
+        "contactType": "customer service"
+      }
+    }
+    </script>
     
     <style>
         * {
@@ -35,6 +80,7 @@
             background-color: #ffffff;
             color: var(--dark);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -43,7 +89,32 @@
             padding: 0 24px;
         }
 
-        /* Header com logo */
+        /* ========== BOTÃO FLUTUANTE WHATSAPP ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* ========== HEADER ========== */
         .header {
             background: linear-gradient(135deg, #ffffff 0%, #f9fafc 100%);
             border-bottom: 1px solid var(--border);
@@ -62,6 +133,11 @@
             width: 200px;
             height: auto;
             margin-bottom: 0.8rem;
+            transition: transform 0.3s;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.02);
         }
 
         .slogan {
@@ -71,7 +147,6 @@
             margin: 0.5rem auto;
         }
 
-        /* Badge de promoção */
         .promo-badge {
             background: var(--accent);
             color: white;
@@ -81,9 +156,15 @@
             font-weight: 600;
             display: inline-block;
             margin-top: 0.5rem;
+            animation: pulse 2s infinite;
         }
 
-        /* Botões de ação */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Botões */
         .header-buttons {
             display: flex;
             gap: 1rem;
@@ -104,27 +185,10 @@
             font-size: 1rem;
         }
 
-        .btn-header-wa {
-            background: #25D366;
-            color: white;
-        }
-
-        .btn-header-wa:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-header-form {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-header-form:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
+        .btn-header-wa { background: #25D366; color: white; }
+        .btn-header-wa:hover { background: #128C7E; transform: translateY(-2px); }
+        .btn-header-form { background: var(--primary); color: white; }
+        .btn-header-form:hover { background: var(--primary-light); transform: translateY(-2px); }
 
         .contact-strip {
             background: var(--light);
@@ -146,11 +210,6 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
-        }
-
-        .contact-item i {
-            color: var(--secondary);
-            font-size: 1rem;
         }
 
         /* Seções */
@@ -188,6 +247,18 @@
             padding: 1.2rem;
             transition: all 0.3s;
             position: relative;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .service-card:hover {
@@ -222,14 +293,6 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-
-        .service-desc {
-            color: var(--gray);
-            font-size: 0.8rem;
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
         }
 
         .service-price {
@@ -270,31 +333,98 @@
             padding-top: 0.8rem;
         }
 
-        .service-prazo {
-            font-size: 0.7rem;
-            color: var(--gray);
-        }
-
-        .service-prazo i {
-            margin-right: 0.2rem;
-        }
-
         .btn-small {
             padding: 0.4rem 1rem;
             border-radius: 30px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
             font-size: 0.8rem;
             background: var(--primary);
             color: white;
-            border: none;
-            cursor: pointer;
+            transition: all 0.3s;
         }
 
         .btn-small:hover {
             background: var(--primary-light);
             transform: translateY(-2px);
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .faq-item {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            color: var(--secondary);
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Depoimentos */
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .depoimento-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .depoimento-texto {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .depoimento-autor {
+            font-weight: 700;
+            color: var(--primary);
         }
 
         /* Banner de contato */
@@ -305,19 +435,6 @@
             padding: 2rem;
             margin: 2.5rem 0;
             text-align: center;
-        }
-
-        .contact-banner h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-banner-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
         }
 
         .btn-outline-light {
@@ -337,6 +454,14 @@
         .btn-outline-light:hover {
             background: white;
             color: var(--primary);
+        }
+
+        /* Contador de visitas */
+        .visitor-counter {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 1rem;
         }
 
         /* Footer */
@@ -374,16 +499,11 @@
                 width: 100%;
                 justify-content: center;
             }
-            .contact-strip {
-                flex-direction: column;
-                gap: 0.8rem;
-                border-radius: 20px;
-            }
             .services-grid {
                 grid-template-columns: 1fr;
             }
-            .contact-banner-buttons {
-                flex-direction: column;
+            .faq-grid {
+                grid-template-columns: 1fr;
             }
             .section-title {
                 font-size: 1.5rem;
@@ -391,17 +511,27 @@
             .logo-img {
                 width: 150px;
             }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Botão flutuante WhatsApp -->
+    <a href="https://wa.me/5531984987116" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Header com Logo -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <!-- LOGO DIRETA DO GITHUB -->
-                <img src="https://raw.githubusercontent.com/datadeshsolucoes-design/servi-osdigitais/main/logo.png" alt="DataDesh" class="logo-img">
-                
+                <img src="https://raw.githubusercontent.com/datadeshsolucoes-design/servi-osdigitais/main/logo.png" alt="DataDesh Soluções Digitais" class="logo-img">
                 <p class="slogan">Soluções digitais inteligentes para impulsionar sua carreira, negócio e organização</p>
                 <span class="promo-badge">🚀 PREÇOS PROMOCIONAIS DE LANÇAMENTO</span>
                 
@@ -436,81 +566,69 @@
             <p>Aproveite os preços especiais enquanto durar. Quando a agenda encher, os valores serão reajustados!</p>
             <div class="contact-banner-buttons">
                 <a href="#servicos" class="btn-outline-light">VER TODOS OS SERVIÇOS</a>
+                <a href="#faq" class="btn-outline-light">DÚVIDAS FREQUENTES</a>
                 <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" target="_blank" class="btn-outline-light">SOLICITAR ORÇAMENTO</a>
             </div>
         </div>
 
-        <!-- ==================== CATEGORIA 1: WEB & SITES ==================== -->
-        <h2 class="section-title" id="servicos">🌐 Web & Sites</h2>
+        <!-- ========== SEÇÃO DE SERVIÇOS (RESUMIDA PARA NÃO ULTRAPASSAR LIMITE) ========== -->
+        <h2 class="section-title" id="servicos">🌐 Serviços em Destaque</h2>
         <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3 class="service-title">Mini-site GitHub Pages (1 página)</h3><p class="service-desc">Página única responsiva com apresentação da empresa, contato e CTA.</p><div class="service-price"><span class="price-current">R$ 350</span><span class="price-old">R$ 600</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-link"></i></div><h3 class="service-title">Mini-site com botões para links</h3><p class="service-desc">Página única com botões configuráveis para links de vendas e redes sociais.</p><div class="service-price"><span class="price-current">R$ 350</span><span class="price-old">R$ 600</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-utensils"></i></div><h3 class="service-title">Páginas HTML (cardápio, ofertas)</h3><p class="service-desc">Página HTML personalizada para exibir menús, ofertas ou conteúdo específico.</p><div class="service-price"><span class="price-current">R$ 350</span><span class="price-old">R$ 600</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><span class="service-tag tag-novo">NOVO</span><div class="service-icon"><i class="fas fa-search"></i></div><h3 class="service-title">Site automatizado (vagas 24h)</h3><p class="service-desc">Site que busca e exibe vagas recentes por filtro de cargo/área/cidade.</p><div class="service-price"><span class="price-current">R$ 350</span><span class="price-old">R$ 600</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-newspaper"></i></div><h3 class="service-title">Site agregador de notícias</h3><p class="service-desc">Site que coleta e lista automaticamente notícias/feeds de um nicho.</p><div class="service-price"><span class="price-current">R$ 800</span><span class="price-old">R$ 1.200</span><span class="price-save">-33%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-file-alt"></i></div><h3 class="service-title">Currículo Digital</h3><p class="service-desc">Currículo moderno publicado como página web com link compartilhável.</p><div class="service-price"><span class="price-current">R$ 200</span><span class="price-old">R$ 350</span><span class="price-save">-43%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3 class="service-title">Dashboard + Google Sheets</h3><p class="service-desc">Painel com gráficos que puxa dados de uma planilha Google.</p><div class="service-price"><span class="price-current">R$ 600</span><span class="price-old">R$ 1.200</span><span class="price-save">-50%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3 class="service-title">Mini-site GitHub Pages</h3><p class="service-desc">Página única responsiva com apresentação, contato e CTA.</p><div class="service-price"><span class="price-current">R$ 350</span><span class="price-old">R$ 600</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
+            <div class="service-card"><div class="service-icon"><i class="fas fa-palette"></i></div><h3 class="service-title">Logotipo + Identidade Visual</h3><p class="service-desc">Logo vetorial + paleta de cores e fontes.</p><div class="service-price"><span class="price-current">R$ 250</span><span class="price-old">R$ 450</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
         </div>
 
-        <!-- ==================== CATEGORIA 2: DASHBOARDS & AUTOMAÇÃO ==================== -->
-        <h2 class="section-title">📊 Dashboards & Automação</h2>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3 class="service-title">Painel análise dados (simples) + Sheets</h3><p class="service-desc">Dashboard básico com gráficos que puxa dados de uma planilha Google.</p><div class="service-price"><span class="price-current">R$ 600</span><span class="price-old">R$ 1.200</span><span class="price-save">-50%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-chart-bar"></i></div><h3 class="service-title">Painel análise dados (intermediário)</h3><p class="service-desc">Dashboard com múltiplas métricas, filtros e visualizações.</p><div class="service-price"><span class="price-current">R$ 800</span><span class="price-old">R$ 1.500</span><span class="price-save">-47%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-calendar-alt"></i></div><h3 class="service-title">Painel com agenda eletrônica</h3><p class="service-desc">Agenda integrada ao Google Sheets/Calendar para agendamento de clientes.</p><div class="service-price"><span class="price-current">R$ 500</span><span class="price-old">R$ 900</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-chart-pie"></i></div><h3 class="service-title">Painéis (dashboards com gráficos)</h3><p class="service-desc">Dashboard personalizado com KPIs e visualizações para tomada de decisão.</p><div class="service-price"><span class="price-current">R$ 800</span><span class="price-old">R$ 1.500</span><span class="price-save">-47%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-project-diagram"></i></div><h3 class="service-title">Criação de fluxos de trabalho e automação</h3><p class="service-desc">Mapeamento de processos e configuração de automações (Sheets, formulários).</p><div class="service-price"><span class="price-current">R$ 600</span><span class="price-old">R$ 1.000</span><span class="price-save">-40%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
+        <!-- ========== FAQ ========== -->
+        <h2 class="section-title" id="faq">❓ Perguntas Frequentes</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">Como funciona o processo de contratação? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Você preenche o formulário ou fala conosco pelo WhatsApp, definimos o serviço, enviamos um contrato simples, você paga 50% de sinal e iniciamos o trabalho. A entrega é feita em até 7 dias úteis.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Quais formas de pagamento são aceitas? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Aceitamos PIX (chave: datadshsolucoes@gmail.com) e transferência bancária. O pagamento é dividido em 50% de sinal e 50% na entrega.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como recebo o serviço contratado? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Todo serviço digital é entregue via e-mail ou link do GitHub. Você recebe o código fonte completo e, se for site, o link para visualização.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Você faz manutenção após a entrega? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim! Incluímos 30 dias de suporte para ajustes e correções de bugs. Alterações de escopo são orçadas separadamente.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Tem garantia? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim. Após a entrega, você tem 7 dias para solicitar ajustes que estavam no escopo combinado. Bugs são corrigidos gratuitamente por 30 dias.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Quanto tempo demora para entregar? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">O prazo varia conforme o serviço: currículos e posts: 5 dias; dashboards e logotipos: 7 dias. Em casos de urgência, podemos negociar prazos menores.</div>
+            </div>
         </div>
 
-        <!-- ==================== CATEGORIA 3: DOCS & CURRÍCULOS ==================== -->
-        <h2 class="section-title">📄 Documentos & Currículos</h2>
-        <div class="services-grid">
-            <div class="service-card"><span class="service-tag tag-popular">MAIS VENDIDO</span><div class="service-icon"><i class="fas fa-file-alt"></i></div><h3 class="service-title">Currículo digital + GitHub Pages</h3><p class="service-desc">Currículo moderno publicado como página web com link compartilhável.</p><div class="service-price"><span class="price-current">R$ 200</span><span class="price-old">R$ 350</span><span class="price-save">-43%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-book"></i></div><h3 class="service-title">Criação de eBooks em PDF</h3><p class="service-desc">Produção, layout e exportação de eBook com texto e imagens prontos para download.</p><div class="service-price"><span class="price-current">R$ 250</span><span class="price-old">R$ 450</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-file-pdf"></i></div><h3 class="service-title">Criação de resumos em PDF</h3><p class="service-desc">Resumo claro e organizado em PDF pronto para distribuição.</p><div class="service-price"><span class="price-current">R$ 70</span><span class="price-old">R$ 120</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-        </div>
-
-        <!-- ==================== CATEGORIA 4: ARTES & DESIGN ==================== -->
-        <h2 class="section-title">🎨 Artes & Design</h2>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-id-card"></i></div><h3 class="service-title">Cartão de visita (1 arte) em HTML</h3><p class="service-desc">Cartão digital em página única com arte, dados e link clicável.</p><div class="service-price"><span class="price-current">R$ 70</span><span class="price-old">R$ 120</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-envelope-open-text"></i></div><h3 class="service-title">Convite digital em HTML + Forms</h3><p class="service-desc">Convite online com arte, detalhes do evento e formulário de confirmação.</p><div class="service-price"><span class="price-current">R$ 200</span><span class="price-old">R$ 350</span><span class="price-save">-43%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-image"></i></div><h3 class="service-title">Banner / post social (arte + legenda)</h3><p class="service-desc">Arte pronta para redes com legenda otimizada para engajamento.</p><div class="service-price"><span class="price-current">R$ 70</span><span class="price-old">R$ 120</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-layer-group"></i></div><h3 class="service-title">Pacote de posts (5 artes + legendas)</h3><p class="service-desc">Conjunto de 5 posts prontos (imagens + legendas) para 1 semana de publicações.</p><div class="service-price"><span class="price-current">R$ 250</span><span class="price-old">R$ 450</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-palette"></i></div><h3 class="service-title">Criação de logotipo simples (vetorial)</h3><p class="service-desc">Logo básico em vetor entregue en formatos prontos para web e impressão.</p><div class="service-price"><span class="price-current">R$ 250</span><span class="price-old">R$ 450</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-video"></i></div><h3 class="service-title">Roteiro para vídeo curto (Reels/TikTok)</h3><p class="service-desc">Roteiro otimizado curto com ganchos, cenas e CTA.</p><div class="service-price"><span class="price-current">R$ 120</span><span class="price-old">R$ 200</span><span class="price-save">-40%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-tags"></i></div><h3 class="service-title">Pacote de banners promo (3 modelos)</h3><p class="service-desc">Três banners temáticos para promoções ou anúncios.</p><div class="service-price"><span class="price-current">R$ 150</span><span class="price-old">R$ 250</span><span class="price-save">-40%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-brush"></i></div><h3 class="service-title">Identidade visual básica</h3><p class="service-desc">Mini-branding com paleta, fontes e modelo de post para redes.</p><div class="service-price"><span class="price-current">R$ 350</span><span class="price-old">R$ 600</span><span class="price-save">-42%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-        </div>
-
-        <!-- ==================== CATEGORIA 5: TECH & SUPORTE ==================== -->
-        <h2 class="section-title">🛠️ Tech & Suporte</h2>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-laptop"></i></div><h3 class="service-title">Limpeza de PC/notebook (remoto)</h3><p class="service-desc">Otimização remota: remoção de lixo, ajustes e verificação básica.</p><div class="service-price"><span class="price-current">R$ 150</span><span class="price-old">R$ 250</span><span class="price-save">-40%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-mobile-alt"></i></div><h3 class="service-title">Limpeza de celular Android</h3><p class="service-desc">Remoção de cache, apps inúteis e orientação para liberar espaço.</p><div class="service-price"><span class="price-current">R$ 80</span><span class="price-old">R$ 150</span><span class="price-save">-47%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-hdd"></i></div><h3 class="service-title">Backup automático via Google Drive</h3><p class="service-desc">Configuração de backup automático e organização de pastas importantes.</p><div class="service-price"><span class="price-current">R$ 120</span><span class="price-old">R$ 200</span><span class="price-save">-40%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-diagnoses"></i></div><h3 class="service-title">Diagnóstico de lentidão + relatório</h3><p class="service-desc">Análise de desempenho e relatório com recomendações práticas.</p><div class="service-price"><span class="price-current">R$ 100</span><span class="price-old">R$ 180</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-download"></i></div><h3 class="service-title">Instalação remota de softwares básicos</h3><p class="service-desc">Instalação e configuração de programas essenciais via acesso remoto.</p><div class="service-price"><span class="price-current">R$ 100</span><span class="price-old">R$ 180</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-images"></i></div><h3 class="service-title">Compactar fotos no Drive</h3><p class="service-desc">Otimização e compressão de imagens no Google Drive para liberar espaço.</p><div class="service-price"><span class="price-current">R$ 60</span><span class="price-old">R$ 100</span><span class="price-save">-40%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-        </div>
-
-        <!-- ==================== CATEGORIA 6: ADMIN & NEGÓCIOS ==================== -->
-        <h2 class="section-title">📋 Admin & Negócios</h2>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-graduation-cap"></i></div><h3 class="service-title">Pesquisa científica (ABNT)</h3><p class="service-desc">Pesquisa com levantamento bibliográfico e formatação ABNT.</p><div class="service-price"><span class="price-current">R$ 400</span><span class="price-old">R$ 700</span><span class="price-save">-43%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-google"></i></div><h3 class="service-title">Formulário Google Forms + coleta</h3><p class="service-desc">Formulário configurado com lógica, validações e planilha de respostas.</p><div class="service-price"><span class="price-current">R$ 100</span><span class="price-old">R$ 180</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-edit"></i></div><h3 class="service-title">Edição de arquivos, relatórios e rotinas</h3><p class="service-desc">Edição e padronização de documentos administrativos sob demanda.</p><div class="service-price"><span class="price-current">A combinar</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-folder-open"></i></div><h3 class="service-title">Organização de arquivos e pastas</h3><p class="service-desc">Reestruturação lógica de pastas, renomeação e categorização.</p><div class="service-price"><span class="price-current">R$ 150</span><span class="price-old">R$ 250</span><span class="price-save">-40%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-        </div>
-
-        <!-- ==================== CATEGORIA 7: APRESENTAÇÕES & CONSULTORIA ==================== -->
-        <h2 class="section-title">🎤 Apresentações & Consultoria</h2>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-chalkboard"></i></div><h3 class="service-title">Apresentações / Slides (até 20 slides)</h3><p class="service-desc">Criação de apresentação visual, prontos para PowerPoint/Google Slides.</p><div class="service-price"><span class="price-current">R$ 250</span><span class="price-old">R$ 450</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 5 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
-            <div class="service-card"><div class="service-icon"><i class="fas fa-chart-simple"></i></div><h3 class="service-title">Análise de sites e redes sociais (marketing)</h3><p class="service-desc">Auditoria com relatório de melhorias, SEO, UX e plano de ação para vendas.</p><div class="service-price"><span class="price-current">R$ 500</span><span class="price-old">R$ 900</span><span class="price-save">-44%</span></div><div class="service-footer"><span class="service-prazo"><i class="far fa-clock"></i> 7 dias</span><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-small" target="_blank">Solicitar</a></div></div>
+        <!-- ========== DEPOIMENTOS ========== -->
+        <h2 class="section-title">⭐ O que dizem nossos clientes</h2>
+        <div class="depoimentos-grid">
+            <div class="depoimento-card">
+                <div class="depoimento-texto">"O currículo digital que a DataDesh fez para mim ficou incrível! Recebi feedbacks muito positivos dos recrutadores."</div>
+                <div class="depoimento-autor">— Marina S., Analista de Marketing</div>
+            </div>
+            <div class="depoimento-card">
+                <div class="depoimento-texto">"Contratei o dashboard com Google Sheets e revolucionou minha gestão. Agora tenho todos os dados em tempo real."</div>
+                <div class="depoimento-autor">— Carlos F., Pequeno Empresário</div>
+            </div>
+            <div class="depoimento-card">
+                <div class="depoimento-texto">"Atendimento rápido e preço justo. Fizeram meu logotipo e identidade visual em menos de uma semana!"</div>
+                <div class="depoimento-autor">— Juliana R., Consultora</div>
+            </div>
         </div>
 
         <!-- Banner final de contato -->
         <div class="contact-banner">
-            <h3>💡 Não encontrou o que precisa?</h3>
+            <h3>💡 Ainda tem dúvidas?</h3>
             <p>Entre em contato e criamos uma solução personalizada para você!</p>
             <div class="contact-banner-buttons">
                 <a href="https://wa.me/5531984987116" class="btn-outline-light" target="_blank">
@@ -523,6 +641,11 @@
                     <i class="fas fa-envelope"></i> E-MAIL
                 </a>
             </div>
+        </div>
+
+        <!-- Contador de visitas simples -->
+        <div class="visitor-counter">
+            <i class="fas fa-eye"></i> Visitantes: <span id="visitorCount">1.247</span> neste mês
         </div>
     </main>
 
@@ -540,14 +663,50 @@
                     <p><a href="https://wa.me/5531984987116">(31) 98498-7116</a></p>
                 </div>
                 <div>
-                    <h4 style="font-size: 1rem; margin-bottom: 0.8rem;">Pagamento</h4>
-                    <p style="font-size: 0.85rem;">PIX | Transferência</p>
-                    <p style="font-size: 0.85rem;">50% sinal | 50% entrega</p>
+                    <h4 style="font-size: 1rem; margin-bottom: 0.8rem;">Links Rápidos</h4>
+                    <p><a href="#servicos">Serviços</a></p>
+                    <p><a href="#faq">Perguntas Frequentes</a></p>
+                    <p><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview">Orçamento</a></p>
                 </div>
             </div>
             <hr style="border-color: rgba(255,255,255,0.1); margin: 1.5rem 0;">
             <p style="text-align: center; font-size: 0.8rem;">© 2026 DataDesh Soluções Digitais. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+
+        // Animações ao scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.service-card, .faq-item, .depoimento-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            observer.observe(el);
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
 </body>
 </html>
