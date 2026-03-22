@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="DataDesh Soluções Digitais | Sites, Dashboards e Design">
     <meta property="og:description" content="+34 serviços digitais profissionais. Transforme sua presença online!">
-    <meta property="og:image" content="https://raw.githubusercontent.com/datadeshsolucoes-design/servicos-digitais/main/logo.png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/logo.png">
     
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +55,6 @@
             overflow: hidden;
         }
 
-        /* Elementos decorativos animados */
         .hero-bg-shape {
             position: absolute;
             width: 600px;
@@ -113,10 +112,6 @@
             border: 1px solid rgba(0,102,255,0.2);
         }
 
-        .hero-badge i {
-            font-size: 0.9rem;
-        }
-
         .hero-title-moderno {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
@@ -165,18 +160,24 @@
         }
 
         .hero-card-flutuante {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
             border-radius: 32px;
             padding: 2rem;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
             border: 1px solid rgba(255,255,255,0.5);
             animation: floatCard 6s ease-in-out infinite;
+            text-align: center;
         }
 
         @keyframes floatCard {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
+        }
+
+        .hero-logo-card {
+            width: 120px;
+            margin-bottom: 1rem;
         }
 
         .hero-card-flutuante h3 {
@@ -343,7 +344,7 @@
             margin: 0 auto;
         }
 
-        /* Ofertas em Destaque (Cards Especiais) */
+        /* Ofertas em Destaque */
         .offers-highlight {
             background: linear-gradient(135deg, #F8FAFF 0%, #FFFFFF 100%);
         }
@@ -693,6 +694,26 @@
             margin-bottom: 1.5rem;
         }
 
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #0A2540;
+            transform: translateY(-2px);
+        }
+
         /* FAQ */
         .faq-container {
             max-width: 800px;
@@ -920,6 +941,7 @@
                 </div>
                 <div class="hero-right">
                     <div class="hero-card-flutuante">
+                        <img src="https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/logo.png" alt="DataDesh Logo" class="hero-logo-card" onerror="this.style.display='none'">
                         <h3>🚀 Comece Agora!</h3>
                         <p>Currículo Digital Profissional</p>
                         <div class="price-tag">R$ 70<small>,00</small></div>
@@ -943,7 +965,7 @@
         </div>
     </div>
 
-    <!-- OFERTAS EM DESTAQUE (NOVA SEÇÃO) -->
+    <!-- OFERTAS EM DESTAQUE -->
     <section class="section offers-highlight">
         <div class="container">
             <div class="section-header">
@@ -952,7 +974,6 @@
                 <p class="section-desc">Os serviços mais procurados com preços especiais. Aproveite!</p>
             </div>
             <div class="highlight-grid">
-                <!-- Currículo Digital -->
                 <div class="highlight-card">
                     <div class="highlight-icon"><i class="fas fa-file-code"></i></div>
                     <h3 class="highlight-title">Currículo Digital Web</h3>
@@ -960,7 +981,6 @@
                     <div class="highlight-price">R$ 70<small>,00</small> <span class="highlight-old-price">R$ 150</span></div>
                     <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-card" target="_blank">Solicitar Agora <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Portfólio Online -->
                 <div class="highlight-card">
                     <div class="highlight-icon"><i class="fas fa-briefcase"></i></div>
                     <h3 class="highlight-title">Portfólio Online Completo</h3>
@@ -968,7 +988,6 @@
                     <div class="highlight-price">R$ 100<small>,00</small> <span class="highlight-old-price">R$ 200</span></div>
                     <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-card" target="_blank">Solicitar Agora <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Site Simples -->
                 <div class="highlight-card">
                     <div class="highlight-icon"><i class="fas fa-store"></i></div>
                     <h3 class="highlight-title">Site Simples para Comércio</h3>
@@ -1042,8 +1061,8 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO COMPLETO DE SERVIÇOS (resumido para não estender, mas mantendo a estrutura) -->
-   <section id="servicos" class="section section-bg">
+    <!-- CATÁLOGO COMPLETO DE SERVIÇOS -->
+    <section id="servicos" class="section section-bg">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Catálogo Completo</span>
@@ -1138,23 +1157,23 @@
         </div>
     </section>
 
-    <section class="container">
+    <!-- CTA BANNER -->
+    <div class="container">
         <div class="cta-banner">
-            <div class="cta-content">
-                <h2 class="cta-title">Precisa de um projeto personalizado?</h2>
-                <p class="cta-desc">Não encontrou exatamente o que procurava? Fale conosco e desenvolvemos uma solução sob medida para você!</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-outline-light" target="_blank">Solicitar Orçamento</a>
-                    <a href="https://wa.me/5531984987116" class="btn btn-whatsapp" target="_blank">Falar no WhatsApp</a>
-                </div>
+            <h2 class="cta-title">Precisa de um projeto personalizado?</h2>
+            <p class="cta-desc">Não encontrou exatamente o que procurava? Fale conosco e desenvolvemos uma solução sob medida para você!</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-outline-light" target="_blank">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531984987116" class="btn btn-whatsapp" target="_blank">Falar no WhatsApp</a>
             </div>
         </div>
-    </section>
+    </div>
 
+    <!-- FAQ -->
     <section id="faq" class="section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Dúvidas</span>
+                <span class="section-tag">❓ Dúvidas</span>
                 <h2 class="section-title">Perguntas Frequentes</h2>
             </div>
             <div class="faq-container">
@@ -1166,10 +1185,11 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div><img src="https://raw.githubusercontent.com/datadeshsolucoes-design/servicos-digitais/main/logo.png" alt="DataDesh" class="footer-logo" onerror="this.style.display='none'"><p class="footer-desc">Agência especializada em soluções digitais inteligentes. Sites, dashboards, design e suporte técnico.</p><div class="footer-social"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/5531984987116" class="social-link"><i class="fab fa-whatsapp"></i></a></div></div>
+                <div><img src="https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/logo.png" alt="DataDesh" class="footer-logo" onerror="this.style.display='none'"><p class="footer-desc">Agência especializada em soluções digitais inteligentes. Sites, dashboards, design e suporte técnico.</p><div class="footer-social"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/5531984987116" class="social-link"><i class="fab fa-whatsapp"></i></a></div></div>
                 <div><h4 class="footer-title">Links Rápidos</h4><ul class="footer-links"><li><a href="#servicos"><i class="fas fa-angle-right"></i> Serviços</a></li><li><a href="#faq"><i class="fas fa-angle-right"></i> Dúvidas</a></li><li><a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" target="_blank"><i class="fas fa-angle-right"></i> Solicitar Orçamento</a></li></ul></div>
                 <div><h4 class="footer-title">Contato</h4><ul class="footer-links"><li><a href="https://wa.me/5531984987116"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a></li><li><a href="mailto:datadshsolucoes@gmail.com"><i class="far fa-envelope"></i> datadshsolucoes@gmail.com</a></li><li><a href="#"><i class="far fa-clock"></i> Atendimento Online</a></li></ul></div>
             </div>
