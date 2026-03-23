@@ -1309,34 +1309,27 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section"><h4>🚀 DataDesh</h4><p>Soluções digitais que transformam dados em decisões</p></div>
-                <div class="footer-section"><h4>Links</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#cases">Cases</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#catalogo">Serviços</a></li><li><a href="#precos">Preços</a></li></ul></div>
-                <div class="footer-section"><h4>Contato</h4><ul><li><a href="https://wa.me/5531984987116" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a></li><li><a href="mailto:datadshsolucoes@gmail.com"><i class="far fa-envelope"></i> datadshsolucoes@gmail.com</a></li><li><a href="https://aninhatata.github.io/portifolio/" target="_blank"><i class="fas fa-briefcase"></i> Portfólio completo</a></li></ul></div>
-                <div class="footer-section"><h4>Atendimento</h4><ul><li><i class="far fa-clock"></i> Segunda a Sexta</li><li><i class="fas fa-headset"></i> Suporte Online</li><li><i class="fas fa-rocket"></i> Entrega Rápida</li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2025 DataDesh Soluções Digitais - Ana Paula. Todos os direitos reservados.</p><p>27 dashboards entregues • 4+ anos de experiência</p></div>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section"><h4>🚀 DataDesh</h4><p>Soluções digitais que transformam dados em decisões</p></div>
+            <div class="footer-section"><h4>Links</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#cases">Cases</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#catalogo">Serviços</a></li><li><a href="#precos">Preços</a></li></ul></div>
+            <div class="footer-section"><h4>Contato</h4><ul><li><a href="https://wa.me/5531984987116" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a></li><li><a href="mailto:datadshsolucoes@gmail.com"><i class="far fa-envelope"></i> datadshsolucoes@gmail.com</a></li><li><a href="https://aninhatata.github.io/portifolio/" target="_blank"><i class="fas fa-briefcase"></i> Portfólio completo</a></li></ul></div>
+            <div class="footer-section"><h4>Atendimento</h4><ul><li><i class="far fa-clock"></i> Segunda a Sexta</li><li><i class="fas fa-headset"></i> Suporte Online</li><li><i class="fas fa-rocket"></i> Entrega Rápida</li></ul></div>
         </div>
-    </footer>
-
-    <script>
-        // Mobile menu
-        const hamburger = document.getElementById('hamburger');
-        const navbarMenu = document.getElementById('navbarMenu');
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navbarMenu.classList.toggle('active');
-            });
-            navbarMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navbarMenu.classList.remove('active');
-                });
-            });
-        }
+        <div class="footer-bottom">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; width: 100%;">
+                <p>&copy; 2025 DataDesh Soluções Digitais - Ana Paula. Todos os direitos reservados.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="politica-privacidade.html" style="color: #94A3B8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#00E5FF'" onmouseout="this.style.color='#94A3B8'">Política de Privacidade</a>
+                    <a href="termos-uso.html" style="color: #94A3B8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#00E5FF'" onmouseout="this.style.color='#94A3B8'">Termos de Uso</a>
+                    <a href="contrato-modelo.html" style="color: #94A3B8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#00E5FF'" onmouseout="this.style.color='#94A3B8'">Modelo de Contrato</a>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.7rem; color: #64748B;">27 dashboards entregues • 4+ anos de experiência</p>
+        </div>
+    </div>
+</footer>
 
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(btn => {
