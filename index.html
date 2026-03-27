@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>DataDesh | +27 dashboards entregues | Sites que convertem</title>
-  <meta name="description" content="Especialista em dashboards interativos e sites profissionais. +27 painéis entregues para gestão da saúde. Transforme dados em resultados.">
+  <title>DataDesh | Crio sites que ajudam seu negócio a conseguir clientes todos os dias</title>
+  <meta name="description" content="Crio sites profissionais e dashboards interativos que realmente trazem resultados. +27 projetos entregues. Especialista em soluções para pequenos negócios.">
   <meta name="author" content="Ana - DataDesh">
   
   <!-- Font Awesome -->
@@ -81,18 +81,11 @@
     }
     .nav-btn:hover {
       background: #064e3b;
-      color: white !important;
     }
     @media (max-width: 768px) {
-      .nav-links {
-        gap: 15px;
-      }
-      .nav-links a {
-        font-size: 12px;
-      }
-      .nav-btn {
-        padding: 6px 14px;
-      }
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: 12px; }
+      .nav-btn { padding: 6px 14px; }
     }
 
     /* Botão flutuante WhatsApp */
@@ -119,18 +112,21 @@
       background: #128C7E;
     }
 
-    /* HERO */
+    /* HERO - FRASE DE IMPACTO */
     .hero {
       background: linear-gradient(135deg, #0B5E42 0%, #0A3B2A 100%);
       color: white;
-      padding: 70px 0 50px;
+      padding: 80px 0 60px;
       text-align: center;
     }
     .hero h1 {
-      font-size: 42px;
+      font-size: 44px;
       font-weight: 800;
       margin-bottom: 20px;
       line-height: 1.2;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero h1 span {
       color: #F59E0B;
@@ -169,15 +165,15 @@
     .hero-stats {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      margin-top: 40px;
+      gap: 50px;
+      margin-top: 50px;
       flex-wrap: wrap;
     }
     .stat {
       text-align: center;
     }
     .stat-number {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 800;
     }
     .stat-label {
@@ -185,30 +181,52 @@
       opacity: 0.8;
     }
 
-    /* SEÇÃO SOBRE - COM NOME ANA */
-    .sobre {
-      padding: 60px 0;
+    /* SEÇÃO QUEM SOU EU - COM FOTO */
+    .quem-sou {
+      padding: 70px 0;
       background: #F9FAFB;
+    }
+    .quem-sou-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .foto {
       text-align: center;
     }
-    .sobre h2 {
-      font-size: 28px;
+    .foto-circle {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #0B5E42, #F59E0B);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .foto-circle i {
+      font-size: 100px;
+      color: white;
+    }
+    .quem-sou h2 {
+      font-size: 32px;
       margin-bottom: 20px;
     }
-    .sobre h2 span {
+    .quem-sou h2 span {
       color: #0B5E42;
     }
-    .sobre p {
-      max-width: 700px;
-      margin: 0 auto 15px;
+    .quem-sou p {
       color: #4B5563;
+      margin-bottom: 20px;
       font-size: 16px;
+      line-height: 1.6;
     }
     .contatos {
       display: flex;
-      justify-content: center;
       gap: 15px;
-      margin-top: 30px;
+      margin-top: 25px;
       flex-wrap: wrap;
     }
     .contato-item {
@@ -232,15 +250,19 @@
     .contato-item i {
       color: #0B5E42;
     }
+    @media (max-width: 768px) {
+      .quem-sou-grid { grid-template-columns: 1fr; text-align: center; }
+      .contatos { justify-content: center; }
+    }
 
-    /* CARDS PROMO */
-    .promocoes {
-      padding: 60px 0;
+    /* PROJETOS REAIS - PORTFÓLIO */
+    .projetos {
+      padding: 70px 0;
       background: white;
     }
     .section-title {
       text-align: center;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 800;
       margin-bottom: 15px;
     }
@@ -250,8 +272,74 @@
     .section-subtitle {
       text-align: center;
       color: #6B7280;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       font-size: 16px;
+    }
+    .projetos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .projeto-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #E5E7EB;
+      transition: all 0.3s;
+    }
+    .projeto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    .projeto-img {
+      height: 180px;
+      background: linear-gradient(135deg, #0B5E42, #F59E0B);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .projeto-img i {
+      font-size: 60px;
+      color: white;
+    }
+    .projeto-info {
+      padding: 20px;
+    }
+    .projeto-info h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .projeto-info p {
+      color: #6B7280;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .projeto-resultado {
+      display: inline-block;
+      background: #D1FAE5;
+      color: #0B5E42;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .projeto-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #0B5E42;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .projetos-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CARDS PROMO */
+    .promocoes {
+      padding: 70px 0;
+      background: #F9FAFB;
     }
     .promo-grid {
       display: grid;
@@ -282,7 +370,7 @@
     }
     .promo-img {
       text-align: center;
-      padding: 25px 0 10px;
+      padding: 20px 0 10px;
     }
     .promo-img i {
       font-size: 45px;
@@ -327,11 +415,17 @@
     .promo-btn:hover {
       background: #064e3b;
     }
+    @media (max-width: 900px) {
+      .promo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .promo-grid { grid-template-columns: 1fr; }
+    }
 
     /* SERVIÇOS */
     .servicos {
-      padding: 60px 0;
-      background: #F9FAFB;
+      padding: 70px 0;
+      background: white;
     }
     .servicos-grid {
       display: grid;
@@ -379,11 +473,14 @@
       text-decoration: none;
       font-size: 14px;
     }
+    @media (max-width: 768px) {
+      .servicos-grid { grid-template-columns: 1fr; }
+    }
 
     /* RESULTADOS */
     .resultados {
-      padding: 60px 0;
-      background: white;
+      padding: 70px 0;
+      background: #F9FAFB;
       text-align: center;
     }
     .resultados-grid {
@@ -405,11 +502,14 @@
       font-size: 14px;
       color: #6B7280;
     }
+    @media (max-width: 600px) {
+      .resultados-grid { grid-template-columns: 1fr; }
+    }
 
     /* DEPOIMENTOS */
     .depoimentos {
-      padding: 60px 0;
-      background: #F9FAFB;
+      padding: 70px 0;
+      background: white;
     }
     .depo-grid {
       display: grid;
@@ -417,7 +517,7 @@
       gap: 25px;
     }
     .depo-card {
-      background: white;
+      background: #F9FAFB;
       padding: 25px;
       border-radius: 20px;
       border: 1px solid #E5E7EB;
@@ -442,16 +542,19 @@
       font-size: 12px;
       color: #9CA3AF;
     }
+    @media (max-width: 768px) {
+      .depo-grid { grid-template-columns: 1fr; }
+    }
 
     /* CTA FINAL */
     .cta {
-      padding: 60px 0;
+      padding: 70px 0;
       background: linear-gradient(135deg, #0B5E42, #0A3B2A);
       color: white;
       text-align: center;
     }
     .cta h2 {
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 15px;
     }
     .cta p {
@@ -474,7 +577,7 @@
     .footer {
       background: #1F2937;
       color: white;
-      padding: 40px 0 20px;
+      padding: 50px 0 30px;
       text-align: center;
     }
     .footer-links {
@@ -482,7 +585,7 @@
       justify-content: center;
       gap: 25px;
       flex-wrap: wrap;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
     .footer-links a {
       color: #9CA3AF;
@@ -495,12 +598,12 @@
     .footer-social {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 25px;
+      gap: 25px;
+      margin-bottom: 30px;
     }
     .footer-social a {
       color: #9CA3AF;
-      font-size: 20px;
+      font-size: 22px;
       transition: all 0.3s;
     }
     .footer-social a:hover {
@@ -510,22 +613,14 @@
     .footer p {
       font-size: 12px;
       color: #6B7280;
+      line-height: 1.6;
     }
-
-    @media (max-width: 900px) {
-      .promo-grid, .servicos-grid, .depo-grid, .resultados-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .footer a {
+      color: #9CA3AF;
+      text-decoration: none;
     }
-
-    @media (max-width: 600px) {
-      .promo-grid, .servicos-grid, .depo-grid, .resultados-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero h1 { font-size: 32px; }
-      .hero-stats { gap: 20px; }
-      .stat-number { font-size: 24px; }
-      .nav-links { gap: 12px; }
+    .footer a:hover {
+      color: white;
     }
   </style>
 </head>
@@ -537,8 +632,8 @@
     <a href="#" class="logo">DataDesh<span>Soluções</span></a>
     <div class="nav-links">
       <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
       <a href="#servicos">Serviços</a>
-      <a href="#portfolio">Portfólio</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
       <a href="https://wa.me/5531984987116" class="nav-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -555,32 +650,78 @@
 <section class="hero">
   <div class="container">
     <div class="hero-badge">
-      <i class="fas fa-chart-line"></i> +27 dashboards entregues para gestão da saúde
+      <i class="fas fa-chart-line"></i> +27 dashboards entregues | Especialista em pequenos negócios
     </div>
-    <h1>Transforme dados em <span>resultados reais</span> para seu negócio</h1>
-    <p>Crio dashboards interativos e sites profissionais que ajudam você a tomar decisões mais inteligentes.</p>
+    <h1>Crio sites que ajudam seu negócio a <span>conseguir clientes todos os dias</span></h1>
+    <p>Sites profissionais e dashboards interativos que realmente trazem resultados. Foco em conversão e vendas.</p>
     <a href="https://wa.me/5531984987116?text=Quero%20começar%20meu%20projeto" class="btn-whatsapp" target="_blank">
-      <i class="fab fa-whatsapp"></i> Quero começar meu projeto
+      <i class="fab fa-whatsapp"></i> Quero meu site agora
     </a>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-number">27+</div><div class="stat-label">dashboards entregues</div></div>
+      <div class="stat"><div class="stat-number">27+</div><div class="stat-label">projetos entregues</div></div>
       <div class="stat"><div class="stat-number">100%</div><div class="stat-label">clientes satisfeitos</div></div>
       <div class="stat"><div class="stat-number">7 dias</div><div class="stat-label">entrega média</div></div>
     </div>
   </div>
 </section>
 
-<!-- SOBRE - NOME APENAS ANA -->
-<section id="sobre" class="sobre">
+<!-- QUEM SOU EU -->
+<section id="sobre" class="quem-sou">
   <div class="container">
-    <h2>Oi, sou a <span>Ana</span> 👋</h2>
-    <p>Tecnóloga em Ciência de Dados, especialista em criar dashboards que realmente ajudam na gestão. Desenvolvi <strong>27 painéis interativos</strong> para a área da saúde, reduzindo tempo de análise em até 40%.</p>
-    <p>Meu trabalho é transformar dados confusos em informações claras e acionáveis.</p>
-    <div class="contatos">
-      <a href="https://wa.me/5531984987116" class="contato-item" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
-      <a href="mailto:datadshsolucoes@gmail.com" class="contato-item"><i class="far fa-envelope"></i> datadshsolucoes@gmail.com</a>
-      <a href="https://www.instagram.com/datadeshsolucoesdigitais/" class="contato-item" target="_blank"><i class="fab fa-instagram"></i> @datadeshsolucoesdigitais</a>
-      <a href="https://aninhatata.github.io/portifolio/" class="contato-item" target="_blank"><i class="fas fa-briefcase"></i> Portfólio (27 projetos)</a>
+    <div class="quem-sou-grid">
+      <div class="foto">
+        <div class="foto-circle">
+          <i class="fas fa-user-circle"></i>
+        </div>
+      </div>
+      <div>
+        <h2>Oi, sou a <span>Ana</span> 👋</h2>
+        <p>Tecnóloga em Ciência de Dados, especialista em criar sites e dashboards que realmente ajudam negócios a crescer. Desenvolvi <strong>27 painéis interativos</strong> para gestão da saúde e sites para pequenos negócios.</p>
+        <p>Meu trabalho é transformar sua ideia em uma ferramenta que atrai clientes e vende. Sem enrolação, com foco no que importa: seu negócio crescer.</p>
+        <div class="contatos">
+          <a href="https://wa.me/5531984987116" class="contato-item" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
+          <a href="mailto:datadshsolucoes@gmail.com" class="contato-item"><i class="far fa-envelope"></i> datadshsolucoes@gmail.com</a>
+          <a href="https://www.instagram.com/datadeshsolucoesdigitais/" class="contato-item" target="_blank"><i class="fab fa-instagram"></i> @datadeshsolucoesdigitais</a>
+          <a href="https://aninhatata.github.io/portifolio/" class="contato-item" target="_blank"><i class="fas fa-briefcase"></i> Portfólio completo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS REAIS -->
+<section id="projetos" class="projetos">
+  <div class="container">
+    <h2 class="section-title">Projetos <span>reais</span></h2>
+    <p class="section-subtitle">Veja o que já entreguei para clientes reais</p>
+    <div class="projetos-grid">
+      <div class="projeto-card">
+        <div class="projeto-img"><i class="fas fa-chart-line"></i></div>
+        <div class="projeto-info">
+          <h3>Dashboard - Gestão da Saúde</h3>
+          <p>Painel com 12 gráficos interativos para gestão de filas de espera.</p>
+          <span class="projeto-resultado">-40% tempo de análise</span>
+          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto →</a>
+        </div>
+      </div>
+      <div class="projeto-card">
+        <div class="projeto-img"><i class="fas fa-store"></i></div>
+        <div class="projeto-info">
+          <h3>Landing Page - Loja Online</h3>
+          <p>Site profissional para venda de produtos, com WhatsApp integrado.</p>
+          <span class="projeto-resultado">+35% vendas no primeiro mês</span>
+          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto →</a>
+        </div>
+      </div>
+      <div class="projeto-card">
+        <div class="projeto-img"><i class="fas fa-file-alt"></i></div>
+        <div class="projeto-info">
+          <h3>Currículo Digital</h3>
+          <p>Página profissional para divulgação de portfólio e serviços.</p>
+          <span class="projeto-resultado">3 propostas em 15 dias</span>
+          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -642,15 +783,15 @@
     <p class="section-subtitle">Soluções diretas que entregam resultado</p>
     <div class="servicos-grid">
       <div class="servico-card">
-        <div class="servico-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Dashboards Interativos</h3>
-        <p>Painéis com gráficos, filtros e dados em tempo real. Integração com Google Sheets.</p>
-        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
-      </div>
-      <div class="servico-card">
         <div class="servico-icon"><i class="fas fa-globe"></i></div>
         <h3>Sites Profissionais</h3>
         <p>Sites modernos, responsivos e otimizados para conversão. Landing pages que vendem.</p>
+        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Dashboards Interativos</h3>
+        <p>Painéis com gráficos, filtros e dados em tempo real. Integração com Google Sheets.</p>
         <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
       </div>
       <div class="servico-card">
@@ -663,8 +804,8 @@
   </div>
 </section>
 
-<!-- PORTFÓLIO -->
-<section id="portfolio" class="resultados">
+<!-- RESULTADOS -->
+<section class="resultados">
   <div class="container">
     <h2 class="section-title">Resultados <span>reais</span></h2>
     <p class="section-subtitle">O que meus projetos já entregaram</p>
@@ -675,15 +816,12 @@
       </div>
       <div class="resultado-item">
         <div class="resultado-numero">27+</div>
-        <div class="resultado-texto">dashboards entregues</div>
+        <div class="resultado-texto">projetos entregues</div>
       </div>
       <div class="resultado-item">
         <div class="resultado-numero">100%</div>
         <div class="resultado-texto">clientes satisfeitos</div>
       </div>
-    </div>
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="https://aninhatata.github.io/portifolio/" class="btn-whatsapp" style="background: #0B5E42; font-size: 14px; padding: 12px 25px;" target="_blank">Ver portfólio completo (27 projetos) →</a>
     </div>
   </div>
 </section>
@@ -719,8 +857,8 @@
 <!-- CTA FINAL -->
 <section class="cta">
   <div class="container">
-    <h2>Vamos transformar seus dados em resultados?</h2>
-    <p>Fale comigo agora e descubra como posso ajudar seu negócio a crescer.</p>
+    <h2>Vamos transformar seu negócio em resultados?</h2>
+    <p>Fale comigo agora e descubra como posso ajudar você a conseguir mais clientes.</p>
     <a href="https://wa.me/5531984987116?text=Quero%20saber%20mais%20sobre%20os%20serviços" class="btn-whatsapp" target="_blank">
       <i class="fab fa-whatsapp"></i> Falar no WhatsApp
     </a>
@@ -736,15 +874,17 @@
       <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/politica-privacidade.html" target="_blank">Política de Privacidade</a>
       <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/contrato-modelo.html" target="_blank">Modelo de Contrato</a>
       <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" target="_blank">Tabela de Preços</a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" target="_blank">Formulário de Contato</a>
     </div>
     <div class="footer-social">
       <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://wa.me/5531984987116" target="_blank"><i class="fab fa-whatsapp"></i></a>
       <a href="mailto:datadshsolucoes@gmail.com"><i class="far fa-envelope"></i></a>
       <a href="https://aninhatata.github.io/portifolio/" target="_blank"><i class="fas fa-briefcase"></i></a>
+      <a href="https://github.com/datadeshsolucoes-design" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-    <p>© 2026 DataDesh Soluções - Ana | (31) 98498-7116 | datadshsolucoes@gmail.com</p>
-    <p style="margin-top: 10px;">27 dashboards entregues • 4+ anos de experiência • Tecnóloga em Ciência de Dados</p>
+    <p>© 2026 DataDesh Soluções - Ana | <a href="https://wa.me/5531984987116" target="_blank">(31) 98498-7116</a> | <a href="mailto:datadshsolucoes@gmail.com">datadshsolucoes@gmail.com</a></p>
+    <p style="margin-top: 10px;">27 projetos entregues • 4+ anos de experiência • Tecnóloga em Ciência de Dados</p>
   </div>
 </footer>
 
