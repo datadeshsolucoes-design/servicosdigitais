@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>DataDesh | Crio sites que ajudam seu negócio a conseguir clientes todos os dias</title>
-  <meta name="description" content="Crio sites profissionais e dashboards interativos que realmente trazem resultados. +27 projetos entregues. Especialista em soluções para pequenos negócios.">
+  <meta name="description" content="Crio sites profissionais e dashboards interativos que realmente trazem resultados. +27 projetos entregues. Especialista em soluções para pequenos negócios. Prazo de entrega: 15 dias.">
   <meta name="author" content="Ana - DataDesh">
   
   <!-- Font Awesome -->
@@ -177,6 +177,31 @@
       background: #D97706;
       transform: translateY(-2px);
     }
+    .btn-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-left: 15px;
+    }
+    .btn-form:hover {
+      background: white;
+      color: #0B5E42;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
     .hero-stats {
       display: flex;
       justify-content: center;
@@ -270,7 +295,7 @@
       .contatos { justify-content: center; }
     }
 
-    /* PROJETOS REAIS - COM FOTOS E REEL */
+    /* PROJETOS REAIS - 5 PROJETOS */
     .projetos {
       padding: 70px 0;
       background: white;
@@ -292,7 +317,7 @@
     }
     .projetos-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
     }
     .projeto-card {
@@ -362,7 +387,10 @@
       text-decoration: none;
       font-size: 14px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .projetos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
       .projetos-grid { grid-template-columns: 1fr; }
     }
 
@@ -503,6 +531,16 @@
       text-decoration: none;
       font-size: 14px;
     }
+    .prazo-badge {
+      display: inline-block;
+      background: #FEF3C7;
+      color: #D97706;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
     @media (max-width: 768px) {
       .servicos-grid { grid-template-columns: 1fr; }
     }
@@ -592,9 +630,33 @@
       margin: 0 auto 30px;
       opacity: 0.9;
     }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
     .cta .btn-whatsapp {
       background: #F59E0B;
       font-size: 16px;
+    }
+    .cta .btn-form-white {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cta .btn-form-white:hover {
+      background: white;
+      color: #0B5E42;
     }
     .cta small {
       display: block;
@@ -667,6 +729,7 @@
       <a href="#depoimentos">Depoimentos</a>
       <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="nav-btn-outline" target="_blank"><i class="fas fa-tag"></i> Preços</a>
       <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="nav-btn-outline" target="_blank"><i class="fas fa-edit"></i> Formulário</a>
       <a href="https://wa.me/5531984987116" class="nav-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
   </div>
@@ -685,13 +748,18 @@
     </div>
     <h1>Crio sites que ajudam seu negócio a <span>conseguir clientes todos os dias</span></h1>
     <p>Sites profissionais e dashboards interativos que realmente trazem resultados. Foco em conversão e vendas.</p>
-    <a href="https://wa.me/5531984987116?text=Quero%20começar%20meu%20projeto" class="btn-whatsapp" target="_blank">
-      <i class="fab fa-whatsapp"></i> Quero meu site agora
-    </a>
+    <div class="hero-buttons">
+      <a href="https://wa.me/5531984987116?text=Quero%20começar%20meu%20projeto" class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Quero meu site agora
+      </a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="btn-form" target="_blank">
+        <i class="fas fa-edit"></i> Preencher formulário
+      </a>
+    </div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-number">27+</div><div class="stat-label">projetos entregues</div></div>
       <div class="stat"><div class="stat-number">100%</div><div class="stat-label">clientes satisfeitos</div></div>
-      <div class="stat"><div class="stat-number">7 dias</div><div class="stat-label">entrega média</div></div>
+      <div class="stat"><div class="stat-number">15 dias</div><div class="stat-label">prazo de entrega</div></div>
     </div>
   </div>
 </section>
@@ -713,6 +781,7 @@
           <a href="https://wa.me/5531984987116" class="contato-item" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
           <a href="mailto:datadshsolucoes@gmail.com" class="contato-item"><i class="far fa-envelope"></i> datadshsolucoes@gmail.com</a>
           <a href="https://www.instagram.com/datadeshsolucoesdigitais/" class="contato-item" target="_blank"><i class="fab fa-instagram"></i> @datadeshsolucoesdigitais</a>
+          <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="contato-item" target="_blank"><i class="fas fa-edit"></i> Formulário de contato</a>
           <a href="https://aninhatata.github.io/portifolio/" class="contato-item" target="_blank"><i class="fas fa-briefcase"></i> Portfólio completo</a>
         </div>
       </div>
@@ -720,7 +789,7 @@
   </div>
 </section>
 
-<!-- PROJETOS REAIS - 2 PROJETOS COM FOTOS E REEL -->
+<!-- PROJETOS REAIS - 5 PROJETOS -->
 <section id="projetos" class="projetos">
   <div class="container">
     <h2 class="section-title">Projetos <span>reais</span></h2>
@@ -740,7 +809,7 @@
           <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto completo →</a>
         </div>
       </div>
-      <!-- Projeto 2: Dashboard Interativo + Reel do Instagram -->
+      <!-- Projeto 2: Dashboards Interativos -->
       <div class="projeto-card">
         <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos.png'); background-size: cover; background-position: center;">
           <div class="projeto-img-overlay">
@@ -752,6 +821,48 @@
           <p>Gráficos dinâmicos sincronizados com tabelas, filtros avançados e visualizações profissionais para tomada de decisão.</p>
           <span class="projeto-resultado">+35% eficiência operacional</span>
           <a href="https://www.instagram.com/reel/DWMHSjpRrvR/" class="projeto-link" target="_blank">Ver demonstração no Instagram →</a>
+        </div>
+      </div>
+      <!-- Projeto 3: Reel - Negócio merece site à altura -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/area%20de%20trabalho.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>✨ Seu negócio merece um site à altura!</h3>
+          <p>Desenvolvo sites modernos, rápidos e estratégicos para atrair clientes. Conheça meu trabalho.</p>
+          <span class="projeto-resultado">+27 projetos entregues</span>
+          <a href="https://www.instagram.com/reel/DWMFvG7RDbX/" class="projeto-link" target="_blank">Ver no Instagram →</a>
+        </div>
+      </div>
+      <!-- Projeto 4: Reel - Perdendo clientes (1) -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos%202.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>⚠️ Você está PERDENDO clientes todos os dias!</h3>
+          <p>Se o seu negócio não tem um site profissional, você está ficando pra trás. Resolva seus problemas agora!</p>
+          <span class="projeto-resultado">Clientes perdidos? Resolva já!</span>
+          <a href="https://www.instagram.com/reel/DWZx2RiRs--/" class="projeto-link" target="_blank">Ver no Instagram →</a>
+        </div>
+      </div>
+      <!-- Projeto 5: Reel - Perdendo clientes (2) -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos%202.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>⚠️ Você está PERDENDO clientes todos os dias!</h3>
+          <p>Se o seu negócio não tem um site profissional, você está ficando pra trás. Mude isso HOJE!</p>
+          <span class="projeto-resultado">Fale comigo agora!</span>
+          <a href="https://www.instagram.com/reel/DWZxnapxBeA/" class="projeto-link" target="_blank">Ver no Instagram →</a>
         </div>
       </div>
     </div>
@@ -822,18 +933,21 @@
         <h3>Sites Profissionais</h3>
         <p>Sites modernos, responsivos e otimizados para conversão. Landing pages que vendem.</p>
         <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 15 dias</div>
       </div>
       <div class="servico-card">
         <div class="servico-icon"><i class="fas fa-chart-line"></i></div>
         <h3>Dashboards Interativos</h3>
         <p>Painéis com gráficos, filtros e dados em tempo real. Integração com Google Sheets.</p>
         <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 15 dias</div>
       </div>
       <div class="servico-card">
         <div class="servico-icon"><i class="fas fa-robot"></i></div>
         <h3>Automações</h3>
         <p>Automatize processos e integre ferramentas para ganhar tempo e produtividade.</p>
         <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 7 dias</div>
       </div>
     </div>
   </div>
@@ -894,10 +1008,15 @@
   <div class="container">
     <h2>Vamos transformar seu negócio em resultados?</h2>
     <p>Fale comigo agora e descubra como posso ajudar você a conseguir mais clientes.</p>
-    <a href="https://wa.me/5531984987116?text=Quero%20saber%20mais%20sobre%20os%20serviços" class="btn-whatsapp" target="_blank">
-      <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-    </a>
-    <small>⚠️ Atendo apenas 3 projetos por semana para garantir qualidade</small>
+    <div class="cta-buttons">
+      <a href="https://wa.me/5531984987116?text=Quero%20saber%20mais%20sobre%20os%20serviços" class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+      </a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="btn-form-white" target="_blank">
+        <i class="fas fa-edit"></i> Preencher formulário
+      </a>
+    </div>
+    <small>⚠️ Atendo apenas 3 projetos por semana para garantir qualidade. Prazo mínimo: 15 dias para sites e dashboards.</small>
   </div>
 </section>
 
@@ -919,7 +1038,7 @@
       <a href="https://github.com/datadeshsolucoes-design" target="_blank"><i class="fab fa-github"></i></a>
     </div>
     <p>© 2026 DataDesh Soluções - Ana | <a href="https://wa.me/5531984987116" target="_blank">(31) 98498-7116</a> | <a href="mailto:datadshsolucoes@gmail.com">datadshsolucoes@gmail.com</a></p>
-    <p style="margin-top: 10px;">27 projetos entregues • 4+ anos de experiência • Tecnóloga em Ciência de Dados</p>
+    <p style="margin-top: 10px;">27 projetos entregues • 4+ anos de experiência • Tecnóloga em Ciência de Dados • Prazo mínimo: 15 dias</p>
   </div>
 </footer>
 
