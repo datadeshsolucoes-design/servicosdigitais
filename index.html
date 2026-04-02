@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>DataDesh | Crio sites que ajudam seu negócio a conseguir clientes todos os dias</title>
-  <meta name="description" content="Crio sites profissionais e dashboards interativos que realmente trazem resultados. +27 projetos entregues. Especialista em soluções para pequenos negócios. Prazo de entrega: 15 dias.">
+  <meta name="description" content="Crio sites profissionais, catálogos digitais e páginas para clínicas que realmente trazem resultados. +27 projetos entregues. Especialista em pequenos negócios.">
   <meta name="author" content="Ana - DataDesh">
   
   <!-- Font Awesome -->
@@ -246,10 +246,6 @@
       margin: 0 auto;
       overflow: hidden;
     }
-    .foto-circle i {
-      font-size: 100px;
-      color: white;
-    }
     .quem-sou h2 {
       font-size: 32px;
       margin-bottom: 20px;
@@ -295,7 +291,7 @@
       .contatos { justify-content: center; }
     }
 
-    /* PROJETOS REAIS - 5 PROJETOS */
+    /* PROJETOS REAIS */
     .projetos {
       padding: 70px 0;
       background: white;
@@ -394,100 +390,14 @@
       .projetos-grid { grid-template-columns: 1fr; }
     }
 
-    /* CARDS PROMO */
-    .promocoes {
-      padding: 70px 0;
-      background: #F9FAFB;
-    }
-    .promo-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .promo-card {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 1px solid #E5E7EB;
-      transition: all 0.3s;
-    }
-    .promo-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-    }
-    .promo-badge {
-      background: #F59E0B;
-      color: white;
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
-      margin: 15px 0 0 15px;
-    }
-    .promo-img {
-      text-align: center;
-      padding: 20px 0 10px;
-    }
-    .promo-img i {
-      font-size: 45px;
-      color: #0B5E42;
-    }
-    .promo-info {
-      padding: 0 20px 20px;
-      text-align: center;
-    }
-    .promo-info h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-    .promo-info p {
-      color: #6B7280;
-      font-size: 13px;
-      margin-bottom: 15px;
-    }
-    .promo-price {
-      font-size: 24px;
-      font-weight: 800;
-      color: #0B5E42;
-      margin-bottom: 15px;
-    }
-    .promo-old {
-      font-size: 14px;
-      text-decoration: line-through;
-      color: #9CA3AF;
-      margin-right: 8px;
-    }
-    .promo-btn {
-      display: block;
-      background: #0B5E42;
-      color: white;
-      padding: 10px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s;
-    }
-    .promo-btn:hover {
-      background: #064e3b;
-    }
-    @media (max-width: 900px) {
-      .promo-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 500px) {
-      .promo-grid { grid-template-columns: 1fr; }
-    }
-
-    /* SERVIÇOS */
+    /* SERVIÇOS - VERSÃO ATUALIZADA */
     .servicos {
       padding: 70px 0;
       background: white;
     }
     .servicos-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 30px;
     }
     .servico-card {
@@ -523,13 +433,7 @@
     .servico-card p {
       color: #6B7280;
       font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .servico-link {
-      color: #0B5E42;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 14px;
+      margin-bottom: 15px;
     }
     .prazo-badge {
       display: inline-block;
@@ -541,8 +445,93 @@
       font-weight: 600;
       margin-top: 10px;
     }
-    @media (max-width: 768px) {
+    .preco-destaque {
+      margin-top: 15px;
+      font-weight: 800;
+      color: #0B5E42;
+      font-size: 18px;
+    }
+    @media (max-width: 900px) {
+      .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
       .servicos-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CATÁLOGOS DIGITAIS */
+    .catalogos {
+      padding: 70px 0;
+      background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
+    }
+    .catalogos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .catalogo-card {
+      background: white;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .preco-card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+    .preco-titulo {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+    }
+    .preco-valor {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+    .mensal-box {
+      background: #0B5E42;
+      color: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .catalogos-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CLÍNICAS */
+    .clinicas {
+      padding: 70px 0;
+      background: white;
+    }
+    .clinicas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .clinicas-lista {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+    .clinicas-lista li {
+      margin-bottom: 15px;
+    }
+    .faixa-preco {
+      background: #F9FAFB;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 768px) {
+      .clinicas-grid { grid-template-columns: 1fr; }
     }
 
     /* RESULTADOS */
@@ -726,6 +715,8 @@
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
       <a href="#servicos">Serviços</a>
+      <a href="#catalogos">Catálogos</a>
+      <a href="#clinicas">Para Clínicas</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="nav-btn-outline" target="_blank"><i class="fas fa-tag"></i> Preços</a>
       <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
@@ -746,11 +737,11 @@
     <div class="hero-badge">
       <i class="fas fa-chart-line"></i> +27 projetos entregues | Especialista em pequenos negócios
     </div>
-    <h1>Crio sites que ajudam seu negócio a <span>conseguir clientes todos os dias</span></h1>
-    <p>Sites profissionais e dashboards interativos que realmente trazem resultados. Foco em conversão e vendas.</p>
+    <h1>Crio soluções digitais que ajudam seu negócio a <span>conseguir clientes todos os dias</span></h1>
+    <p>Sites profissionais, catálogos digitais e páginas para clínicas que realmente trazem resultados. Foco em conversão e vendas.</p>
     <div class="hero-buttons">
       <a href="https://wa.me/5531984987116?text=Quero%20começar%20meu%20projeto" class="btn-whatsapp" target="_blank">
-        <i class="fab fa-whatsapp"></i> Quero meu site agora
+        <i class="fab fa-whatsapp"></i> Quero minha solução agora
       </a>
       <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="btn-form" target="_blank">
         <i class="fas fa-edit"></i> Preencher formulário
@@ -770,12 +761,12 @@
     <div class="quem-sou-grid">
       <div class="foto">
         <div class="foto-circle">
-          <i class="fas fa-user-circle"></i>
+          <img src="https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/ana-perfil.jpg" alt="Ana - DataDesh" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
         </div>
       </div>
       <div>
         <h2>Oi, sou a <span>Ana</span> 👋</h2>
-        <p>Tecnóloga em Ciência de Dados, especialista em criar sites e dashboards que realmente ajudam negócios a crescer. Desenvolvi <strong>27 painéis interativos</strong> para gestão da saúde e sites para pequenos negócios.</p>
+        <p>Tecnóloga em Ciência de Dados, especialista em criar sites, catálogos digitais e páginas profissionais que realmente ajudam negócios a crescer. Desenvolvi <strong>27 projetos</strong> para gestão, vendas e atendimento.</p>
         <p>Meu trabalho é transformar sua ideia em uma ferramenta que atrai clientes e vende. Sem enrolação, com foco no que importa: seu negócio crescer.</p>
         <div class="contatos">
           <a href="https://wa.me/5531984987116" class="contato-item" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
@@ -789,80 +780,43 @@
   </div>
 </section>
 
-<!-- PROJETOS REAIS - 5 PROJETOS -->
+<!-- PROJETOS REAIS -->
 <section id="projetos" class="projetos">
   <div class="container">
     <h2 class="section-title">Projetos <span>reais</span></h2>
     <p class="section-subtitle">Veja na prática o que já entreguei</p>
     <div class="projetos-grid">
-      <!-- Projeto 1: Dashboard de Saúde -->
       <div class="projeto-card">
         <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/area%20de%20trabalho.png'); background-size: cover; background-position: center;">
-          <div class="projeto-img-overlay">
-            <i class="fas fa-chart-line"></i>
-          </div>
+          <div class="projeto-img-overlay"><i class="fas fa-chart-line"></i></div>
         </div>
         <div class="projeto-info">
           <h3>Dashboard - Gestão da Saúde</h3>
-          <p>Painel completo com gráficos interativos, filtros dinâmicos e dados em tempo real para gestão de filas de espera.</p>
+          <p>Painel completo com gráficos interativos, filtros dinâmicos e dados em tempo real.</p>
           <span class="projeto-resultado">-40% tempo de análise</span>
-          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto completo →</a>
+          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto →</a>
         </div>
       </div>
-      <!-- Projeto 2: Dashboards Interativos -->
       <div class="projeto-card">
         <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos.png'); background-size: cover; background-position: center;">
-          <div class="projeto-img-overlay">
-            <i class="fab fa-instagram"></i>
-          </div>
+          <div class="projeto-img-overlay"><i class="fab fa-instagram"></i></div>
         </div>
         <div class="projeto-info">
           <h3>Dashboards Interativos</h3>
-          <p>Gráficos dinâmicos sincronizados com tabelas, filtros avançados e visualizações profissionais para tomada de decisão.</p>
-          <span class="projeto-resultado">+35% eficiência operacional</span>
-          <a href="https://www.instagram.com/reel/DWMHSjpRrvR/" class="projeto-link" target="_blank">Ver demonstração no Instagram →</a>
+          <p>Gráficos dinâmicos sincronizados com tabelas, filtros avançados e visualizações profissionais.</p>
+          <span class="projeto-resultado">+35% eficiência</span>
+          <a href="https://www.instagram.com/reel/DWMHSjpRrvR/" class="projeto-link" target="_blank">Ver demonstração →</a>
         </div>
       </div>
-      <!-- Projeto 3: Reel - Negócio merece site à altura -->
       <div class="projeto-card">
         <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/area%20de%20trabalho.png'); background-size: cover; background-position: center;">
-          <div class="projeto-img-overlay">
-            <i class="fab fa-instagram"></i>
-          </div>
+          <div class="projeto-img-overlay"><i class="fab fa-instagram"></i></div>
         </div>
         <div class="projeto-info">
           <h3>✨ Seu negócio merece um site à altura!</h3>
-          <p>Desenvolvo sites modernos, rápidos e estratégicos para atrair clientes. Conheça meu trabalho.</p>
+          <p>Sites modernos, rápidos e estratégicos para atrair clientes.</p>
           <span class="projeto-resultado">+27 projetos entregues</span>
           <a href="https://www.instagram.com/reel/DWMFvG7RDbX/" class="projeto-link" target="_blank">Ver no Instagram →</a>
-        </div>
-      </div>
-      <!-- Projeto 4: Reel - Perdendo clientes (1) -->
-      <div class="projeto-card">
-        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos%202.png'); background-size: cover; background-position: center;">
-          <div class="projeto-img-overlay">
-            <i class="fab fa-instagram"></i>
-          </div>
-        </div>
-        <div class="projeto-info">
-          <h3>⚠️ Você está PERDENDO clientes todos os dias!</h3>
-          <p>Se o seu negócio não tem um site profissional, você está ficando pra trás. Resolva seus problemas agora!</p>
-          <span class="projeto-resultado">Clientes perdidos? Resolva já!</span>
-          <a href="https://www.instagram.com/reel/DWZx2RiRs--/" class="projeto-link" target="_blank">Ver no Instagram →</a>
-        </div>
-      </div>
-      <!-- Projeto 5: Reel - Perdendo clientes (2) -->
-      <div class="projeto-card">
-        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos%202.png'); background-size: cover; background-position: center;">
-          <div class="projeto-img-overlay">
-            <i class="fab fa-instagram"></i>
-          </div>
-        </div>
-        <div class="projeto-info">
-          <h3>⚠️ Você está PERDENDO clientes todos os dias!</h3>
-          <p>Se o seu negócio não tem um site profissional, você está ficando pra trás. Mude isso HOJE!</p>
-          <span class="projeto-resultado">Fale comigo agora!</span>
-          <a href="https://www.instagram.com/reel/DWZxnapxBeA/" class="projeto-link" target="_blank">Ver no Instagram →</a>
         </div>
       </div>
     </div>
@@ -872,57 +826,7 @@
   </div>
 </section>
 
-<!-- PROMOÇÕES -->
-<section class="promocoes">
-  <div class="container">
-    <h2 class="section-title">🎁 <span>Promoções</span> em Destaque</h2>
-    <p class="section-subtitle">Vagas limitadas esta semana — garanta o seu!</p>
-    <div class="promo-grid">
-      <div class="promo-card">
-        <div class="promo-badge">-45%</div>
-        <div class="promo-img"><i class="fas fa-file-alt"></i></div>
-        <div class="promo-info">
-          <h3>Pacote Start</h3>
-          <p>Currículo Digital + Landing Page</p>
-          <div class="promo-price"><span class="promo-old">R$ 450</span> R$ 247</div>
-          <a href="https://wa.me/5531984987116?text=Quero%20o%20Pacote%20Start" class="promo-btn" target="_blank">Garantir vaga →</a>
-        </div>
-      </div>
-      <div class="promo-card">
-        <div class="promo-badge">-46%</div>
-        <div class="promo-img"><i class="fas fa-briefcase"></i></div>
-        <div class="promo-info">
-          <h3>Pacote Profissional</h3>
-          <p>Currículo + Portfólio + Landing</p>
-          <div class="promo-price"><span class="promo-old">R$ 650</span> R$ 350</div>
-          <a href="https://wa.me/5531984987116?text=Quero%20o%20Pacote%20Profissional" class="promo-btn" target="_blank">Garantir vaga →</a>
-        </div>
-      </div>
-      <div class="promo-card">
-        <div class="promo-badge">-50%</div>
-        <div class="promo-img"><i class="fas fa-crown"></i></div>
-        <div class="promo-info">
-          <h3>Pacote Premium</h3>
-          <p>Site + Dashboard + Identidade</p>
-          <div class="promo-price"><span class="promo-old">R$ 1.200</span> R$ 597</div>
-          <a href="https://wa.me/5531984987116?text=Quero%20o%20Pacote%20Premium" class="promo-btn" target="_blank">Garantir vaga →</a>
-        </div>
-      </div>
-      <div class="promo-card">
-        <div class="promo-badge">-46%</div>
-        <div class="promo-img"><i class="fas fa-box"></i></div>
-        <div class="promo-info">
-          <h3>Kit Completo</h3>
-          <p>Currículo + Portfólio + PDF</p>
-          <div class="promo-price"><span class="promo-old">R$ 550</span> R$ 297</div>
-          <a href="https://wa.me/5531984987116?text=Quero%20o%20Kit%20Completo" class="promo-btn" target="_blank">Garantir vaga →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
+<!-- SERVIÇOS ATUALIZADO -->
 <section id="servicos" class="servicos">
   <div class="container">
     <h2 class="section-title">O que eu <span>faço</span></h2>
@@ -932,22 +836,123 @@
         <div class="servico-icon"><i class="fas fa-globe"></i></div>
         <h3>Sites Profissionais</h3>
         <p>Sites modernos, responsivos e otimizados para conversão. Landing pages que vendem.</p>
-        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
         <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 15 dias</div>
+        <div class="preco-destaque">a partir de R$ 597</div>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>Catálogo Digital</h3>
+        <p>Vitrine profissional pro WhatsApp. Produtos organizados, botão direto, link pra compartilhar.</p>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 3 a 5 dias</div>
+        <div class="preco-destaque">a partir de R$ 80</div>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon"><i class="fas fa-hospital-user"></i></div>
+        <h3>Página para Clínicas</h3>
+        <p>Apresentação profissional com serviços, preços, localização e WhatsApp integrado.</p>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 3 a 7 dias</div>
+        <div class="preco-destaque">a partir de R$ 150</div>
       </div>
       <div class="servico-card">
         <div class="servico-icon"><i class="fas fa-chart-line"></i></div>
         <h3>Dashboards Interativos</h3>
         <p>Painéis com gráficos, filtros e dados em tempo real. Integração com Google Sheets.</p>
-        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
         <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 15 dias</div>
+        <div class="preco-destaque">a partir de R$ 597</div>
       </div>
-      <div class="servico-card">
-        <div class="servico-icon"><i class="fas fa-robot"></i></div>
-        <h3>Automações</h3>
-        <p>Automatize processos e integre ferramentas para ganhar tempo e produtividade.</p>
-        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
-        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 7 dias</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGOS DIGITAIS -->
+<section id="catalogos" class="catalogos">
+  <div class="container">
+    <h2 class="section-title">📱 <span>Catálogo Digital</span> Profissional</h2>
+    <p class="section-subtitle">Transforme seu WhatsApp em uma vitrine que vende 24h por dia</p>
+    
+    <div class="catalogos-grid">
+      <div>
+        <div class="catalogo-card">
+          <i class="fas fa-mobile-alt" style="font-size: 60px; color: #0B5E42;"></i>
+          <h3 style="margin: 20px 0 15px;">Parece site, mas é mais simples</h3>
+          <p style="color: #4B5563; margin-bottom: 20px;">Seu catálogo organizado como uma revista digital. O cliente vê, escolhe e clica no botão do WhatsApp.</p>
+          <ul style="list-style: none; text-align: left;">
+            <li style="margin-bottom: 12px;">✓ <strong>Capa personalizada</strong> com sua identidade visual</li>
+            <li style="margin-bottom: 12px;">✓ <strong>Produtos organizados</strong> por categorias</li>
+            <li style="margin-bottom: 12px;">✓ <strong>Botão direto</strong> pro WhatsApp</li>
+            <li style="margin-bottom: 12px;">✓ <strong>Versão mobile</strong> perfeita</li>
+            <li style="margin-bottom: 12px;">✓ <strong>Link único</strong> pra enviar pros clientes</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div>
+        <h3 style="font-size: 28px; margin-bottom: 20px;">💰 Preços que cabem no seu bolso</h3>
+        <div class="preco-card">
+          <span class="preco-titulo" style="background: #0B5E42;">BÁSICO</span>
+          <div class="preco-valor">R$ 80 <span style="font-size: 16px;">a R$ 180</span></div>
+          <p style="color: #6B7280;">Até 25 produtos | Entrega em 3 dias</p>
+        </div>
+        <div class="preco-card">
+          <span class="preco-titulo" style="background: #F59E0B;">PROFISSIONAL</span>
+          <div class="preco-valor">R$ 200 <span style="font-size: 16px;">a R$ 350</span></div>
+          <p style="color: #6B7280;">Até 50 produtos + categorias | Entrega em 5 dias</p>
+        </div>
+        <div class="preco-card">
+          <span class="preco-titulo" style="background: #8B5CF6;">PREMIUM REVISTA</span>
+          <div class="preco-valor">R$ 300 <span style="font-size: 16px;">a R$ 600</span></div>
+          <p style="color: #6B7280;">Design exclusivo + identidade visual completa</p>
+        </div>
+        <a href="https://wa.me/5531984987116?text=Quero%20meu%20cat%C3%A1logo%20digital" class="btn-whatsapp" style="margin-top: 10px; display: inline-block;">👉 Quero meu catálogo agora</a>
+      </div>
+    </div>
+    
+    <!-- Renda Mensal -->
+    <div class="mensal-box">
+      <i class="fas fa-chart-line" style="font-size: 40px; margin-bottom: 15px;"></i>
+      <h3 style="font-size: 24px;">💰 Renda recorrente todo mês</h3>
+      <p style="margin: 15px 0;">Pague apenas <strong style="font-size: 28px;">R$ 20 a R$ 50/mês</strong> para eu atualizar seus produtos, preços e promoções</p>
+      <p style="font-size: 14px; opacity: 0.9;">✓ Você SEMPRE com catálogo atualizado ✓ Eu com cliente fiel</p>
+    </div>
+  </div>
+</section>
+
+<!-- PÁGINAS PARA CLÍNICAS -->
+<section id="clinicas" class="clinicas">
+  <div class="container">
+    <h2 class="section-title">🏥 <span>Página Profissional</span> para Clínicas</h2>
+    <p class="section-subtitle">Pare de perder clientes por falta de informação organizada</p>
+    
+    <div class="clinicas-grid">
+      <div>
+        <div style="background: #0B5E42; border-radius: 20px; padding: 40px; text-align: center; color: white;">
+          <i class="fas fa-file-alt" style="font-size: 80px; margin-bottom: 20px;"></i>
+          <p style="font-size: 18px;">Exemplo de página profissional</p>
+          <p style="font-size: 14px; opacity: 0.8;">Com serviços, preços e WhatsApp integrado</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size: 28px; margin-bottom: 15px;">O que você ganha:</h3>
+        <ul class="clinicas-lista">
+          <li>✓ <strong>Página completa</strong> com serviços, preços e localização</li>
+          <li>✓ <strong>Botão do WhatsApp</strong> para agendamento imediato</li>
+          <li>✓ <strong>Design que passa confiança</strong> (essencial para saúde)</li>
+          <li>✓ <strong>Funciona no celular</strong> perfeitamente</li>
+          <li>✓ <strong>Link profissional</strong> pra colocar no Instagram</li>
+        </ul>
+        
+        <div class="faixa-preco">
+          <div class="preco-valor" style="font-size: 28px;">R$ 150 <span style="font-size: 16px;">a R$ 250</span></div>
+          <p>Página básica • Entrega: 3 dias</p>
+          <hr style="margin: 15px 0;">
+          <div class="preco-valor" style="font-size: 28px;">R$ 300 <span style="font-size: 16px;">a R$ 500</span></div>
+          <p>Página profissional + design estratégico • Entrega: 5 dias</p>
+          <hr style="margin: 15px 0;">
+          <div class="preco-valor" style="font-size: 28px;">R$ 600 <span style="font-size: 16px;">a R$ 1.000</span></div>
+          <p>Premium + copy que vende • Entrega: 7 dias</p>
+        </div>
+        
+        <a href="https://wa.me/5531984987116?text=Quero%20uma%20p%C3%A1gina%20para%20minha%20cl%C3%ADnica" class="btn-whatsapp" style="background: #0B5E42;">📞 Agendar consultoria gratuita</a>
       </div>
     </div>
   </div>
@@ -1038,7 +1043,7 @@
       <a href="https://github.com/datadeshsolucoes-design" target="_blank"><i class="fab fa-github"></i></a>
     </div>
     <p>© 2026 DataDesh Soluções - Ana | <a href="https://wa.me/5531984987116" target="_blank">(31) 98498-7116</a> | <a href="mailto:datadshsolucoes@gmail.com">datadshsolucoes@gmail.com</a></p>
-    <p style="margin-top: 10px;">27 projetos entregues • 4+ anos de experiência • Tecnóloga em Ciência de Dados • Prazo mínimo: 15 dias</p>
+    <p style="margin-top: 10px;">27 projetos entregues • 4+ anos de experiência • Tecnóloga em Ciência de Dados</p>
   </div>
 </footer>
 
