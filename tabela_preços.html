@@ -190,6 +190,11 @@
             border-left: 4px solid #f59e0b;
         }
 
+        .nova-opt {
+            background: linear-gradient(90deg, #e8f4f8 0%, #ffffff 100%);
+            border-left: 4px solid #0f766e;
+        }
+
         /* PACOTES */
         .packages-grid {
             display: grid;
@@ -318,6 +323,23 @@
             color: white;
         }
 
+        .badge-novo {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
         @media (max-width: 900px) {
             body { padding: 1rem; }
             .packages-grid { grid-template-columns: repeat(2, 1fr); }
@@ -335,7 +357,7 @@
     <!-- CABEÇALHO -->
     <div class="header">
         <h1><i class="fas fa-chart-line"></i> TABELA DE PREÇOS</h1>
-        <p>DataDesh Soluções Digitais | Ana - Desenvolvedora Web - Tecnologa em Ciencias de Dados</p>
+        <p>DataDesh Soluções Digitais | Ana - Desenvolvedora Web - Tecnóloga em Ciências de Dados</p>
         <div class="contato">
             <i class="fab fa-whatsapp"></i> (31) 98498-7116 | 
             <i class="fa-regular fa-envelope"></i> datadshsolucoes@gmail.com | 
@@ -343,21 +365,22 @@
         </div>
     </div>
 
-        <!-- DESIGN -->
+    <!-- DESIGN -->
     <div class="section">
         <div class="section-title"><i class="fa-solid fa-palette"></i> ARTES & DESIGN</div>
         <table>
-            <thead><tr><th>Serviço</th><th>Descrição</th><th>Condições de Pagamento</th><th>Valor Total</th><th>Prazo</th><th></th></tr></thead>
+            <thead>
+                <tr><th>Serviço</th><th>Descrição</th><th>Condições de Pagamento</th><th>Valor Total</th><th>Prazo</th><th></th></tr>
+            </thead>
             <tbody>
                 <tr class="highlight-row">
-                    <td>🎨 Video Com Animação para Instagram</td>
+                    <td>🎨 Vídeo Com Animação para Instagram</td>
                     <td>Arte Animada com 15 Segundos apresentando sua página</td>
-                    <td>1x de <strong class="price-installment">R$ 19,97</strong> <span class="Somente via Pix"</span></td>
+                    <td>1x de <strong class="price-installment">R$ 19,97</strong> <span class="sinal-info">20% sinal</span></td>
                     <td>R$ 19,97</td>
                     <td><span class="prazo prazo-rapido">2 dias</span></td>
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
                 </tr>
-                <tr>
                 <tr class="highlight-row">
                     <td>🎨 Post para Redes Sociais</td>
                     <td>Arte + legenda otimizada (05 Artes)</td>
@@ -375,10 +398,10 @@
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
                 </tr>
                 <tr>
-                    <td>🖼️ Carrosel para Instagram</td>
-                    <td>Carrosel para Instagram com 7 Posts</td>
+                    <td>🖼️ Carrossel para Instagram</td>
+                    <td>Carrossel para Instagram com 7 Posts</td>
                     <td>1x de <strong class="price-installment">R$ 37,50</strong> <span class="sinal-info">20% sinal</span></td>
-                    <td>R$ 37,50 </td>
+                    <td>R$ 37,50</td>
                     <td><span class="prazo prazo-rapido">3 dias</span></td>
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
                 </tr>
@@ -401,7 +424,7 @@
                 <tr>
                     <td>🖼️ Convite digital em HTML + Google Forms</td>
                     <td>Convite online com arte, detalhes do evento e formulário de confirmação.</td>
-                    <td>3x de <strong class="price-installment">R$ 32,50 </strong> <span class="sinal-info">20% sinal</span></td>
+                    <td>3x de <strong class="price-installment">R$ 32,50</strong> <span class="sinal-info">20% sinal</span></td>
                     <td>R$ 97,50</td>
                     <td><span class="prazo prazo-rapido">3 dias</span></td>
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
@@ -409,7 +432,7 @@
                 <tr>
                     <td>🖼️ Formulário Google Forms + coleta</td>
                     <td>Formulário configurado com lógica, validações e planilha de respostas.</td>
-                    <td>2x de <strong class="price-installment">R$ 23,50 </strong> <span class="sinal-info">20% sinal</span></td>
+                    <td>2x de <strong class="price-installment">R$ 23,50</strong> <span class="sinal-info">20% sinal</span></td>
                     <td>R$ 47,00</td>
                     <td><span class="prazo prazo-rapido">2 dias</span></td>
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
@@ -417,15 +440,15 @@
                 <tr>
                     <td>🖼️ Apresentações / Slides (até 20 slides)</td>
                     <td>Criação de apresentação visual, prontos para PowerPoint/Google Slides.</td>
-                    <td>3x de <strong class="price-installment">R$ 37,50 </strong> <span class="sinal-info">20% sinal</span></td>
+                    <td>3x de <strong class="price-installment">R$ 35,83</strong> <span class="sinal-info">20% sinal</span></td>
                     <td>R$ 107,50</td>
                     <td><span class="prazo prazo-rapido">2 dias</span></td>
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
                 </tr>
                 <tr>
-                    <td>🖼️ Organização de arquivos e pastas digitais Com Página que leva Direto para Links</td>
+                    <td>🖼️ Organização de arquivos e pastas digitais</td>
                     <td>Reestruturação lógica de pastas, renomeação e categorização de arquivos.</td>
-                    <td>3x de <strong class="price-installment">R$ 47,50 </strong> <span class="sinal-info">20% sinal</span></td>
+                    <td>3x de <strong class="price-installment">R$ 47,50</strong> <span class="sinal-info">20% sinal</span></td>
                     <td>R$ 142,50</td>
                     <td><span class="prazo prazo-rapido">2 dias</span></td>
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
@@ -521,11 +544,91 @@
                     <td>Fluxos de trabalho, integração com APIs</td>
                     <td>8x de <strong class="price-installment">R$ 74,67</strong> <span class="sinal-info">20% sinal</span></td>
                     <td>R$ 597,36</td>
-                    <td><span class="prazo prazo-longo">Em Até 30 dias</span></td>
+                    <td><span class="prazo prazo-longo">Em até 30 dias</span></td>
                     <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- NOVA SEÇÃO: AUTOMAÇÃO COM GOOGLE APPS SCRIPT -->
+    <div class="section">
+        <div class="section-title"><i class="fa-brands fa-google"></i> AUTOMAÇÃO COM GOOGLE APPS SCRIPT <span class="badge-novo">NOVO</span></div>
+        <table>
+            <thead>
+                <tr><th>Serviço</th><th>Descrição</th><th>Condições de Pagamento</th><th>Valor Total</th><th>Prazo</th><th>Detalhes Técnicos</th><th></th></tr>
+            </thead>
+            <tbody>
+                <!-- Serviço 1: Sistema de Agendamentos -->
+                <tr class="nova-opt">
+                    <td><i class="fa-solid fa-calendar-check"></i> <strong>Sistema de Agendamentos</strong><br>
+                        <span style="font-size:0.7rem; color:#0f766e;">Google Apps Script</span>
+                    </td>
+                    <td>Automação completa para gestão de agendamentos com integração ao Google Calendar e Forms.</td>
+                    <td><span class="sinal-info">20% sinal</span><br>
+                        <strong class="price-installment">R$ 80,00</strong> x5<br>
+                        <span style="font-size:0.7rem;">ou R$ 400,00 à vista</span>
+                    </td>
+                    <td><strong>R$ 400,00</strong></td>
+                    <td><span class="prazo prazo-rapido">Até 5 dias</span></td>
+                    <td><i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Sincronização Forms-Planilha<br>
+                        <i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Integração com Google Calendar<br>
+                        <i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Notificações automáticas
+                    </td>
+                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
+                </tr>
+                
+                <!-- Serviço 2: Envio Automático de Emails -->
+                <tr class="nova-opt">
+                    <td><i class="fa-solid fa-envelope-open-text"></i> <strong>Envio Automático de Emails</strong><br>
+                        <span style="font-size:0.7rem; color:#0f766e;">Google Apps Script</span>
+                    </td>
+                    <td>Automação para disparo de emails personalizados a partir de uma planilha do Google Sheets.</td>
+                    <td><span class="sinal-info">20% sinal</span><br>
+                        <strong class="price-installment">R$ 40,00</strong> x5<br>
+                        <span style="font-size:0.7rem;">ou R$ 200,00 à vista</span>
+                    </td>
+                    <td><strong>R$ 200,00</strong></td>
+                    <td><span class="prazo prazo-rapido">Até 5 dias</span></td>
+                    <td><i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Envio a partir de 1 planilha<br>
+                        <i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Personalização por linha<br>
+                        <i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Agendamento de disparos
+                    </td>
+                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
+                </tr>
+                
+                <!-- Serviço 3: Organizar Arquivos no Drive -->
+                <tr class="nova-opt">
+                    <td><i class="fa-solid fa-folder-tree"></i> <strong>Organizar Arquivos no Drive</strong><br>
+                        <span style="font-size:0.7rem; color:#0f766e;">Google Apps Script</span>
+                    </td>
+                    <td>Automação para criação e organização de pastas no Google Drive baseada em uma lista de dados.</td>
+                    <td><span class="sinal-info">20% sinal</span><br>
+                        <strong class="price-installment">R$ 30,00</strong> x5<br>
+                        <span style="font-size:0.7rem;">ou R$ 150,00 à vista</span>
+                    </td>
+                    <td><strong>R$ 150,00</strong></td>
+                    <td><span class="prazo prazo-rapido">Até 5 dias</span></td>
+                    <td><i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Cria pastas no Drive automaticamente<br>
+                        <i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Baseado em lista do Google Sheets<br>
+                        <i class="fa-solid fa-check-circle" style="color:#0f766e;"></i> Estrutura hierárquica personalizada
+                    </td>
+                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Informações extras sobre Apps Script -->
+        <div style="background: #e8f4f8; border-radius: 20px; padding: 1rem; margin-top: 1rem; border-left: 4px solid #0f766e;">
+            <p style="font-size: 0.85rem; color: #0c1426;">
+                <i class="fa-brands fa-google" style="color:#0f766e;"></i> 
+                <strong>Google Apps Script:</strong> Automações que rodam dentro do ecossistema Google (Planilhas, Drive, Gmail, Calendar). 
+                Ideais para otimizar processos, reduzir trabalho manual e aumentar a produtividade do seu negócio.
+            </p>
+            <p style="font-size: 0.75rem; color: #6b7280; margin-top: 8px;">
+                ✅ Incluso: Código-fonte, documentação básica e suporte por 15 dias após entrega.
+            </p>
+        </div>
     </div>
 
     <!-- PACOTES PROMOCIONAIS -->
@@ -580,7 +683,8 @@
             <li>📧 Envio do protótipo por <strong>e-mail para aprovação</strong></li>
             <li>✅ Ajustes inclusos antes da entrega final</li>
             <li>📅 Prazos: <strong>3 a 30 dias</strong> dependendo da complexidade</li>
-            <li>💳 Aceito: PIX, cartão de crédito (Link Mercado Pago) boleto</li>
+            <li>💳 Aceito: PIX, cartão de crédito (Link Mercado Pago), boleto</li>
+            <li>🤖 <strong>Novo:</strong> Automações com Google Apps Script</li>
         </ul>
         <p style="margin-top: 1rem; font-size: 0.85rem; color: #f59e0b; font-weight: 700;">
             ⚠️ Vagas limitadas por semana - Garanta já o seu projeto!
