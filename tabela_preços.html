@@ -9,430 +9,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            background: linear-gradient(135deg, #f5f7fb 0%, #e8edf5 100%);
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 32px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #0c1426 0%, #101b30 45%, #0f2b33 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
-
-        .header h1 i {
-            color: #8af3e5;
-        }
-
-        .header p {
-            color: rgba(255,255,255,0.8);
-            margin-top: 0.5rem;
-        }
-
-        .header .contato {
-            background: rgba(255,255,255,0.1);
-            display: inline-block;
-            padding: 8px 24px;
-            border-radius: 40px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .catalogo-wa {
-            display: inline-block;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            padding: 10px 20px;
-            border-radius: 40px;
-            margin-top: 15px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .catalogo-wa a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .catalogo-wa:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        /* FILTROS */
-        .filtros {
-            background: #f0fdf9;
-            padding: 1rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #e6ebf2;
-        }
-
-        .filtros-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .filtros select, .filtros input {
-            padding: 8px 16px;
-            border-radius: 30px;
-            border: 1px solid #d1fae5;
-            background: white;
-            font-family: "Inter", sans-serif;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
-        .filtro-busca {
-            min-width: 250px;
-        }
-
-        .filtro-busca input {
-            width: 100%;
-            padding-left: 35px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%239ca3af" stroke-width="2"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>');
-            background-repeat: no-repeat;
-            background-position: 12px center;
-        }
-
-        .btn-limpar {
-            background: #e6ebf2;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-
-        .btn-limpar:hover {
-            background: #d1fae5;
-        }
-
-        .contador-produtos {
-            font-size: 0.8rem;
-            color: #0f766e;
-            font-weight: 600;
-        }
-
-        .badge-sinal {
-            background: #f59e0b;
-            color: #0c1426;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 8px;
-            display: inline-block;
-        }
-
-        .badge-novo {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 8px;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .section {
-            padding: 1rem 2rem;
-            transition: 0.3s;
-        }
-
-        .section-title {
-            background: linear-gradient(135deg, #0f766e, #0a4f4a);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            margin: 1.5rem 0 1rem 0;
-            border-radius: 40px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-
-        th {
-            background: #f0fdf9;
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 2px solid #0f766e;
-            color: #0f766e;
-            font-weight: 700;
-        }
-
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #e6ebf2;
-            color: #1f2937;
-            vertical-align: middle;
-        }
-
-        tr {
-            transition: 0.2s;
-        }
-
-        tr:hover {
-            background: #fafefd;
-        }
-
-        .oculto {
-            display: none;
-        }
-
-        .codigo {
-            background: #0f766e;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 4px 8px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 6px;
-        }
-
-        .price-original {
-            color: #9ca3af;
-            font-size: 0.75rem;
-            text-decoration: line-through;
-        }
-
-        .price-promo {
-            font-weight: 800;
-            color: #0f766e;
-            font-size: 1rem;
-        }
-
-        .price-installment {
-            font-size: 0.85rem;
-            color: #f59e0b;
-            font-weight: 600;
-        }
-
-        .sinal-info {
-            background: #fef3c7;
-            color: #d97706;
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 6px;
-        }
-
-        .prazo {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", sans-serif; background: linear-gradient(135deg, #f5f7fb 0%, #e8edf5 100%); padding: 2rem; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 32px; box-shadow: 0 30px 60px rgba(0,0,0,0.12); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #0c1426 0%, #101b30 45%, #0f2b33 100%); color: white; padding: 2rem; text-align: center; }
+        .header h1 { font-size: 2.5rem; font-weight: 800; }
+        .header h1 i { color: #8af3e5; }
+        .header p { color: rgba(255,255,255,0.8); margin-top: 0.5rem; }
+        .header .contato { background: rgba(255,255,255,0.1); display: inline-block; padding: 8px 24px; border-radius: 40px; margin-top: 1rem; font-size: 0.9rem; }
+        .catalogo-wa { display: inline-block; background: linear-gradient(135deg, #25D366, #128C7E); padding: 10px 20px; border-radius: 40px; margin-top: 15px; font-weight: bold; transition: 0.3s; }
+        .catalogo-wa a { color: white; text-decoration: none; }
+        .catalogo-wa:hover { transform: scale(1.05); }
+        .section { padding: 1rem 2rem; }
+        .section-title { background: linear-gradient(135deg, #0f766e, #0a4f4a); color: white; padding: 0.6rem 1.5rem; margin: 1.5rem 0 1rem 0; border-radius: 40px; display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; border-radius: 20px; overflow: hidden; }
+        th { background: #f0fdf9; padding: 1rem; text-align: left; border-bottom: 2px solid #0f766e; color: #0f766e; font-weight: 700; }
+        td { padding: 1rem; border-bottom: 1px solid #e6ebf2; vertical-align: middle; }
+        tr:hover { background: #fafefd; }
+        .codigo { background: #0f766e; color: white; font-size: 0.7rem; font-weight: 700; padding: 4px 8px; border-radius: 20px; display: inline-block; margin-bottom: 6px; }
+        .price-original { color: #9ca3af; font-size: 0.75rem; text-decoration: line-through; }
+        .price-promo { font-weight: 800; color: #0f766e; font-size: 1rem; }
+        .price-installment { font-size: 0.85rem; color: #f59e0b; font-weight: 600; }
+        .sinal-info { background: #fef3c7; color: #d97706; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; display: inline-block; }
+        .prazo { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; }
         .prazo-rapido { background: #d1fae5; color: #0b5e42; }
         .prazo-medio { background: #fef3c7; color: #d97706; }
         .prazo-longo { background: #e0e7ff; color: #4338ca; }
-
-        .btn-whatsapp-small {
-            background: linear-gradient(135deg, #0f766e, #0a4f4a);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: 0.2s;
-        }
-
-        .btn-whatsapp-small:hover {
-            transform: translateY(-2px);
-            background: #0a4f4a;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .package-card {
-            background: white;
-            border: 1px solid #e6ebf2;
-            border-radius: 24px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .package-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px rgba(15, 118, 110, 0.1);
-            border-color: #0f766e;
-        }
-
-        .package-card.destaque {
-            border: 2px solid #f59e0b;
-            background: linear-gradient(135deg, #fffbeb, white);
-        }
-
-        .selo-destaque {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: #f59e0b;
-            color: #0c1426;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 800;
-        }
-
-        .package-card h4 {
-            color: #0f766e;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-price {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #0f766e;
-            margin: 0.5rem 0;
-        }
-
-        .package-installment {
-            font-size: 0.8rem;
-            color: #6b7280;
-        }
-
-        .btn-pedir {
-            display: inline-block;
-            margin-top: 1rem;
-            background: linear-gradient(135deg, #0f766e, #0a4f4a);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: 0.3s;
-        }
-
-        .btn-pedir:hover {
-            background: #f59e0b;
-            transform: scale(1.02);
-        }
-
-        .resumo {
-            background: linear-gradient(135deg, #f0fdf9, #ffffff);
-            padding: 1.5rem;
-            border-radius: 24px;
-            margin: 1.5rem 2rem;
-            border: 1px solid #d1fae5;
-        }
-
-        .resumo h3 {
-            color: #0f766e;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .resumo ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .resumo li {
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 40px;
-            border: 1px solid #e6ebf2;
-            font-size: 0.85rem;
-        }
-
-        .footer {
-            background: #0b1220;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .footer a {
-            color: #9ca3af;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.8rem;
-        }
-
-        .footer a:hover {
-            color: white;
-        }
-
-        @media (max-width: 900px) {
-            body { padding: 1rem; }
-            .packages-grid { grid-template-columns: repeat(2, 1fr); }
-            th, td { font-size: 0.75rem; padding: 0.6rem; }
-            .filtros { flex-direction: column; align-items: stretch; }
-            .filtros-group { justify-content: space-between; }
-        }
-
-        @media (max-width: 600px) {
-            .packages-grid { grid-template-columns: 1fr; }
-            .section { padding: 1rem; }
-        }
+        .btn-whatsapp-small { background: linear-gradient(135deg, #0f766e, #0a4f4a); color: white; padding: 8px 16px; border-radius: 30px; font-size: 0.75rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: 0.2s; }
+        .btn-whatsapp-small:hover { transform: translateY(-2px); background: #0a4f4a; }
+        .badge-novo { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 20px; margin-left: 8px; display: inline-block; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .footer { background: #0b1220; color: white; padding: 2rem; text-align: center; }
+        .footer a { color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 0.8rem; }
+        .footer a:hover { color: white; }
+        @media (max-width: 900px) { body { padding: 1rem; } th, td { font-size: 0.7rem; padding: 0.5rem; } }
     </style>
 </head>
 <body>
@@ -452,453 +62,120 @@
         </div>
     </div>
 
-    <!-- FILTROS -->
-    <div class="filtros">
-        <div class="filtros-group">
-            <select id="filtroCategoria">
-                <option value="todas">📋 Todas categorias</option>
-                <option value="robo">🤖 Robôs e Automações</option>
-                <option value="dashboard">📊 Dashboards e Sistemas</option>
-                <option value="catalogo">🏪 Catálogos Virtuais</option>
-                <option value="gestao">💳 Sistemas Mini (Gestão)</option>
-                <option value="cardapio">🍽️ Cardápio Virtual</option>
-                <option value="estoque">📦 Controle de Estoque</option>
-                <option value="design">🎨 Design & Identidade</option>
-                <option value="portfolio">💼 Portfólio Digital</option>
-            </select>
-            <select id="filtroPreco">
-                <option value="todos">💰 Todos os preços</option>
-                <option value="ate50">Até R$ 50</option>
-                <option value="50a100">R$ 50 - R$ 100</option>
-                <option value="100a200">R$ 100 - R$ 200</option>
-                <option value="200a400">R$ 200 - R$ 400</option>
-                <option value="acima400">Acima de R$ 400</option>
-            </select>
-        </div>
-        <div class="filtros-group filtro-busca">
-            <input type="text" id="filtroBusca" placeholder="🔍 Buscar serviço...">
-        </div>
-        <div class="filtros-group">
-            <button id="btnLimparFiltros" class="btn-limpar">🧹 Limpar Filtros</button>
-            <span id="contadorProdutos" class="contador-produtos"></span>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 1: ROBÔS E AUTOMAÇÕES -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="robo">
-        <div class="section-title"><i class="fa-solid fa-robot"></i> ROBÔS E AUTOMAÇÕES</div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Robô Python organizar pastas Drive" data-preco="137" data-preco-original="157">
-                    <td><span class="codigo">0753-1</span></d>
-                    <td><strong>Robô Python - Organizar Pastas no Drive</strong></d>
-                    <td>Automatiza a criação e organização de pastas no Google Drive</d>
-                    <td><span class="sinal-info">20% sinal</span><br>5x R$ 27,40</d>
-                    <td><span class="price-original">R$ 157,00</span><br><span class="price-promo">R$ 137,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Robô Python envio e-mails em massa" data-preco="167" data-preco-original="200">
-                    <td><span class="codigo">0753-3</span></d>
-                    <td><strong>Robô Python - Envio de E-mails em Massa</strong></d>
-                    <td>Disparo automatizado de e-mails com textos programados</d>
-                    <td><span class="sinal-info">20% sinal</span><br>5x R$ 33,40</d>
-                    <td><span class="price-original">R$ 200,00</span><br><span class="price-promo">R$ 167,00</span></d>
-                    <td><span class="prazo prazo-longo">20 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 2: DASHBOARDS E SISTEMAS -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="dashboard">
-        <div class="section-title"><i class="fa-solid fa-chart-line"></i> DASHBOARDS E SISTEMAS</div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Dashboard Avançado" data-preco="450" data-preco-original="577.70">
-                    <td><span class="codigo">0753-9</span></d>
-                    <td><strong>Dashboard Avançado</strong></d>
-                    <td>Painel com gráficos responsivo, moderno, sincronizado com planilhas Drive</d>
-                    <td><span class="sinal-info">20% sinal</span><br>10x R$ 45,00</d>
-                    <td><span class="price-original">R$ 577,70</span><br><span class="price-promo">R$ 450,00</span></d>
-                    <td><span class="prazo prazo-longo">30 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Dashboard Básico" data-preco="250" data-preco-original="358">
-                    <td><span class="codigo">0753-10</span></d>
-                    <td><strong>Dashboard Básico</strong></d>
-                    <td>Painel com gráficos interativos sincronizado com planilhas Google Drive</d>
-                    <td><span class="sinal-info">20% sinal</span><br>10x R$ 25,00</d>
-                    <td><span class="price-original">R$ 358,00</span><br><span class="price-promo">R$ 250,00</span></d>
-                    <td><span class="prazo prazo-medio">20 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Formulário Automatizado" data-preco="25.70" data-preco-original="47">
-                    <td><span class="codigo">0753-11</span></d>
-                    <td><strong>Formulário Automatizado Google Drive</strong></d>
-                    <td>Formulário elaborado com respostas automatizadas para planilha</d>
-                    <td><span class="sinal-info">20% sinal</span><br>À vista</d>
-                    <td><span class="price-original">R$ 47,00</span><br><span class="price-promo">R$ 25,70</span></d>
-                    <td><span class="prazo prazo-rapido">3 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Site Simples" data-preco="196" data-preco-original="297">
-                    <td><span class="codigo">0753-14</span></d>
-                    <td><strong>Site Simples</strong></d>
-                    <td>Código e Domínio entregues ao Cliente</d>
-                    <td><span class="sinal-info">20% sinal</span><br>8x R$ 24,50</d>
-                    <td><span class="price-original">R$ 297,00</span><br><span class="price-promo">R$ 196,00</span></d>
-                    <td><span class="prazo prazo-medio">10 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 3: CATÁLOGOS VIRTUAIS -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="catalogo">
-        <div class="section-title"><i class="fa-solid fa-store"></i> CATÁLOGOS VIRTUAIS</div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Montagem Catálogo WhatsApp" data-preco="77.01" data-preco-original="87">
-                    <td><span class="codigo">0753-6</span></d>
-                    <td><strong>Montagem de Catálogo WhatsApp</strong></d>
-                    <td>Catálogo profissional para WhatsApp com link compartilhável</d>
-                    <td><span class="sinal-info">20% sinal</span><br>3x R$ 25,67</d>
-                    <td><span class="price-original">R$ 87,00</span><br><span class="price-promo">R$ 77,01</span></d>
-                    <td><span class="prazo prazo-medio">10 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Catálogo Virtual Básico" data-preco="360" data-preco-original="397">
-                    <td><span class="codigo">0753-22</span></d>
-                    <td><strong>Catálogo Virtual Básico</strong></d>
-                    <td>Até 50 produtos, sincronização Google Sheets, busca por nome</d>
-                    <td><span class="sinal-info">20% sinal</span><br>8x R$ 45,00</d>
-                    <td><span class="price-original">R$ 397,00</span><br><span class="price-promo">R$ 360,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Catálogo Virtual Profissional" data-preco="620" data-preco-original="697">
-                    <td><span class="codigo">0753-23</span></d>
-                    <td><strong>Catálogo Virtual Profissional</strong></d>
-                    <td>Até 200 produtos, categorias, busca, filtros, WhatsApp integrado</d>
-                    <td><span class="sinal-info">20% sinal</span><br>10x R$ 62,00</d>
-                    <td><span class="price-original">R$ 697,00</span><br><span class="price-promo">R$ 620,00</span></d>
-                    <td><span class="prazo prazo-longo">30 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 4: SISTEMAS MINI (GESTÃO) -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="gestao">
-        <div class="section-title"><i class="fa-solid fa-credit-card"></i> SISTEMAS MINI (GESTÃO)</div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Sistema Controle Cartão Crédito" data-preco="360" data-preco-original="397">
-                    <td><span class="codigo">0753-24</span></d>
-                    <td><strong>Sistema Controle Cartão Crédito</strong></d>
-                    <td>Várias pessoas usando o cartão, titular controla quem usou, perfil admin + usuário</d>
-                    <td><span class="sinal-info">20% sinal</span><br>8x R$ 45,00</d>
-                    <td><span class="price-original">R$ 397,00</span><br><span class="price-promo">R$ 360,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Sistema Controle Vendas Fiado" data-preco="360" data-preco-original="397">
-                    <td><span class="codigo">0753-25</span></d>
-                    <td><strong>Sistema Controle Vendas (Fiado)</strong></d>
-                    <td>Registro de compras fiado, botão de cobrança WhatsApp, cliente consulta débito</d>
-                    <td><span class="sinal-info">20% sinal</span><br>8x R$ 45,00</d>
-                    <td><span class="price-original">R$ 397,00</span><br><span class="price-promo">R$ 360,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Sistema Financeiro Básico" data-preco="135" data-preco-original="150">
-                    <td><span class="codigo">0753-26</span></d>
-                    <td><strong>Sistema Financeiro Básico</strong></d>
-                    <td>Controle de entradas/saídas, cálculo de saldo, gráficos simples</d>
-                    <td><span class="sinal-info">20% sinal</span><br>3x R$ 45,00</d>
-                    <td><span class="price-original">R$ 150,00</span><br><span class="price-promo">R$ 135,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Sistema Financeiro Profissional" data-preco="267" data-preco-original="297">
-                    <td><span class="codigo">0753-27</span></d>
-                    <td><strong>Sistema Financeiro Profissional</strong></d>
-                    <td>Tudo do básico + categorias, metas, relatórios avançados</d>
-                    <td><span class="sinal-info">20% sinal</span><br>6x R$ 44,50</d>
-                    <td><span class="price-original">R$ 297,00</span><br><span class="price-promo">R$ 267,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 5: CARDÁPIO VIRTUAL -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="cardapio">
-        <div class="section-title"><i class="fa-solid fa-utensils"></i> CARDÁPIO VIRTUAL</div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Cardápio Virtual com Painel Cozinha" data-preco="360" data-preco-original="397">
-                    <td><span class="codigo">0753-28</span></d>
-                    <td><strong>Cardápio Virtual (c/ Painel Cozinha)</strong></d>
-                    <td>QR Code na mesa, pedido vai para planilha Drive + painel para cozinha</d>
-                    <td><span class="sinal-info">20% sinal</span><br>8x R$ 45,00</d>
-                    <td><span class="price-original">R$ 397,00</span><br><span class="price-promo">R$ 360,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Cardápio Virtual WhatsApp Direto" data-preco="267" data-preco-original="297">
-                    <td><span class="codigo">0753-29</span></d>
-                    <td><strong>Cardápio Virtual (WhatsApp Direto)</strong></d>
-                    <td>QR Code na mesa, pedido vai direto para WhatsApp da cozinha</d>
-                    <td><span class="sinal-info">20% sinal</span><br>6x R$ 44,50</d>
-                    <td><span class="price-original">R$ 297,00</span><br><span class="price-promo">R$ 267,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 6: CONTROLE DE ESTOQUE -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="estoque">
-        <div class="section-title"><i class="fa-solid fa-boxes"></i> CONTROLE DE ESTOQUE <span class="badge-novo">NOVO</span></div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Controle de Estoque Básico" data-preco="167" data-preco-original="197">
-                    <td><span class="codigo">0753-30</span></d>
-                    <td><strong>Controle de Estoque Básico</strong></d>
-                    <td>Até 100 produtos, cadastro, entrada/saída, alerta estoque baixo, relatório Excel</d>
-                    <td><span class="sinal-info">20% sinal</span><br>4x R$ 41,75</d>
-                    <td><span class="price-original">R$ 197,00</span><br><span class="price-promo">R$ 167,00</span></d>
-                    <td><span class="prazo prazo-medio">10 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Controle de Estoque Profissional" data-preco="340" data-preco-original="397">
-                    <td><span class="codigo">0753-31</span></d>
-                    <td><strong>Controle de Estoque Profissional</strong></d>
-                    <td>Até 500 produtos, categorias, fornecedores, gráficos simples</d>
-                    <td><span class="sinal-info">20% sinal</span><br>8x R$ 42,50</d>
-                    <td><span class="price-original">R$ 397,00</span><br><span class="price-promo">R$ 340,00</span></d>
-                    <td><span class="prazo prazo-medio">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Controle de Estoque Premium" data-preco="520" data-preco-original="597">
-                    <td><span class="codigo">0753-32</span></d>
-                    <td><strong>Controle de Estoque Premium</strong></d>
-                    <td>Produtos ilimitados, dashboard avançado, produtos mais vendidos, backup automático</d>
-                    <td><span class="sinal-info">20% sinal</span><br>10x R$ 52,00</d>
-                    <td><span class="price-original">R$ 597,00</span><br><span class="price-promo">R$ 520,00</span></d>
-                    <td><span class="prazo prazo-longo">20 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 7: DESIGN E IDENTIDADE VISUAL -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="design">
-        <div class="section-title"><i class="fa-solid fa-palette"></i> DESIGN & IDENTIDADE VISUAL</div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Sete Artes Posts Carrosel" data-preco="47" data-preco-original="47">
-                    <td><span class="codigo">0753-4</span></d>
-                    <td><strong>Sete Artes para Posts Carrosel</strong></d>
-                    <td>Posts otimizados para engajar vendas no Instagram</d>
-                    <td><span class="sinal-info">20% sinal</span><br>À vista</d>
-                    <td><span class="price-promo">R$ 47,00</span></d>
-                    <td><span class="prazo prazo-rapido">5 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Cartão de Visita Virtual" data-preco="39.70" data-preco-original="49.80">
-                    <td><span class="codigo">0753-5</span></d>
-                    <td><strong>Cartão de Visita Virtual</strong></d>
-                    <td>Hiper moderno e estiloso, link compartilhável</d>
-                    <td><span class="sinal-info">20% sinal</span><br>À vista</d>
-                    <td><span class="price-original">R$ 49,80</span><br><span class="price-promo">R$ 39,70</span></d>
-                    <td><span class="prazo prazo-rapido">3 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Convites Digitais Interativos" data-preco="79.65" data-preco-original="97.50">
-                    <td><span class="codigo">0753-7</span></d>
-                    <td><strong>Convites Digitais Interativos</strong></d>
-                    <td>Convite especial com link e botão confirmação sincronizado com Google Forms</d>
-                    <td><span class="sinal-info">20% sinal</span><br>3x R$ 26,55</d>
-                    <td><span class="price-original">R$ 97,50</span><br><span class="price-promo">R$ 79,65</span></d>
-                    <td><span class="prazo prazo-rapido">7 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Currículo Digital" data-preco="59.70" data-preco-original="69.80">
-                    <td><span class="codigo">0753-8</span></d>
-                    <td><strong>Currículo Digital</strong></d>
-                    <td>Currículo moderno, prático, link compartilhável</d>
-                    <td><span class="sinal-info">20% sinal</span><br>2x R$ 29,85</d>
-                    <td><span class="price-original">R$ 69,80</span><br><span class="price-promo">R$ 59,70</span></d>
-                    <td><span class="prazo prazo-rapido">3 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Organização do Drive" data-preco="110" data-preco-original="142.50">
-                    <td><span class="codigo">0753-13</span></d>
-                    <td><strong>Organização do Drive</strong></d>
-                    <td>Pastas organizadas com página de acesso aos links</d>
-                    <td><span class="sinal-info">20% sinal</span><br>4x R$ 27,50</d>
-                    <td><span class="price-original">R$ 142,50</span><br><span class="price-promo">R$ 110,00</span></d>
-                    <td><span class="prazo prazo-rapido">10 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Apresentação com Slides" data-preco="94.80" data-preco-original="107.50">
-                    <td><span class="codigo">0753-15</span></d>
-                    <td><strong>Apresentação com Slides</strong></d>
-                    <td>Slides profissionais para PowerPoint/Google Slides (até 20 slides)</d>
-                    <td><span class="sinal-info">20% sinal</span><br>4x R$ 23,70</d>
-                    <td><span class="price-original">R$ 107,50</span><br><span class="price-promo">R$ 94,80</span></d>
-                    <td><span class="prazo prazo-rapido">5 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- SEÇÃO 8: PORTFÓLIO DIGITAL (NOVO) -->
-    <!-- ============================================ -->
-    <div class="section" data-categoria="portfolio">
-        <div class="section-title"><i class="fa-solid fa-briefcase"></i> PORTFÓLIO DIGITAL <span class="badge-novo">NOVO</span></div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Condições</th><th>Valor</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody>
-                <tr data-nome="Portfólio Digital Básico" data-preco="197" data-preco-original="247">
-                    <td><span class="codigo">0753-33</span></d>
-                    <td><strong>Portfólio Digital Básico</strong></d>
-                    <td>Página HTML com seus trabalhos, projetos, contato. Até 5 projetos.</d>
-                    <td><span class="sinal-info">20% sinal</span><br>6x R$ 32,83</d>
-                    <td><span class="price-original">R$ 247,00</span><br><span class="price-promo">R$ 197,00</span></d>
-                    <td><span class="prazo prazo-medio">7 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Portfólio Digital Profissional" data-preco="297" data-preco-original="397">
-                    <td><span class="codigo">0753-34</span></d>
-                    <td><strong>Portfólio Digital Profissional</strong></d>
-                    <td>Página completa com galeria, filtros por categoria, depoimentos, contato. Até 15 projetos.</d>
-                    <td><span class="sinal-info">20% sinal</span><br>8x R$ 37,12</d>
-                    <td><span class="price-original">R$ 397,00</span><br><span class="price-promo">R$ 297,00</span></d>
-                    <td><span class="prazo prazo-medio">10 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-                <tr data-nome="Portfólio Digital Premium" data-preco="447" data-preco-original="597">
-                    <td><span class="codigo">0753-35</span></d>
-                    <td><strong>Portfólio Digital Premium</strong></d>
-                    <td>Site completo com blog, integração com GitHub, links para projetos, formulário de contato avançado. Projetos ilimitados.</d>
-                    <td><span class="sinal-info">20% sinal</span><br>10x R$ 44,70</d>
-                    <td><span class="price-original">R$ 597,00</span><br><span class="price-promo">R$ 447,00</span></d>
-                    <td><span class="prazo prazo-longo">15 dias</span></d>
-                    <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></d>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- PACOTES PROMOCIONAIS -->
-    <!-- ============================================ -->
+    <!-- TABELA COMPLETA -->
     <div class="section">
-        <div class="section-title"><i class="fa-solid fa-gift"></i> 🎁 PACOTES PROMOCIONAIS</div>
-        <div class="packages-grid">
-            <div class="package-card">
-                <div class="selo-destaque">🔥 MAIS VENDIDO</div>
-                <h4>Pacote Start</h4>
-                <p>Catálogo Digital + Página Institucional</p>
-                <div class="package-price">R$ 297,00</div>
-                <div class="package-installment">ou 6x de R$ 49,50</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
-            </div>
-            <div class="package-card destaque">
-                <div class="selo-destaque">⭐ MAIS COMPLETO</div>
-                <h4>Pacote Profissional</h4>
-                <p>Site + Catálogo + Dashboard Simples</p>
-                <div class="package-price">R$ 497,00</div>
-                <div class="package-installment">ou 10x de R$ 49,70</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
-            </div>
-            <div class="package-card">
-                <div class="selo-destaque">👑 TOP</div>
-                <h4>Pacote Premium</h4>
-                <p>Site Completo + Dashboard + Identidade Visual</p>
-                <div class="package-price">R$ 797,00</div>
-                <div class="package-installment">ou 10x de R$ 79,70</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
-            </div>
-            <div class="package-card">
-                <div class="selo-destaque">📦 SUPER</div>
-                <h4>Kit Clínicas</h4>
-                <p>Página para Clínica + Dashboard de Agendamentos</p>
-                <div class="package-price">R$ 547,00</div>
-                <div class="package-installment">ou 10x de R$ 54,70</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- INFORMAÇÕES IMPORTANTES -->
-    <div class="resumo">
-        <h3><i class="fa-solid fa-circle-info"></i> INFORMAÇÕES IMPORTANTES</h3>
-        <ul>
-            <li>💰 <strong>20% de sinal</strong> para iniciar o projeto</li>
-            <li>📦 Restante parcelado em até <strong>10x sem juros</strong></li>
-            <li>📧 Envio do protótipo por <strong>e-mail para aprovação</strong></li>
-            <li>✅ Ajustes inclusos antes da entrega final</li>
-            <li>📅 Prazos: <strong>1 a 30 dias</strong> dependendo da complexidade</li>
-            <li>💳 Aceito: PIX, cartão de crédito (Mercado Pago), boleto</li>
-            <li>🤖 <strong>Sistemas</strong> com sincronização via Google Sheets</li>
-        </ul>
-        <p style="margin-top: 1rem; font-size: 0.85rem; color: #f59e0b; font-weight: 700;">
-            ⚠️ Vagas limitadas por semana - Garanta já o seu projeto!
-        </p>
+        <div class="section-title"><i class="fa-solid fa-list"></i> TODOS OS SERVIÇOS</div>
+        <table>
+            <thead>
+                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Valor Original</th><th>Promoção</th><th>Condições</th><th>Prazo</th><th></th></tr>
+            </thead>
+            <tbody>
+                <!-- 0753-1 -->
+                <tr><td class="codigo">0753-1</td><td><strong>Robô Python - Organizar Pastas no Drive</strong></td><td>Automatiza a criação e organização de pastas no Google Drive</td><td class="price-original">R$ 157,00</td><td class="price-promo">R$ 137,00</td><td class="price-installment">5x R$ 27,40</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-2 -->
+                <tr><td class="codigo">0753-2</td><td><strong>Agendas sincronizadas</strong></td><td>Diversos modelos de Agendas sincronizadas com Google Forms, Agenda Google e planilhas</td><td class="price-original">R$ 400,00</td><td class="price-promo">R$ 337,00</td><td class="price-installment">10x R$ 33,70</td><td class="prazo prazo-longo">20 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-3 -->
+                <tr><td class="codigo">0753-3</td><td><strong>Robô Python - Envio de E-mails em Massa</strong></td><td>Disparo automatizado de e-mails com textos programados, ótimo para e-mail marketing</td><td class="price-original">R$ 200,00</td><td class="price-promo">R$ 167,00</td><td class="price-installment">5x R$ 33,40</td><td class="prazo prazo-longo">20 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-4 -->
+                <tr><td class="codigo">0753-4</td><td><strong>Sete Artes para Posts Carrosel</strong></td><td>Posts otimizados para engajar vendas no Instagram</td><td class="price-original">R$ 47,00</td><td class="price-promo">R$ 47,00</td><td class="price-installment">À vista</td><td class="prazo prazo-rapido">5 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-5 -->
+                <tr><td class="codigo">0753-5</td><td><strong>Cartão de Visita Virtual</strong></td><td>Hiper moderno e estiloso, link compartilhável</td><td class="price-original">R$ 49,80</td><td class="price-promo">R$ 39,70</td><td class="price-installment">À vista</td><td class="prazo prazo-rapido">3 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-6 -->
+                <tr><td class="codigo">0753-6</td><td><strong>Montagem de Catálogo WhatsApp</strong></td><td>Catálogo profissional com link compartilhável, carrinho e pedido via link</td><td class="price-original">R$ 87,00</td><td class="price-promo">R$ 77,01</td><td class="price-installment">3x R$ 25,67</td><td class="prazo prazo-medio">10 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-7 -->
+                <tr><td class="codigo">0753-7</td><td><strong>Convites Digitais Interativos</strong></td><td>Convite especial com link e botão confirmação sincronizado com Google Forms</td><td class="price-original">R$ 97,50</td><td class="price-promo">R$ 79,65</td><td class="price-installment">3x R$ 26,55</td><td class="prazo prazo-rapido">7 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-8 -->
+                <tr><td class="codigo">0753-8</td><td><strong>Currículo Digital</strong></td><td>Currículo moderno, prático, link compartilhável</td><td class="price-original">R$ 69,80</td><td class="price-promo">R$ 59,70</td><td class="price-installment">2x R$ 29,85</td><td class="prazo prazo-rapido">3 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-9 -->
+                <tr><td class="codigo">0753-9</td><td><strong>Dashboard Avançado</strong></td><td>Painel com gráficos responsivo, moderno, sincronizado com planilhas Drive</td><td class="price-original">R$ 577,70</td><td class="price-promo">R$ 450,00</td><td class="price-installment">10x R$ 45,00</td><td class="prazo prazo-longo">30 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-10 -->
+                <tr><td class="codigo">0753-10</td><td><strong>Dashboard Básico</strong></td><td>Painel com gráficos interativos sincronizado com planilhas Google Drive</td><td class="price-original">R$ 358,00</td><td class="price-promo">R$ 250,00</td><td class="price-installment">10x R$ 25,00</td><td class="prazo prazo-medio">20 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-11 -->
+                <tr><td class="codigo">0753-11</td><td><strong>Formulário Automatizado Google Drive</strong></td><td>Formulário elaborado com respostas automatizadas para planilha</td><td class="price-original">R$ 47,00</td><td class="price-promo">R$ 25,70</td><td class="price-installment">À vista</td><td class="prazo prazo-rapido">3 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-12 -->
+                <tr><td class="codigo">0753-12</td><td><strong>Disponível</strong></td><td>Espaço para novo serviço - Em breve</td><td>-</td><td>-</td><td>-</td><td>-</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-13 -->
+                <tr><td class="codigo">0753-13</td><td><strong>Organização do Drive</strong></td><td>Pastas organizadas com página de acesso aos links</td><td class="price-original">R$ 142,50</td><td class="price-promo">R$ 110,00</td><td class="price-installment">4x R$ 27,50</td><td class="prazo prazo-rapido">10 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-14 -->
+                <tr><td class="codigo">0753-14</td><td><strong>Site Simples</strong></td><td>Código e Domínio entregues ao Cliente</td><td class="price-original">R$ 297,00</td><td class="price-promo">R$ 196,00</td><td class="price-installment">8x R$ 24,50</td><td class="prazo prazo-medio">10 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-15 -->
+                <tr><td class="codigo">0753-15</td><td><strong>Apresentação com Slides</strong></td><td>Slides profissionais para PowerPoint/Google Slides (até 20 slides)</td><td class="price-original">R$ 107,50</td><td class="price-promo">R$ 80,00</td><td class="price-installment">4x R$ 20,00</td><td class="prazo prazo-rapido">5 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-16 -->
+                <tr><td class="codigo">0753-16</td><td><strong>Vídeos Animados</strong></td><td>15 segundos de apresentação com seu produto ou anime com sua foto</td><td class="price-original">R$ 24,97</td><td class="price-promo">R$ 24,97</td><td class="price-installment">À vista</td><td class="prazo prazo-rapido">2 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-17 -->
+                <tr><td class="codigo">0753-17</td><td><strong>Posts que Engajam e Vendem</strong></td><td>5 Posts Personalizados para Subir o Engajamento do seu produto</td><td class="price-original">R$ 44,70</td><td class="price-promo">R$ 44,70</td><td class="price-installment">À vista</td><td class="prazo prazo-rapido">1 dia</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-18 -->
+                <tr><td class="codigo">0753-18</td><td><strong>Compactar fotos no Drive</strong></td><td>Liberar espaço organizando e compactando imagens no Drive</td><td class="price-original">R$ 50,00</td><td class="price-promo">R$ 45,00</td><td class="price-installment">À vista</td><td class="prazo prazo-rapido">1 dia</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-19 -->
+                <tr><td class="codigo">0753-19</td><td><strong>Agenda eletrônica personalizada simples</strong></td><td>Agenda simples personalizada conforme sua necessidade</td><td class="price-original">R$ 120,00</td><td class="price-promo">R$ 105,00</td><td class="price-installment">3x R$ 35,00</td><td class="prazo prazo-medio">10 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-20 -->
+                <tr><td class="codigo">0753-20</td><td><strong>Organização Instagram com Vitrine</strong></td><td>Organização de Conta no Instagram com Vitrine e Catálogo WhatsApp</td><td class="price-original">R$ 300,00</td><td class="price-promo">R$ 270,00</td><td class="price-installment">6x R$ 45,00</td><td class="prazo prazo-longo">30 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-21 -->
+                <tr><td class="codigo">0753-21</td><td><strong>Otimizar Celular</strong></td><td>Melhorar o desempenho do seu dispositivo celular</td><td class="price-original">R$ 50,00</td><td class="price-promo">R$ 45,00</td><td class="price-installment">À vista</td><td class="prazo prazo-rapido">1 dia</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-22 -->
+                <tr><td class="codigo">0753-22</td><td><strong>Catálogo Virtual Básico</strong> <span class="badge-novo">NOVO</span></td><td>Até 50 produtos, sincronização Google Sheets, busca por nome</td><td class="price-original">R$ 397,00</td><td class="price-promo">R$ 360,00</td><td class="price-installment">8x R$ 45,00</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-23 -->
+                <tr><td class="codigo">0753-23</td><td><strong>Catálogo Virtual Profissional</strong> <span class="badge-novo">NOVO</span></td><td>Até 200 produtos, categorias, busca, filtros, WhatsApp integrado</td><td class="price-original">R$ 697,00</td><td class="price-promo">R$ 620,00</td><td class="price-installment">10x R$ 62,00</td><td class="prazo prazo-longo">30 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-24 -->
+                <tr><td class="codigo">0753-24</td><td><strong>Sistema Controle Cartão Crédito</strong> <span class="badge-novo">NOVO</span></td><td>Várias pessoas usando o cartão, perfil admin + usuário, controle de débitos</td><td class="price-original">R$ 397,00</td><td class="price-promo">R$ 360,00</td><td class="price-installment">8x R$ 45,00</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-25 -->
+                <tr><td class="codigo">0753-25</td><td><strong>Sistema Controle Vendas (Fiado)</strong> <span class="badge-novo">NOVO</span></td><td>Registro de compras fiado, botão de cobrança WhatsApp, cliente consulta débito</td><td class="price-original">R$ 397,00</td><td class="price-promo">R$ 360,00</td><td class="price-installment">8x R$ 45,00</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-26 -->
+                <tr><td class="codigo">0753-26</td><td><strong>Sistema Financeiro Básico</strong> <span class="badge-novo">NOVO</span></td><td>Controle de entradas/saídas, cálculo de saldo, gráficos simples</td><td class="price-original">R$ 150,00</td><td class="price-promo">R$ 135,00</td><td class="price-installment">3x R$ 45,00</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-27 -->
+                <tr><td class="codigo">0753-27</td><td><strong>Sistema Financeiro Profissional</strong> <span class="badge-novo">NOVO</span></td><td>Tudo do básico + categorias, metas, relatórios avançados</td><td class="price-original">R$ 297,00</td><td class="price-promo">R$ 267,00</td><td class="price-installment">6x R$ 44,50</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-28 -->
+                <tr><td class="codigo">0753-28</td><td><strong>Cardápio Virtual (c/ Painel Cozinha)</strong> <span class="badge-novo">NOVO</span></td><td>QR Code na mesa, pedido vai para planilha Drive + painel para cozinha</td><td class="price-original">R$ 397,00</td><td class="price-promo">R$ 360,00</td><td class="price-installment">8x R$ 45,00</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-29 -->
+                <tr><td class="codigo">0753-29</td><td><strong>Cardápio Virtual (WhatsApp Direto)</strong> <span class="badge-novo">NOVO</span></td><td>QR Code na mesa, pedido vai direto para WhatsApp da cozinha</td><td class="price-original">R$ 297,00</td><td class="price-promo">R$ 267,00</td><td class="price-installment">6x R$ 44,50</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-30 -->
+                <tr><td class="codigo">0753-30</td><td><strong>Controle de Estoque Básico</strong> <span class="badge-novo">NOVO</span></td><td>Até 100 produtos, cadastro, entrada/saída, alerta estoque baixo, relatório Excel</td><td class="price-original">R$ 197,00</td><td class="price-promo">R$ 167,00</td><td class="price-installment">4x R$ 41,75</td><td class="prazo prazo-medio">10 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-31 -->
+                <tr><td class="codigo">0753-31</td><td><strong>Controle de Estoque Profissional</strong> <span class="badge-novo">NOVO</span></td><td>Até 500 produtos, categorias, fornecedores, gráficos simples</td><td class="price-original">R$ 397,00</td><td class="price-promo">R$ 340,00</td><td class="price-installment">8x R$ 42,50</td><td class="prazo prazo-medio">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-32 -->
+                <tr><td class="codigo">0753-32</td><td><strong>Controle de Estoque Premium</strong> <span class="badge-novo">NOVO</span></td><td>Produtos ilimitados, dashboard avançado, produtos mais vendidos, backup automático</td><td class="price-original">R$ 597,00</td><td class="price-promo">R$ 520,00</td><td class="price-installment">10x R$ 52,00</td><td class="prazo prazo-longo">20 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-33 -->
+                <tr><td class="codigo">0753-33</td><td><strong>Portfólio Digital Básico</strong> <span class="badge-novo">NOVO</span></td><td>Página HTML com seus trabalhos, projetos, contato. Até 5 projetos.</td><td class="price-original">R$ 247,00</td><td class="price-promo">R$ 197,00</td><td class="price-installment">6x R$ 32,83</td><td class="prazo prazo-rapido">7 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-34 -->
+                <tr><td class="codigo">0753-34</td><td><strong>Portfólio Digital Profissional</strong> <span class="badge-novo">NOVO</span></td><td>Página completa com galeria, filtros por categoria, depoimentos, contato. Até 15 projetos.</td><td class="price-original">R$ 397,00</td><td class="price-promo">R$ 297,00</td><td class="price-installment">8x R$ 37,12</td><td class="prazo prazo-medio">10 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+                
+                <!-- 0753-35 -->
+                <tr><td class="codigo">0753-35</td><td><strong>Portfólio Digital Premium</strong> <span class="badge-novo">NOVO</span></td><td>Site completo com blog, integração GitHub, links para projetos, formulário avançado. Projetos ilimitados.</td><td class="price-original">R$ 597,00</td><td class="price-promo">R$ 447,00</td><td class="price-installment">10x R$ 44,70</td><td class="prazo prazo-longo">15 dias</td><td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td></tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- RODAPÉ -->
@@ -916,73 +193,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    // FUNÇÃO DE FILTRAGEM
-    function filtrarProdutos() {
-        const categoria = document.getElementById('filtroCategoria').value;
-        const preco = document.getElementById('filtroPreco').value;
-        const busca = document.getElementById('filtroBusca').value.toLowerCase();
-        
-        const sections = document.querySelectorAll('.section');
-        let totalVisiveis = 0;
-        
-        sections.forEach(section => {
-            const categoriaSection = section.getAttribute('data-categoria');
-            let sectionVisivel = false;
-            
-            // Verifica se a categoria corresponde
-            if (categoria === 'todas' || categoria === categoriaSection) {
-                sectionVisivel = true;
-                section.style.display = 'block';
-                
-                // Filtra linhas da tabela dentro da seção
-                const rows = section.querySelectorAll('tbody tr');
-                rows.forEach(row => {
-                    const nome = row.getAttribute('data-nome') || '';
-                    const precoPromo = parseFloat(row.getAttribute('data-preco') || 0);
-                    const precoOriginal = parseFloat(row.getAttribute('data-preco-original') || 0);
-                    
-                    let precoMatch = true;
-                    if (preco === 'ate50' && precoPromo > 50) precoMatch = false;
-                    else if (preco === '50a100' && (precoPromo < 50 || precoPromo > 100)) precoMatch = false;
-                    else if (preco === '100a200' && (precoPromo < 100 || precoPromo > 200)) precoMatch = false;
-                    else if (preco === '200a400' && (precoPromo < 200 || precoPromo > 400)) precoMatch = false;
-                    else if (preco === 'acima400' && precoPromo <= 400) precoMatch = false;
-                    
-                    const buscaMatch = nome.toLowerCase().includes(busca);
-                    
-                    if (precoMatch && (busca === '' || buscaMatch)) {
-                        row.classList.remove('oculto');
-                        totalVisiveis++;
-                    } else {
-                        row.classList.add('oculto');
-                    }
-                });
-            } else {
-                section.style.display = 'none';
-            }
-        });
-        
-        document.getElementById('contadorProdutos').innerText = `${totalVisiveis} produtos encontrados`;
-    }
-    
-    // LIMPAR FILTROS
-    function limparFiltros() {
-        document.getElementById('filtroCategoria').value = 'todas';
-        document.getElementById('filtroPreco').value = 'todos';
-        document.getElementById('filtroBusca').value = '';
-        filtrarProdutos();
-    }
-    
-    // EVENTOS
-    document.getElementById('filtroCategoria').addEventListener('change', filtrarProdutos);
-    document.getElementById('filtroPreco').addEventListener('change', filtrarProdutos);
-    document.getElementById('filtroBusca').addEventListener('input', filtrarProdutos);
-    document.getElementById('btnLimparFiltros').addEventListener('click', limparFiltros);
-    
-    // Inicializar
-    filtrarProdutos();
-</script>
 </body>
 </html>
