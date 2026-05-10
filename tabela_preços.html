@@ -3,649 +3,673 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataDesh Soluções Digitais - Tabela de Preços</title>
+    <title>Catálogo DataDesh | 112 Soluções Digitais para Pequenos Negócios</title>
+    <meta name="description" content="Catálogo completo com 112 micro-sistemas, sites, catálogos digitais, dashboards e automações para MEI, lojistas e autônomos.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --surface-2: #f8fafc;
+            --text: #122033;
+            --muted: #667085;
+            --line: #e6ebf2;
+            --primary: #0f766e;
+            --primary-dark: #0a4f4a;
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --dark: #0f172a;
+            --dark-2: #162033;
+            --success-soft: #dff7ef;
+            --warning-soft: #fff3d6;
+            --shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 18px 45px rgba(15, 23, 42, 0.10);
+            --shadow-lg: 0 30px 60px rgba(2, 8, 23, 0.14);
+            --radius-sm: 14px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-xl: 36px;
+            --container: 1300px;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: "Inter", sans-serif;
-            background: linear-gradient(135deg, #f5f7fb 0%, #e8edf5 100%);
-            padding: 2rem;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 32px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-        }
+        .container { width: min(100% - 32px, var(--container)); margin-inline: auto; }
 
-        /* CABEÇALHO */
-        .header {
+        /* HEADER */
+        .catalog-header {
             background: linear-gradient(135deg, #0c1426 0%, #101b30 45%, #0f2b33 100%);
             color: white;
-            padding: 2.5rem;
+            padding: 48px 0 40px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
+        .catalog-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 36px 36px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.25));
+            pointer-events: none;
         }
-
-        .header h1 i {
-            color: #8af3e5;
+        .catalog-header h1 {
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            position: relative;
         }
-
-        .header p {
+        .catalog-header h1 span { color: #8af3e5; }
+        .catalog-header p {
             color: rgba(255,255,255,0.8);
-            margin-top: 0.5rem;
+            margin-top: 12px;
+            position: relative;
+            font-size: 1.05rem;
         }
-
-        .header .contato {
-            background: rgba(255,255,255,0.1);
-            display: inline-block;
-            padding: 8px 24px;
-            border-radius: 40px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .catalogo-wa {
-            display: inline-block;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            padding: 10px 24px;
-            border-radius: 40px;
-            margin-top: 15px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .catalogo-wa a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .catalogo-wa:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        /* FILTROS */
-        .filtros {
-            background: #f0fdf9;
-            padding: 1.5rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #e6ebf2;
-        }
-
-        .filtros-group {
+        .catalog-header .contato-pills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+        }
+        .catalog-header .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: .25s;
+            text-decoration: none;
+        }
+        .catalog-header .pill:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+        .catalog-header .pill-destaque {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        /* FILTROS */
+        .filtros-bar {
+            background: white;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .filtros-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .filtros-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             align-items: center;
         }
-
-        .filtros select, .filtros input {
-            padding: 10px 18px;
-            border-radius: 40px;
-            border: 1px solid #d1fae5;
+        .busca-input {
+            padding: 12px 18px 12px 42px;
+            border-radius: 999px;
+            border: 2px solid var(--line);
+            font-family: "Inter", sans-serif;
+            font-size: 0.9rem;
+            min-width: 280px;
+            background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%239ca3af" stroke-width="2"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>') no-repeat 15px center;
+            transition: .2s;
+        }
+        .busca-input:focus { outline: none; border-color: var(--primary); }
+        .filtro-btn {
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
             background: white;
             font-family: "Inter", sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: .2s;
+            white-space: nowrap;
+            color: var(--muted);
         }
-
-        .filtro-busca {
-            min-width: 250px;
+        .filtro-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .filtro-btn.ativo {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
-
-        .filtro-busca input {
-            width: 100%;
-            padding-left: 40px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%239ca3af" stroke-width="2"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>');
-            background-repeat: no-repeat;
-            background-position: 15px center;
-        }
-
         .btn-limpar {
-            background: #e6ebf2;
+            padding: 10px 18px;
+            border-radius: 999px;
             border: none;
-            padding: 10px 24px;
-            border-radius: 40px;
+            background: #f1f5f9;
+            color: var(--muted);
+            font-weight: 600;
             cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
+            font-family: "Inter", sans-serif;
+            font-size: 0.8rem;
+            transition: .2s;
         }
-
-        .btn-limpar:hover {
-            background: #d1fae5;
-        }
-
-        .contador-produtos {
+        .btn-limpar:hover { background: #e2e8f0; }
+        .contador {
             font-size: 0.85rem;
-            color: #0f766e;
-            font-weight: 600;
-            background: #d1fae5;
-            padding: 5px 15px;
-            border-radius: 40px;
+            color: var(--primary);
+            font-weight: 700;
+            background: #dff7ef;
+            padding: 8px 16px;
+            border-radius: 999px;
+            white-space: nowrap;
         }
 
         /* SEÇÕES */
-        .section {
-            padding: 1.5rem 2rem;
-            transition: 0.3s;
+        .bloco-section {
+            padding: 40px 0;
         }
-
-        .section-title {
-            background: linear-gradient(135deg, #0f766e, #0a4f4a);
-            color: white;
-            padding: 0.7rem 1.8rem;
-            margin: 1rem 0 1.5rem 0;
-            border-radius: 40px;
+        .bloco-titulo {
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 999px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(15, 118, 110, 0.2);
+        }
+        .bloco-titulo i { font-size: 1.1rem; }
+        .bloco-contador {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
         }
 
-        /* TABELA */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        /* GRID DE CARDS */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 18px;
         }
-
-        th {
-            background: #f0fdf9;
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 2px solid #0f766e;
-            color: #0f766e;
-            font-weight: 700;
-            font-size: 0.85rem;
+        .produto-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            transition: .25s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #e6ebf2;
-            color: #1f2937;
-            vertical-align: middle;
-            font-size: 0.85rem;
+        .produto-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: #d4dce7;
         }
-
-        tr:hover {
-            background: #fafefd;
+        .produto-card.oculto { display: none; }
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
         }
-
-        .oculto {
-            display: none;
-        }
-
-        .codigo {
-            background: #0f766e;
+        .card-codigo {
+            background: var(--primary);
             color: white;
             font-size: 0.7rem;
             font-weight: 700;
             padding: 4px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 6px;
+            border-radius: 999px;
+            white-space: nowrap;
         }
-
-        .price-original {
-            color: #9ca3af;
-            font-size: 0.75rem;
-            text-decoration: line-through;
-        }
-
-        .price-promo {
-            font-weight: 800;
-            color: #0f766e;
-            font-size: 1rem;
-        }
-
-        .price-installment {
-            font-size: 0.8rem;
-            color: #f59e0b;
-            font-weight: 600;
-        }
-
-        .sinal-info {
-            background: #fef3c7;
-            color: #d97706;
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .prazo {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-
-        .prazo-rapido { background: #d1fae5; color: #0b5e42; }
-        .prazo-medio { background: #fef3c7; color: #d97706; }
-        .prazo-longo { background: #e0e7ff; color: #4338ca; }
-
-        .btn-whatsapp-small {
-            background: linear-gradient(135deg, #0f766e, #0a4f4a);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-
-        .btn-whatsapp-small:hover {
-            transform: translateY(-2px);
-            background: #0a4f4a;
-        }
-
-        .badge-novo {
+        .card-novo {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             color: white;
             font-size: 0.6rem;
             font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 8px;
-            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 999px;
             animation: pulse 1.5s infinite;
         }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .card-nome {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.3;
         }
-
-        /* PACOTES */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .card-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.5;
+            flex-grow: 1;
         }
-
-        .package-card {
-            background: white;
-            border: 1px solid #e6ebf2;
-            border-radius: 24px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .package-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px rgba(15, 118, 110, 0.1);
-            border-color: #0f766e;
-        }
-
-        .package-card.destaque {
-            border: 2px solid #f59e0b;
-            background: linear-gradient(135deg, #fffbeb, white);
-        }
-
-        .selo-destaque {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: #f59e0b;
-            color: #0c1426;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 800;
-        }
-
-        .package-card h4 {
-            color: #0f766e;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-price {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #0f766e;
-            margin: 0.5rem 0;
-        }
-
-        .package-installment {
-            font-size: 0.8rem;
-            color: #6b7280;
-        }
-
-        .btn-pedir {
-            display: inline-block;
-            margin-top: 1rem;
-            background: linear-gradient(135deg, #0f766e, #0a4f4a);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: 0.3s;
-        }
-
-        .btn-pedir:hover {
-            background: #f59e0b;
-            transform: scale(1.02);
-        }
-
-        /* RESUMO */
-        .resumo {
-            background: linear-gradient(135deg, #f0fdf9, #ffffff);
-            padding: 1.5rem 2rem;
-            border-radius: 24px;
-            margin: 1.5rem 2rem;
-            border: 1px solid #d1fae5;
-        }
-
-        .resumo h3 {
-            color: #0f766e;
-            margin-bottom: 1rem;
+        .card-precos {
             display: flex;
+            gap: 16px;
             align-items: center;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 14px;
+        }
+        .card-preco-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .card-preco-label {
+            font-size: 0.65rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: .04em;
+        }
+        .card-preco-valor {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .card-preco-mensal {
+            font-size: 0.7rem;
+            color: var(--secondary-dark);
+            font-weight: 600;
+        }
+        .card-actions {
+            display: flex;
             gap: 8px;
         }
-
-        .resumo ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
+        .btn-quero {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: .2s;
         }
-
-        .resumo li {
+        .btn-quero:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 118, 110, 0.25); }
+        .btn-detalhes {
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
             background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 40px;
-            border: 1px solid #e6ebf2;
-            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: .2s;
+            white-space: nowrap;
         }
+        .btn-detalhes:hover { border-color: var(--primary); color: var(--primary); }
 
-        .footer {
+        /* FOOTER */
+        .catalog-footer {
             background: #0b1220;
             color: white;
-            padding: 2rem;
             text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
         }
+        .catalog-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .catalog-footer a:hover { color: white; }
 
-        .footer a {
-            color: #9ca3af;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.8rem;
-        }
-
-        .footer a:hover {
-            color: white;
-        }
-
-        @media (max-width: 900px) {
-            body { padding: 1rem; }
-            .packages-grid { grid-template-columns: repeat(2, 1fr); }
-            th, td { font-size: 0.7rem; padding: 0.6rem; }
-            .filtros { flex-direction: column; align-items: stretch; }
-            .filtros-group { justify-content: space-between; }
-        }
-
-        @media (max-width: 600px) {
-            .packages-grid { grid-template-columns: 1fr; }
-            .section { padding: 1rem; }
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .cards-grid { grid-template-columns: 1fr; }
+            .filtros-wrap { flex-direction: column; align-items: stretch; }
+            .filtros-group { justify-content: center; }
+            .busca-input { min-width: 100%; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <!-- CABEÇALHO -->
-    <div class="header">
-        <h1><i class="fas fa-chart-line"></i> TABELA DE PREÇOS</h1>
-        <p>DataDesh Soluções Digitais | Desenvolvedora Web - Tecnóloga em Ciências de Dados</p>
-        <div class="contato">
-            <i class="fab fa-whatsapp"></i> (31) 98498-7116 | 
-            <i class="fa-regular fa-envelope"></i> datadshsolucoes@gmail.com | 
-            <i class="fa-brands fa-pix"></i> PIX disponível
-        </div>
-        <div class="catalogo-wa">
-            <a href="https://wa.me/c/553184987116" target="_blank">
-                <i class="fab fa-whatsapp"></i> 📚 VER CATÁLOGO COMPLETO NO WHATSAPP
-            </a>
+
+<!-- HEADER -->
+<header class="catalog-header">
+    <div class="container">
+        <h1>📚 <span>Catálogo</span> DataDesh</h1>
+        <p>112 soluções digitais para pequenos negócios — sites, catálogos, dashboards, automações e micro-sistemas SaaS</p>
+        <div class="contato-pills">
+            <a href="https://wa.me/5531984987116" class="pill" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
+            <a href="mailto:datadshsolucoes@gmail.com" class="pill"><i class="fa-regular fa-envelope"></i> datadshsolucoes@gmail.com</a>
+            <a href="https://www.instagram.com/datadeshsolucoesdigitais/" class="pill" target="_blank"><i class="fab fa-instagram"></i> @datadeshsolucoesdigitais</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/" class="pill pill-destaque" target="_blank"><i class="fa-solid fa-globe"></i> Site Principal</a>
         </div>
     </div>
+</header>
 
-    <!-- FILTROS -->
-    <div class="filtros">
-        <div class="filtros-group">
-            <select id="filtroCategoria">
-                <option value="todas">📋 Todas categorias</option>
-                <option value="robo">🤖 Robôs e Automações</option>
-                <option value="dashboard">📊 Dashboards e Sistemas</option>
-                <option value="catalogo">🏪 Catálogos Virtuais</option>
-                <option value="gestao">💳 Sistemas Mini (Gestão)</option>
-                <option value="cardapio">🍽️ Cardápio Virtual</option>
-                <option value="estoque">📦 Controle de Estoque</option>
-                <option value="design">🎨 Design & Identidade</option>
-                <option value="portfolio">💼 Portfólio Digital</option>
-                <option value="suporte">🛠️ Suporte e Otimização</option>
-            </select>
-            <select id="filtroPreco">
-                <option value="todos">💰 Todos os preços</option>
-                <option value="ate50">Até R$ 50</option>
-                <option value="50a100">R$ 50 - R$ 100</option>
-                <option value="100a200">R$ 100 - R$ 200</option>
-                <option value="200a400">R$ 200 - R$ 400</option>
-                <option value="acima400">Acima de R$ 400</option>
-            </select>
-        </div>
-        <div class="filtros-group filtro-busca">
-            <input type="text" id="filtroBusca" placeholder="🔍 Buscar serviço...">
-        </div>
-        <div class="filtros-group">
-            <button id="btnLimparFiltros" class="btn-limpar">🧹 Limpar Filtros</button>
-            <span id="contadorProdutos" class="contador-produtos">35 produtos</span>
-        </div>
-    </div>
-
-    <!-- TABELA COMPLETA -->
-    <div class="section" data-categoria="todos" id="tabelaProdutos">
-        <div class="section-title"><i class="fa-solid fa-list"></i> TODOS OS SERVIÇOS</div>
-        <table>
-            <thead>
-                <tr><th>Código</th><th>Serviço</th><th>Descrição</th><th>Valor Original</th><th>Promoção</th><th>Parcelamento</th><th>Prazo</th><th></th></tr>
-            </thead>
-            <tbody id="tabelaBody">
-                <!-- Os dados serão inseridos via JavaScript -->
-            </tbody>
-        </table>
-    </div>
-
-    <!-- PACOTES PROMOCIONAIS -->
-    <div class="section">
-        <div class="section-title"><i class="fa-solid fa-gift"></i> 🎁 PACOTES PROMOCIONAIS</div>
-        <div class="packages-grid">
-            <div class="package-card">
-                <div class="selo-destaque">🔥 MAIS VENDIDO</div>
-                <h4>Pacote Start</h4>
-                <p>Catálogo Digital + Página Institucional</p>
-                <div class="package-price">R$ 297,00</div>
-                <div class="package-installment">ou 6x de R$ 49,50</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
+<!-- BARRA DE FILTROS -->
+<div class="filtros-bar">
+    <div class="container">
+        <div class="filtros-wrap">
+            <div class="filtros-group">
+                <input type="text" class="busca-input" id="buscaInput" placeholder="🔍 Buscar por nome ou descrição...">
             </div>
-            <div class="package-card destaque">
-                <div class="selo-destaque">⭐ MAIS COMPLETO</div>
-                <h4>Pacote Profissional</h4>
-                <p>Site + Catálogo + Dashboard Simples</p>
-                <div class="package-price">R$ 497,00</div>
-                <div class="package-installment">ou 10x de R$ 49,70</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
+            <div class="filtros-group" id="filtrosCategoria">
+                <button class="filtro-btn ativo" data-cat="todos">📋 Todos</button>
+                <button class="filtro-btn" data-cat="formularios">📝 Formulários</button>
+                <button class="filtro-btn" data-cat="agendamentos">📅 Agendamentos</button>
+                <button class="filtro-btn" data-cat="cobranca">💰 Cobrança/Fiado</button>
+                <button class="filtro-btn" data-cat="cardapios">🍽️ Cardápios</button>
+                <button class="filtro-btn" data-cat="orcamentos">📐 Orçamentos</button>
+                <button class="filtro-btn" data-cat="portfolio">💼 Portfólio</button>
+                <button class="filtro-btn" data-cat="financeiro">📊 Financeiro</button>
+                <button class="filtro-btn" data-cat="servicos">🔧 Serviços</button>
             </div>
-            <div class="package-card">
-                <div class="selo-destaque">👑 TOP</div>
-                <h4>Pacote Premium</h4>
-                <p>Site Completo + Dashboard + Identidade Visual</p>
-                <div class="package-price">R$ 797,00</div>
-                <div class="package-installment">ou 10x de R$ 79,70</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
-            </div>
-            <div class="package-card">
-                <div class="selo-destaque">📦 SUPER</div>
-                <h4>Kit Clínicas</h4>
-                <p>Página para Clínica + Dashboard de Agendamentos</p>
-                <div class="package-price">R$ 547,00</div>
-                <div class="package-installment">ou 10x de R$ 54,70</div>
-                <div class="sinal-info" style="margin: 8px auto; display: inline-block;">20% de sinal</div>
-                <a href="https://wa.me/5531984987116" class="btn-pedir">👉 Quero esse</a>
+            <div class="filtros-group">
+                <span class="contador" id="contadorProdutos">112 produtos</span>
+                <button class="btn-limpar" id="btnLimpar">🧹 Limpar</button>
             </div>
         </div>
-    </div>
-
-    <!-- INFORMAÇÕES -->
-    <div class="resumo">
-        <h3><i class="fa-solid fa-circle-info"></i> INFORMAÇÕES IMPORTANTES</h3>
-        <ul>
-            <li>💰 <strong>20% de sinal</strong> para iniciar o projeto</li>
-            <li>📦 Restante parcelado em até <strong>10x sem juros</strong></li>
-            <li>📧 Envio do protótipo por <strong>e-mail para aprovação</strong></li>
-            <li>✅ Ajustes inclusos antes da entrega final</li>
-            <li>📅 Prazos: <strong>1 a 30 dias</strong> dependendo da complexidade</li>
-            <li>💳 Aceito: PIX, cartão de crédito, boleto</li>
-        </ul>
-    </div>
-
-    <!-- RODAPÉ -->
-    <div class="footer">
-        <p>DataDesh Soluções Digitais | Ana Paula</p>
-        <p style="margin: 0.5rem 0;">
-            <i class="fab fa-whatsapp"></i> (31) 98498-7116 | 
-            <i class="fa-regular fa-envelope"></i> datadshsolucoes@gmail.com
-        </p>
     </div>
 </div>
 
-<script>
-    // DADOS COMPLETOS DOS PRODUTOS
-    const produtos = [
-        { codigo: "0753-1", nome: "Robô Python - Organizar Pastas no Drive", descricao: "Automatiza a criação e organização de pastas no Google Drive", original: 157, promocao: 137, parcelas: "5x R$ 27,40", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "robo" },
-        { codigo: "0753-2", nome: "Agendas sincronizadas", descricao: "Diversos modelos de Agendas sincronizadas com Google Forms, Agenda Google e planilhas", original: 400, promocao: 337, parcelas: "10x R$ 33,70", prazo: "20 dias", prazoClass: "prazo-longo", categoria: "robo" },
-        { codigo: "0753-3", nome: "Robô Python - Envio de E-mails em Massa", descricao: "Disparo automatizado de e-mails com textos programados, ótimo para e-mail marketing", original: 200, promocao: 167, parcelas: "5x R$ 33,40", prazo: "20 dias", prazoClass: "prazo-longo", categoria: "robo" },
-        { codigo: "0753-4", nome: "Sete Artes para Posts Carrosel", descricao: "Posts otimizados para engajar vendas no Instagram", original: 47, promocao: 47, parcelas: "À vista", prazo: "5 dias", prazoClass: "prazo-rapido", categoria: "design" },
-        { codigo: "0753-5", nome: "Cartão de Visita Virtual", descricao: "Hiper moderno e estiloso, link compartilhável", original: 49.80, promocao: 39.70, parcelas: "À vista", prazo: "3 dias", prazoClass: "prazo-rapido", categoria: "design" },
-        { codigo: "0753-6", nome: "Montagem de Catálogo WhatsApp", descricao: "Catálogo profissional com link compartilhável, carrinho e pedido via link", original: 87, promocao: 77.01, parcelas: "3x R$ 25,67", prazo: "10 dias", prazoClass: "prazo-medio", categoria: "catalogo" },
-        { codigo: "0753-7", nome: "Convites Digitais Interativos", descricao: "Convite especial com link e botão confirmação sincronizado com Google Forms", original: 97.50, promocao: 79.65, parcelas: "3x R$ 26,55", prazo: "7 dias", prazoClass: "prazo-rapido", categoria: "design" },
-        { codigo: "0753-8", nome: "Currículo Digital", descricao: "Currículo moderno, prático, link compartilhável", original: 69.80, promocao: 59.70, parcelas: "2x R$ 29,85", prazo: "3 dias", prazoClass: "prazo-rapido", categoria: "design" },
-        { codigo: "0753-9", nome: "Dashboard Avançado", descricao: "Painel com gráficos responsivo, moderno, sincronizado com planilhas Drive", original: 577.70, promocao: 450, parcelas: "10x R$ 45,00", prazo: "30 dias", prazoClass: "prazo-longo", categoria: "dashboard" },
-        { codigo: "0753-10", nome: "Dashboard Básico", descricao: "Painel com gráficos interativos sincronizado com planilhas Google Drive", original: 358, promocao: 250, parcelas: "10x R$ 25,00", prazo: "20 dias", prazoClass: "prazo-medio", categoria: "dashboard" },
-        { codigo: "0753-11", nome: "Formulário Automatizado Google Drive", descricao: "Formulário elaborado com respostas automatizadas para planilha", original: 47, promocao: 25.70, parcelas: "À vista", prazo: "3 dias", prazoClass: "prazo-rapido", categoria: "dashboard" },
-        { codigo: "0753-12", nome: "Disponível", descricao: "Espaço para novo serviço - Em breve", original: 0, promocao: 0, parcelas: "-", prazo: "-", prazoClass: "prazo-medio", categoria: "todos" },
-        { codigo: "0753-13", nome: "Organização do Drive", descricao: "Pastas organizadas com página de acesso aos links", original: 142.50, promocao: 110, parcelas: "4x R$ 27,50", prazo: "10 dias", prazoClass: "prazo-rapido", categoria: "organizacao" },
-        { codigo: "0753-14", nome: "Site Simples", descricao: "Código e Domínio entregues ao Cliente", original: 297, promocao: 196, parcelas: "8x R$ 24,50", prazo: "10 dias", prazoClass: "prazo-medio", categoria: "dashboard" },
-        { codigo: "0753-15", nome: "Apresentação com Slides", descricao: "Slides profissionais para PowerPoint/Google Slides (até 20 slides)", original: 107.50, promocao: 94.80, parcelas: "4x R$ 23,70", prazo: "5 dias", prazoClass: "prazo-rapido", categoria: "design" },
-        { codigo: "0753-16", nome: "Vídeos Animados", descricao: "15 segundos de apresentação com seu produto ou anime com sua foto", original: 24.97, promocao: 24.97, parcelas: "À vista", prazo: "2 dias", prazoClass: "prazo-rapido", categoria: "design" },
-        { codigo: "0753-17", nome: "Posts que Engajam e Vendem", descricao: "5 Posts Personalizados para Subir o Engajamento do seu produto", original: 44.70, promocao: 44.70, parcelas: "À vista", prazo: "1 dia", prazoClass: "prazo-rapido", categoria: "design" },
-        { codigo: "0753-18", nome: "Compactar fotos no Drive", descricao: "Liberar espaço organizando e compactando imagens no Drive", original: 50, promocao: 45, parcelas: "À vista", prazo: "1 dia", prazoClass: "prazo-rapido", categoria: "suporte" },
-        { codigo: "0753-19", nome: "Agenda eletrônica personalizada", descricao: "Agenda simples personalizada conforme sua necessidade", original: 120, promocao: 105, parcelas: "3x R$ 35,00", prazo: "10 dias", prazoClass: "prazo-medio", categoria: "robo" },
-        { codigo: "0753-20", nome: "Organização Instagram com Vitrine", descricao: "Organização de Conta no Instagram com Vitrine e Catálogo WhatsApp", original: 300, promocao: 270, parcelas: "6x R$ 45,00", prazo: "30 dias", prazoClass: "prazo-longo", categoria: "design" },
-        { codigo: "0753-21", nome: "Otimizar Celular", descricao: "Melhorar o desempenho do seu dispositivo celular", original: 50, promocao: 45, parcelas: "À vista", prazo: "1 dia", prazoClass: "prazo-rapido", categoria: "suporte" },
-        { codigo: "0753-22", nome: "Catálogo Virtual Básico", descricao: "Até 50 produtos, sincronização Google Sheets, busca por nome", original: 397, promocao: 360, parcelas: "8x R$ 45,00", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "catalogo", novo: true },
-        { codigo: "0753-23", nome: "Catálogo Virtual Profissional", descricao: "Até 200 produtos, categorias, busca, filtros, WhatsApp integrado", original: 697, promocao: 620, parcelas: "10x R$ 62,00", prazo: "30 dias", prazoClass: "prazo-longo", categoria: "catalogo", novo: true },
-        { codigo: "0753-24", nome: "Sistema Controle Cartão Crédito", descricao: "Várias pessoas usando o cartão, perfil admin + usuário, controle de débitos", original: 397, promocao: 360, parcelas: "8x R$ 45,00", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "gestao", novo: true },
-        { codigo: "0753-25", nome: "Sistema Controle Vendas (Fiado)", descricao: "Registro de compras fiado, botão de cobrança WhatsApp, cliente consulta débito", original: 397, promocao: 360, parcelas: "8x R$ 45,00", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "gestao", novo: true },
-        { codigo: "0753-26", nome: "Sistema Financeiro Básico", descricao: "Controle de entradas/saídas, cálculo de saldo, gráficos simples", original: 150, promocao: 135, parcelas: "3x R$ 45,00", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "gestao", novo: true },
-        { codigo: "0753-27", nome: "Sistema Financeiro Profissional", descricao: "Tudo do básico + categorias, metas, relatórios avançados", original: 297, promocao: 267, parcelas: "6x R$ 44,50", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "gestao", novo: true },
-        { codigo: "0753-28", nome: "Cardápio Virtual (c/ Painel Cozinha)", descricao: "QR Code na mesa, pedido vai para planilha Drive + painel para cozinha", original: 397, promocao: 360, parcelas: "8x R$ 45,00", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "cardapio", novo: true },
-        { codigo: "0753-29", nome: "Cardápio Virtual (WhatsApp Direto)", descricao: "QR Code na mesa, pedido vai direto para WhatsApp da cozinha", original: 297, promocao: 267, parcelas: "6x R$ 44,50", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "cardapio", novo: true },
-        { codigo: "0753-30", nome: "Controle de Estoque Básico", descricao: "Até 100 produtos, cadastro, entrada/saída, alerta estoque baixo, relatório Excel", original: 197, promocao: 167, parcelas: "4x R$ 41,75", prazo: "10 dias", prazoClass: "prazo-medio", categoria: "estoque", novo: true },
-        { codigo: "0753-31", nome: "Controle de Estoque Profissional", descricao: "Até 500 produtos, categorias, fornecedores, gráficos simples", original: 397, promocao: 340, parcelas: "8x R$ 42,50", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "estoque", novo: true },
-        { codigo: "0753-32", nome: "Controle de Estoque Premium", descricao: "Produtos ilimitados, dashboard avançado, produtos mais vendidos, backup automático", original: 597, promocao: 520, parcelas: "10x R$ 52,00", prazo: "20 dias", prazoClass: "prazo-longo", categoria: "estoque", novo: true },
-        { codigo: "0753-33", nome: "Portfólio Digital Básico", descricao: "Página HTML com até 5 projetos", original: 247, promocao: 197, parcelas: "6x R$ 32,83", prazo: "7 dias", prazoClass: "prazo-rapido", categoria: "portfolio", novo: true },
-        { codigo: "0753-34", nome: "Portfólio Digital Profissional", descricao: "Página completa com galeria, filtros por categoria, depoimentos, até 15 projetos", original: 397, promocao: 297, parcelas: "8x R$ 37,12", prazo: "10 dias", prazoClass: "prazo-medio", categoria: "portfolio", novo: true },
-        { codigo: "0753-35", nome: "Portfólio Digital Premium", descricao: "Site completo com blog, integração GitHub, links para projetos, formulário avançado. Projetos ilimitados.", original: 597, promocao: 447, parcelas: "10x R$ 44,70", prazo: "15 dias", prazoClass: "prazo-medio", categoria: "portfolio", novo: true }
-    ];
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="container" id="catalogoContainer">
+    <!-- Os blocos serão gerados dinamicamente via JavaScript -->
+</main>
 
-    function renderizarTabela() {
-        const categoria = document.getElementById('filtroCategoria').value;
-        const preco = document.getElementById('filtroPreco').value;
-        const busca = document.getElementById('filtroBusca').value.toLowerCase();
-        
-        let filtrados = produtos.filter(p => {
-            if (categoria !== 'todas' && p.categoria !== categoria) return false;
-            
-            if (preco === 'ate50' && p.promocao > 50) return false;
-            if (preco === '50a100' && (p.promocao < 50 || p.promocao > 100)) return false;
-            if (preco === '100a200' && (p.promocao < 100 || p.promocao > 200)) return false;
-            if (preco === '200a400' && (p.promocao < 200 || p.promocao > 400)) return false;
-            if (preco === 'acima400' && p.promocao <= 400) return false;
-            
-            if (busca && !p.nome.toLowerCase().includes(busca) && !p.descricao.toLowerCase().includes(busca)) return false;
-            
-            return true;
-        });
-        
-        const tbody = document.getElementById('tabelaBody');
-        tbody.innerHTML = filtrados.map(p => `
-            <tr>
-                <td><span class="codigo">${p.codigo}</span></td>
-                <td><strong>${p.nome}</strong> ${p.novo ? '<span class="badge-novo">NOVO</span>' : ''}</td>
-                <td>${p.descricao}</td>
-                <td><span class="price-original">R$ ${p.original.toFixed(2).replace('.',',')}</span></td>
-                <td><span class="price-promo">R$ ${p.promocao.toFixed(2).replace('.',',')}</span></td>
-                <td><span class="price-installment">${p.parcelas}</span></td>
-                <td><span class="prazo ${p.prazoClass}">${p.prazo}</span></td>
-                <td><a href="https://wa.me/5531984987116" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> Pedir</a></td>
-            </tr>
-        `).join('');
-        
-        document.getElementById('contadorProdutos').innerHTML = `${filtrados.length} produtos`;
+<!-- FOOTER -->
+<footer class="catalog-footer">
+    <div class="container">
+        <p><strong>DataDesh Soluções Digitais</strong> — Ana Paula</p>
+        <p style="margin-top: 8px;">
+            <a href="https://wa.me/5531984987116"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a> |
+            <a href="mailto:datadshsolucoes@gmail.com"><i class="fa-regular fa-envelope"></i> E-mail</a> |
+            <a href="https://www.instagram.com/datadeshsolucoesdigitais/"><i class="fab fa-instagram"></i> Instagram</a>
+        </p>
+        <p style="margin-top: 12px; color: rgba(255,255,255,0.5); font-size: 0.8rem;">© 2025 DataDesh Soluções — Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5531984987116" style="position:fixed; right:20px; bottom:20px; width:60px; height:60px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg, #25D366, #13a653); color:white; font-size:28px; box-shadow:0 18px 30px rgba(37,211,102,0.30); z-index:999;" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// ============================================
+// BASE DE DADOS COMPLETA: 112 PRODUTOS
+// ============================================
+const produtos = [
+    // ==================== SERVIÇOS ORIGINAIS (0753-1 a 0753-35) ====================
+    { codigo:"0753-1", nome:"Robô Python - Organizar Pastas no Drive", desc:"Automatiza a criação e organização de pastas no Google Drive", setup:137, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-2", nome:"Agendas Sincronizadas", desc:"Diversos modelos de Agendas sincronizadas com Google Forms, Agenda Google e planilhas", setup:337, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-3", nome:"Robô Python - Envio de E-mails em Massa", desc:"Disparo automatizado de e-mails com textos programados, ótimo para e-mail marketing", setup:167, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-4", nome:"Sete Artes para Posts Carrosel", desc:"Posts otimizados para engajar vendas no Instagram", setup:47, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-5", nome:"Cartão de Visita Virtual", desc:"Hiper moderno e estiloso, link compartilhável", setup:39.70, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-6", nome:"Montagem de Catálogo WhatsApp", desc:"Catálogo profissional com link compartilhável, carrinho e pedido via link", setup:77.01, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-7", nome:"Convites Digitais Interativos", desc:"Convite especial com link e botão confirmação sincronizado com Google Forms", setup:79.65, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-8", nome:"Currículo Digital", desc:"Currículo moderno, prático, link compartilhável", setup:59.70, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-9", nome:"Dashboard Avançado", desc:"Painel com gráficos responsivo, moderno, sincronizado com planilhas Drive", setup:450, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-10", nome:"Dashboard Básico", desc:"Painel com gráficos interativos sincronizado com planilhas Google Drive", setup:250, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-11", nome:"Formulário Automatizado Google Drive", desc:"Formulário elaborado com respostas automatizadas para planilha", setup:25.70, mensal:0, cat:"formularios", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-12", nome:"Espaço para Novo Serviço", desc:"Disponível para personalização", setup:0, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-13", nome:"Organização do Drive", desc:"Pastas organizadas com página de acesso aos links", setup:110, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-14", nome:"Site Simples", desc:"Código e Domínio entregues ao Cliente", setup:196, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-15", nome:"Apresentação com Slides", desc:"Slides profissionais para PowerPoint/Google Slides (até 20 slides)", setup:94.80, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-16", nome:"Vídeos Animados", desc:"15 segundos de apresentação com seu produto ou anime com sua foto", setup:24.97, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-17", nome:"Posts que Engajam e Vendem", desc:"5 Posts Personalizados para Subir o Engajamento do seu produto", setup:44.70, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-18", nome:"Compactar Fotos no Drive", desc:"Liberar espaço organizando e compactando imagens no Drive", setup:45, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-19", nome:"Agenda Eletrônica Personalizada", desc:"Agenda simples personalizada conforme sua necessidade", setup:105, mensal:0, cat:"agendamentos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-20", nome:"Organização Instagram com Vitrine", desc:"Organização de Conta no Instagram com Vitrine e Catálogo WhatsApp", setup:270, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-21", nome:"Otimizar Celular", desc:"Melhorar o desempenho do seu dispositivo celular", setup:45, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-22", nome:"Catálogo Virtual Básico", desc:"Até 50 produtos, sincronização Google Sheets, busca por nome", setup:360, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-23", nome:"Catálogo Virtual Profissional", desc:"Até 200 produtos, categorias, busca, filtros, WhatsApp integrado", setup:620, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-24", nome:"Sistema Controle Cartão Crédito", desc:"Várias pessoas usando o cartão, perfil admin + usuário, controle de débitos", setup:360, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-25", nome:"Sistema Controle Vendas (Fiado)", desc:"Registro de compras fiado, botão de cobrança WhatsApp, cliente consulta débito", setup:360, mensal:0, cat:"cobranca", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-26", nome:"Sistema Financeiro Básico", desc:"Controle de entradas/saídas, cálculo de saldo, gráficos simples", setup:135, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-27", nome:"Sistema Financeiro Profissional", desc:"Tudo do básico + categorias, metas, relatórios avançados", setup:267, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-28", nome:"Cardápio Virtual (c/ Painel Cozinha)", desc:"QR Code na mesa, pedido vai para planilha Drive + painel para cozinha", setup:360, mensal:0, cat:"cardapios", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-29", nome:"Cardápio Virtual (WhatsApp Direto)", desc:"QR Code na mesa, pedido vai direto para WhatsApp da cozinha", setup:267, mensal:0, cat:"cardapios", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-30", nome:"Controle de Estoque Básico", desc:"Até 100 produtos, cadastro, entrada/saída, alerta estoque baixo, relatório Excel", setup:167, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-31", nome:"Controle de Estoque Profissional", desc:"Até 500 produtos, categorias, fornecedores, gráficos simples", setup:340, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-32", nome:"Controle de Estoque Premium", desc:"Produtos ilimitados, dashboard avançado, produtos mais vendidos, backup automático", setup:520, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-33", nome:"Portfólio Digital Básico", desc:"Página HTML com até 5 projetos", setup:197, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-34", nome:"Portfólio Digital Profissional", desc:"Página completa com galeria, filtros por categoria, depoimentos, até 15 projetos", setup:297, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-35", nome:"Portfólio Digital Premium", desc:"Site completo com blog, integração GitHub, links para projetos, formulário avançado", setup:447, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:true },
+
+    // ==================== BLOCO 1: FORMULÁRIOS E LISTAS (0753-36 a 0753-45) ====================
+    { codigo:"0753-36", nome:"Churrascômetro Pro", desc:"Lista de compras colaborativa com rateio automático para churrascos. Cada convidado se candidata a levar itens.", setup:47, mensal:9.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-37", nome:"Presencômetro Eventos", desc:"Lista de presença digital com check-in por selfie e painel do organizador para workshops e palestras.", setup:77, mensal:19.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-38", nome:"Festômetro Infantil", desc:"Convite digital com confirmação de presença, alergias e brinquedo favorito da criança.", setup:37, mensal:14.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-39", nome:"Enquetômetro de Decisão", desc:"Enquete visual com fotos, prós/contras e prazo final de votação para decidir viagens e rolês.", setup:19.90, mensal:0, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-40", nome:"Pesquisador 5 Estrelas", desc:"Pesquisa NPS que filtra clientes felizes (4-5 estrelas) para avaliar no Google e insatisfeitos para feedback privado.", setup:97, mensal:24.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-41", nome:"Cota-Aí", desc:"Vaquinha online com barra de progresso, meta e cobrança automática para presente de amigo secreto ou formatura.", setup:57, mensal:12.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-42", nome:"Missão Volta às Aulas", desc:"Checklist de material escolar colaborativo para pais, com status de comprado e rateio.", setup:47, mensal:9.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-43", nome:"Checklist do Freela", desc:"Organizador de tarefas e entregas para freelancers, com status e prazos visuais.", setup:57, mensal:12.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-44", nome:"Enquete de Condomínio", desc:"Sistema de votação oficial com registro de votos e resultado final para decisões de condomínio.", setup:67, mensal:14.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-45", nome:"Planejador de Cardápio Semanal", desc:"Lista de refeições da semana que gera lista de compras automática para a família.", setup:47, mensal:9.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+
+    // ==================== BLOCO 2: AGENDAMENTOS (0753-46 a 0753-55) ====================
+    { codigo:"0753-46", nome:"Agenda do Barbeiro Pro", desc:"Agendamento com lembrete de retorno automático (15 dias) e confirmação por WhatsApp.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-47", nome:"Consultório de Estética Inteligente", desc:"Agenda com confirmação 24h e protocolo de pele pós-atendimento enviado ao cliente.", setup:127, mensal:29.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-48", nome:"App do Personal Trainer Raiz", desc:"Agenda + ficha de treino viva + status de pagamento do aluno.", setup:127, mensal:34.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-49", nome:"Diarista Fidelizada", desc:"Agenda de faxina com dossiê da casa (cômodos, pets, preferências) e notas privadas.", setup:87, mensal:19.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-50", nome:"Agenda do Pet Shop", desc:"Banho e tosa com fila virtual, horários disponíveis e alerta 'pet pronto para buscar'.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-51", nome:"Fila do Barbeiro", desc:"Fila virtual com QR Code na barbearia, tempo estimado e notificação 'sua vez está chegando'.", setup:77, mensal:19.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-52", nome:"Agenda do Professor Particular", desc:"Confirmação de aula com liberação de horário automático se não houver resposta.", setup:87, mensal:22.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-53", nome:"Rota do Motorista Escolar", desc:"Painel de rota da van com notificação 'Cheguei na Escola' para os pais.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-54", nome:"Agenda do Músico de Banda", desc:"Agenda semanal multi-bandas com confirmação de presença e valor do cachê.", setup:77, mensal:19.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-55", nome:"Agenda de Visitas Pastoral", desc:"CRM de visitas com pedidos de oração, histórico e lembretes de retorno.", setup:67, mensal:17.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+
+    // ==================== BLOCO 3: COBRANÇA E FIADO (0753-56 a 0753-62) ====================
+    { codigo:"0753-56", nome:"Caderneta Digital Inteligente", desc:"Registro de fiado da mercearia com cobrança diária e link de consulta para o cliente.", setup:97, mensal:24.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-57", nome:"Acertador de Rolê", desc:"Divisor de conta de bar/restaurante com cobrança lúdica e link de pagamento.", setup:37, mensal:9.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-58", nome:"Cobrador de Boleto Amigo", desc:"Follow-up automático de boleto com tom amigável e lembretes progressivos.", setup:77, mensal:19.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-59", nome:"Caixa da Feira", desc:"PDV simples de feira com cálculo de total e controle de fiado por cliente.", setup:87, mensal:22.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-60", nome:"Caderno de Fiado do Feirante", desc:"Histórico de fiado do cliente com alerta de cobrança na próxima feira.", setup:67, mensal:17.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-61", nome:"Controle de Vendas da Sacoleira", desc:"Registro de vendas e fiado com meta pessoal e botão de cobrança via WhatsApp.", setup:77, mensal:19.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-62", nome:"Cobrador de Mensalidade", desc:"Sistema de cobrança recorrente para serviços como aulas, consultorias e academias.", setup:97, mensal:24.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+
+    // ==================== BLOCO 4: CARDÁPIOS E CATÁLOGOS (0753-63 a 0753-71) ====================
+    { codigo:"0753-63", nome:"Cardápio do Almoço", desc:"PF do bairro com combos diários e pedido direto sem iFood, com link de pagamento Pix.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-64", nome:"Cardápio do Boteco Raiz", desc:"Cardápio de uma tela com os 10 petiscos e aviso de pedido para o garçom via WhatsApp.", setup:77, mensal:19.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-65", nome:"Fila Inteligente de Mesas", desc:"Painel visual para garçom com status das mesas: livre, ocupada, pedindo a conta.", setup:87, mensal:22.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-66", nome:"Catálogo da Sacoleira Pro", desc:"Vitrine PWA com upsell e mensagem de pedido pronta no WhatsApp.", setup:97, mensal:19.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-67", nome:"Marmitaria do Bairro", desc:"Sistema de assinatura de marmitas semanais com relatório de produção.", setup:127, mensal:34.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-68", nome:"Cardápio do Açaí Turbinado", desc:"Upsell automático 'Complete seu açaí com um suco' com aumento de ticket médio.", setup:87, mensal:22.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-69", nome:"Vitrine do Instagram", desc:"Loja PWA integrada ao link da bio do Instagram com carrinho e pedido via WhatsApp.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-70", nome:"Encomenda da Doceira", desc:"Gestor de encomendas com alerta de data de entrega e cálculo automático de preço.", setup:77, mensal:19.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-71", nome:"Cardápio da Pizzaria de Bairro", desc:"Sistema de montagem de pizza meia-a-meia com cálculo automático de preço.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+
+    // ==================== BLOCO 5: ORÇAMENTOS (0753-72 a 0753-78) ====================
+    { codigo:"0753-72", nome:"Orçômetro do Marido de Aluguel", desc:"Formulário guiado por tipo de problema + fotos para eletricista/encanador.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-73", nome:"Orçômetro do Pintor", desc:"Cálculo de m² e fotos para orçar pintura do sofá, sem visita técnica.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-74", nome:"Orçômetro do Jardineiro", desc:"Guia visual de serviço e fotos do jardim para orçamento rápido.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-75", nome:"Briefing Inteligente para Designer", desc:"Formulário de logo com referências do Pinterest e paleta de cores em botões visuais.", setup:97, mensal:24.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-76", nome:"Orçamento Transparente", desc:"Gerador de PDF de plano de tratamento odontológico com parcelamento.", setup:127, mensal:29.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-77", nome:"Orçamento de Buffet Express", desc:"Estimativa automática baseada em número de convidados e cardápio escolhido.", setup:97, mensal:24.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-78", nome:"Orçômetro do Montador de Móveis", desc:"Guia com fotos do móvel desmontado e endereço para orçamento rápido.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+
+    // ==================== BLOCO 6: CURRÍCULO E PORTFÓLIO (0753-79 a 0753-83) ====================
+    { codigo:"0753-79", nome:"DevLink Pro", desc:"Currículo PWA para devs com gráfico de commits do GitHub e selo de competência.", setup:97, mensal:19.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-80", nome:"Portfólio do Designer Vendedor", desc:"Botão 'Quero Este Estilo' em cada projeto que gera lead qualificado.", setup:97, mensal:24.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-81", nome:"Portfólio Secreto do Fotógrafo", desc:"Galeria privada com senha e seleção de fotos favoritas pelo cliente.", setup:87, mensal:19.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-82", nome:"Prova Online para Cliente Design", desc:"PWA de aprovação de logo com voto e comentário do cliente em cada versão.", setup:77, mensal:19.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-83", nome:"Currículo do Corretor de Imóveis", desc:"Página pessoal com imóveis vendidos, depoimentos e botão de contato.", setup:87, mensal:17.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+
+    // ==================== BLOCO 7: CARTÕES DE VISITA (0753-84 a 0753-86) ====================
+    { codigo:"0753-84", nome:"Cartão do Corretor de Alta Conversão", desc:"Link PWA com botão 'Quero Comprar' que já abre WhatsApp com mensagem pronta.", setup:57, mensal:14.90, cat:"portfolio", bloco:"Cartões de Visita", novo:true },
+    { codigo:"0753-85", nome:"Cartão do Consultor Exclusivo", desc:"Cartão adaptável à fonte do lead: palestra, Instagram, Google.", setup:67, mensal:17.90, cat:"portfolio", bloco:"Cartões de Visita", novo:true },
+    { codigo:"0753-86", nome:"Cartão do Restaurante", desc:"QR Code na mesa que abre cardápio + botão de pedir a conta.", setup:77, mensal:19.90, cat:"cardapios", bloco:"Cartões de Visita", novo:true },
+
+    // ==================== BLOCO 8: CONTROLE FINANCEIRO (0753-87 a 0753-91) ====================
+    { codigo:"0753-87", nome:"Assassino de Assinaturas", desc:"Detector de cobranças recorrentes no cartão de crédito por leitura de fatura/notificação.", setup:97, mensal:24.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-88", nome:"Calculadora da Liberdade", desc:"App que calcula % da meta para pedir demissão do emprego baseado em gastos.", setup:47, mensal:9.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-89", nome:"Conta Casal Feliz", desc:"Classifica gastos do casal em 😡🕊️❤️ e gera um termômetro financeiro mensal do relacionamento.", setup:67, mensal:14.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-90", nome:"Caixa do Autônomo", desc:"Controle financeiro simples de entradas e saídas para prestadores de serviço.", setup:77, mensal:19.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-91", nome:"Painel do MEI", desc:"Dashboard que centraliza lembretes de DAS, faturamento e agenda do microempreendedor.", setup:97, mensal:24.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+
+    // ==================== BLOCO 9: CLÍNICAS, PETS E SAÚDE (0753-92 a 0753-95) ====================
+    { codigo:"0753-92", nome:"Dossiê do Paciente", desc:"Ficha médica digital com foto e histórico de consultas odontológicas.", setup:127, mensal:29.90, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
+    { codigo:"0753-93", nome:"AlertPet Vacina", desc:"Sistema de lembrete automático de vacinas para pets com notificação 15 dias antes.", setup:77, mensal:19.90, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
+    { codigo:"0753-94", nome:"Protocolo de Pele", desc:"Sistema de pós-atendimento de estética com fotos e recomendação de produtos.", setup:87, mensal:24.90, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
+    { codigo:"0753-95", nome:"Clube da Beleza", desc:"Sistema de assinatura mensal de procedimentos estéticos com controle de créditos.", setup:127, mensal:34.90, cat:"cobranca", bloco:"Clínicas, Pets e Saúde", novo:true },
+
+    // ==================== BLOCO 10: FREELAS, EVENTOS E COMÉRCIO (0753-96 a 0753-102) ====================
+    { codigo:"0753-96", nome:"Promoções Relâmpago", desc:"Sistema de sorteio justo para Instagram com filtro de regras e validação.", setup:77, mensal:19.90, cat:"formularios", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-97", nome:"Checklist do Evento Perfeito", desc:"Checklist mestre para organizador de casamentos e formaturas.", setup:87, mensal:22.90, cat:"formularios", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-98", nome:"Encomenda do Sacolé", desc:"Gestor de encomendas de geladinho gourmet com controle de sabores.", setup:67, mensal:17.90, cat:"cardapios", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-99", nome:"Agenda do Estúdio de Pilates", desc:"Agendamento de aulas com limite de vagas por turma e lista de espera.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-100", nome:"Controle de Materiais do Autônomo", desc:"Mini-estoque no celular para prestadores de serviço.", setup:77, mensal:19.90, cat:"servicos", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-101", nome:"Setlist Colaborativa", desc:"Setlist de show com link da cifra para cada músico da banda.", setup:57, mensal:14.90, cat:"agendamentos", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-102", nome:"Tour Virtual Simples para Imóveis", desc:"Galeria de fotos do imóvel + botão de agendar visita.", setup:87, mensal:22.90, cat:"portfolio", bloco:"Freelas, Eventos e Comércio", novo:true },
+
+    // ==================== BLOCO 11: IGREJAS E COMUNIDADES (0753-103 a 0753-104) ====================
+    { codigo:"0753-103", nome:"Dízimo Digital", desc:"Registro de ofertas e dízimos com relatório mensal e extrato por membro.", setup:67, mensal:17.90, cat:"financeiro", bloco:"Igrejas e Comunidades", novo:true },
+    { codigo:"0753-104", nome:"Escala de Ministérios", desc:"Publicador de escala de louvor com notificação automática para os membros.", setup:57, mensal:14.90, cat:"agendamentos", bloco:"Igrejas e Comunidades", novo:true },
+
+    // ==================== BLOCO 12: FERRAMENTAS HORIZONTAIS (0753-105 a 0753-112) ====================
+    { codigo:"0753-105", nome:"Gestor de Pequenos Projetos", desc:"Kanban simples para o empreendedor organizar as tarefas da semana.", setup:77, mensal:19.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-106", nome:"O Carrinho Abandonado", desc:"Sistema que salva o carrinho do cliente por WhatsApp e envia lembrete para finalizar a compra.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-107", nome:"Assinaturas Vitalícias", desc:"Landing page modelo para vender os micro-sistemas como produto recorrente.", setup:127, mensal:19.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-108", nome:"Estoque Fácil", desc:"Controle de estoque básico para lojistas com alerta de produto acabando.", setup:87, mensal:22.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-109", nome:"Comanda Digital", desc:"Substituto da comanda de papel para bares e restaurantes via QR Code.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-110", nome:"Catálogo de Serviços do Pet Shop", desc:"Vitrine PWA dos serviços do pet shop com agendamento integrado.", setup:87, mensal:24.90, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-111", nome:"Lembrete do Condomínio", desc:"Sistema de envio de comunicados e alertas de pagamento da taxa condominial.", setup:67, mensal:17.90, cat:"cobranca", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-112", nome:"Agente de IA para MEI", desc:"Mini-chatbot treinado com dúvidas comuns do Sebrae e legislação MEI para WhatsApp.", setup:147, mensal:34.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true }
+];
+
+// ============================================
+// RENDERIZAÇÃO
+// ============================================
+const container = document.getElementById('catalogoContainer');
+const buscaInput = document.getElementById('buscaInput');
+const filtrosCategoria = document.getElementById('filtrosCategoria');
+const contadorSpan = document.getElementById('contadorProdutos');
+const btnLimpar = document.getElementById('btnLimpar');
+
+let categoriaAtiva = 'todos';
+
+// Agrupar por bloco
+function agruparPorBloco(lista) {
+    const grupos = {};
+    lista.forEach(p => {
+        if (!grupos[p.bloco]) grupos[p.bloco] = [];
+        grupos[p.bloco].push(p);
+    });
+    return grupos;
+}
+
+// Formatar preço
+function formatPreco(val) { return val.toFixed(2).replace('.', ','); }
+
+// Renderizar card
+function renderCard(p) {
+    const precoSetup = p.setup > 0 ? `<span class="card-preco-label">Setup</span><span class="card-preco-valor">R$ ${formatPreco(p.setup)}</span>` : '';
+    const precoMensal = p.mensal > 0 ? `<span class="card-preco-label">Mensal</span><span class="card-preco-valor">R$ ${formatPreco(p.mensal)}</span><span class="card-preco-mensal">/mês</span>` : (p.setup > 0 ? `<span class="card-preco-label">Pagamento</span><span class="card-preco-valor">À vista</span>` : '');
+    const novoBadge = p.novo ? '<span class="card-novo">NOVO</span>' : '';
+
+    return `
+        <div class="produto-card" data-cat="${p.cat}" data-nome="${p.nome.toLowerCase()}" data-desc="${p.desc.toLowerCase()}" data-cod="${p.codigo}">
+            <div class="card-top">
+                <span class="card-codigo">${p.codigo}</span>
+                ${novoBadge}
+            </div>
+            <div class="card-nome">${p.nome}</div>
+            <div class="card-desc">${p.desc}</div>
+            <div class="card-precos">${precoSetup}${precoMensal}</div>
+            <div class="card-actions">
+                <a href="https://wa.me/5531984987116?text=Quero%20o%20*${encodeURIComponent(p.nome)}*%20(código%20${p.codigo})" class="btn-quero" target="_blank"><i class="fab fa-whatsapp"></i> Quero</a>
+            </div>
+        </div>
+    `;
+}
+
+function renderizarCatalogo() {
+    const busca = buscaInput.value.toLowerCase();
+    
+    let filtrados = produtos.filter(p => {
+        // Filtro categoria
+        if (categoriaAtiva !== 'todos' && p.cat !== categoriaAtiva) return false;
+        // Filtro busca
+        if (busca && !p.nome.toLowerCase().includes(busca) && !p.desc.toLowerCase().includes(busca) && !p.codigo.includes(busca)) return false;
+        return true;
+    });
+
+    const grupos = agruparPorBloco(filtrados);
+    
+    let html = '';
+    for (const [bloco, lista] of Object.entries(grupos)) {
+        html += `
+            <section class="bloco-section">
+                <div class="bloco-titulo">
+                    <i class="fa-solid fa-folder-tree"></i> ${bloco}
+                    <span class="bloco-contador">${lista.length} itens</span>
+                </div>
+                <div class="cards-grid">
+                    ${lista.map(p => renderCard(p)).join('')}
+                </div>
+            </section>
+        `;
     }
     
-    document.getElementById('filtroCategoria').addEventListener('change', renderizarTabela);
-    document.getElementById('filtroPreco').addEventListener('change', renderizarTabela);
-    document.getElementById('filtroBusca').addEventListener('input', renderizarTabela);
-    document.getElementById('btnLimparFiltros').addEventListener('click', () => {
-        document.getElementById('filtroCategoria').value = 'todas';
-        document.getElementById('filtroPreco').value = 'todos';
-        document.getElementById('filtroBusca').value = '';
-        renderizarTabela();
-    });
+    if (filtrados.length === 0) {
+        html = `
+            <section class="bloco-section" style="text-align:center; padding:80px 0;">
+                <i class="fa-solid fa-magnifying-glass" style="font-size:3rem; color:var(--muted); display:block; margin-bottom:20px;"></i>
+                <h2 style="color:var(--muted);">Nenhum produto encontrado</h2>
+                <p style="color:var(--muted);">Tente outro termo de busca ou categoria.</p>
+            </section>
+        `;
+    }
     
-    renderizarTabela();
+    container.innerHTML = html;
+    contadorSpan.textContent = `${filtrados.length} produtos`;
+}
+
+// Eventos
+buscaInput.addEventListener('input', renderizarCatalogo);
+
+filtrosCategoria.addEventListener('click', (e) => {
+    if (e.target.classList.contains('filtro-btn')) {
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+        e.target.classList.add('ativo');
+        categoriaAtiva = e.target.dataset.cat;
+        renderizarCatalogo();
+    }
+});
+
+btnLimpar.addEventListener('click', () => {
+    buscaInput.value = '';
+    categoriaAtiva = 'todos';
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+    document.querySelector('.filtro-btn[data-cat="todos"]').classList.add('ativo');
+    renderizarCatalogo();
+});
+
+// Render inicial
+renderizarCatalogo();
 </script>
+
 </body>
 </html>
