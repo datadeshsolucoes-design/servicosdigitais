@@ -109,6 +109,18 @@
             box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
         }
 
+        /* AVISO */
+        .aviso-bar {
+            background: linear-gradient(135deg, #fef3c7, #fffbeb);
+            border-bottom: 1px solid #fcd34d;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #92400e;
+        }
+        .aviso-bar i { margin-right: 6px; color: #f59e0b; }
+
         /* FILTROS */
         .filtros-bar {
             background: white;
@@ -271,32 +283,63 @@
         }
         .card-precos {
             display: flex;
-            gap: 16px;
-            align-items: center;
-            padding: 12px;
+            flex-direction: column;
+            gap: 8px;
+            padding: 14px;
             background: #f8fafc;
             border-radius: 14px;
         }
-        .card-preco-item {
+        .preco-linha {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-        .card-preco-label {
-            font-size: 0.65rem;
+        .preco-label {
+            font-size: 0.7rem;
             color: var(--muted);
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: .04em;
         }
-        .card-preco-valor {
+        .preco-valor {
             font-weight: 800;
             color: var(--primary);
-            font-size: 1.1rem;
+            font-size: 1.3rem;
         }
-        .card-preco-mensal {
-            font-size: 0.7rem;
+        .preco-parcelado {
+            font-size: 0.8rem;
             color: var(--secondary-dark);
+            font-weight: 700;
+            background: #fffbeb;
+            padding: 8px 14px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .preco-parcelado .parcela-vezes {
+            color: var(--dark);
+        }
+        .preco-parcelado .parcela-sem-juros {
+            background: #dff7ef;
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+        .preco-avista-badge {
+            font-size: 0.75rem;
+            color: var(--muted);
             font-weight: 600;
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
         .card-actions {
             display: flex;
@@ -308,29 +351,16 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 10px;
+            padding: 12px;
             border-radius: 999px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-decoration: none;
             transition: .2s;
         }
         .btn-quero:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 118, 110, 0.25); }
-        .btn-detalhes {
-            padding: 10px 14px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: white;
-            color: var(--muted);
-            font-weight: 600;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: .2s;
-            white-space: nowrap;
-        }
-        .btn-detalhes:hover { border-color: var(--primary); color: var(--primary); }
 
         /* FOOTER */
         .catalog-footer {
@@ -358,7 +388,7 @@
 <header class="catalog-header">
     <div class="container">
         <h1>📚 <span>Catálogo</span> DataDesh</h1>
-        <p>112 soluções digitais para pequenos negócios — sites, catálogos, dashboards, automações e micro-sistemas SaaS</p>
+        <p>112 soluções digitais para pequenos negócios — sites, catálogos, dashboards, automações e micro-sistemas</p>
         <div class="contato-pills">
             <a href="https://wa.me/5531984987116" class="pill" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
             <a href="mailto:datadshsolucoes@gmail.com" class="pill"><i class="fa-regular fa-envelope"></i> datadshsolucoes@gmail.com</a>
@@ -368,12 +398,17 @@
     </div>
 </header>
 
+<!-- AVISO -->
+<div class="aviso-bar">
+    <i class="fa-solid fa-circle-info"></i> <strong>Abaixo de R$ 50,00:</strong> somente à vista. <strong>Acima de R$ 50,00:</strong> parcelado em até 10x sem juros. <strong>20% de sinal</strong> para iniciar o projeto.
+</div>
+
 <!-- BARRA DE FILTROS -->
 <div class="filtros-bar">
     <div class="container">
         <div class="filtros-wrap">
             <div class="filtros-group">
-                <input type="text" class="busca-input" id="buscaInput" placeholder="🔍 Buscar por nome ou descrição...">
+                <input type="text" class="busca-input" id="buscaInput" placeholder="🔍 Buscar por nome, descrição ou código...">
             </div>
             <div class="filtros-group" id="filtrosCategoria">
                 <button class="filtro-btn ativo" data-cat="todos">📋 Todos</button>
@@ -395,9 +430,7 @@
 </div>
 
 <!-- CONTEÚDO PRINCIPAL -->
-<main class="container" id="catalogoContainer">
-    <!-- Os blocos serão gerados dinamicamente via JavaScript -->
-</main>
+<main class="container" id="catalogoContainer"></main>
 
 <!-- FOOTER -->
 <footer class="catalog-footer">
@@ -421,143 +454,185 @@
 // ============================================
 const produtos = [
     // ==================== SERVIÇOS ORIGINAIS (0753-1 a 0753-35) ====================
-    { codigo:"0753-1", nome:"Robô Python - Organizar Pastas no Drive", desc:"Automatiza a criação e organização de pastas no Google Drive", setup:137, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-2", nome:"Agendas Sincronizadas", desc:"Diversos modelos de Agendas sincronizadas com Google Forms, Agenda Google e planilhas", setup:337, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-3", nome:"Robô Python - Envio de E-mails em Massa", desc:"Disparo automatizado de e-mails com textos programados, ótimo para e-mail marketing", setup:167, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-4", nome:"Sete Artes para Posts Carrosel", desc:"Posts otimizados para engajar vendas no Instagram", setup:47, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-5", nome:"Cartão de Visita Virtual", desc:"Hiper moderno e estiloso, link compartilhável", setup:39.70, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-6", nome:"Montagem de Catálogo WhatsApp", desc:"Catálogo profissional com link compartilhável, carrinho e pedido via link", setup:77.01, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-7", nome:"Convites Digitais Interativos", desc:"Convite especial com link e botão confirmação sincronizado com Google Forms", setup:79.65, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-8", nome:"Currículo Digital", desc:"Currículo moderno, prático, link compartilhável", setup:59.70, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-9", nome:"Dashboard Avançado", desc:"Painel com gráficos responsivo, moderno, sincronizado com planilhas Drive", setup:450, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-10", nome:"Dashboard Básico", desc:"Painel com gráficos interativos sincronizado com planilhas Google Drive", setup:250, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-11", nome:"Formulário Automatizado Google Drive", desc:"Formulário elaborado com respostas automatizadas para planilha", setup:25.70, mensal:0, cat:"formularios", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-12", nome:"Espaço para Novo Serviço", desc:"Disponível para personalização", setup:0, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-13", nome:"Organização do Drive", desc:"Pastas organizadas com página de acesso aos links", setup:110, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-14", nome:"Site Simples", desc:"Código e Domínio entregues ao Cliente", setup:196, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-15", nome:"Apresentação com Slides", desc:"Slides profissionais para PowerPoint/Google Slides (até 20 slides)", setup:94.80, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-16", nome:"Vídeos Animados", desc:"15 segundos de apresentação com seu produto ou anime com sua foto", setup:24.97, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-17", nome:"Posts que Engajam e Vendem", desc:"5 Posts Personalizados para Subir o Engajamento do seu produto", setup:44.70, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-18", nome:"Compactar Fotos no Drive", desc:"Liberar espaço organizando e compactando imagens no Drive", setup:45, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-19", nome:"Agenda Eletrônica Personalizada", desc:"Agenda simples personalizada conforme sua necessidade", setup:105, mensal:0, cat:"agendamentos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-20", nome:"Organização Instagram com Vitrine", desc:"Organização de Conta no Instagram com Vitrine e Catálogo WhatsApp", setup:270, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-21", nome:"Otimizar Celular", desc:"Melhorar o desempenho do seu dispositivo celular", setup:45, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
-    { codigo:"0753-22", nome:"Catálogo Virtual Básico", desc:"Até 50 produtos, sincronização Google Sheets, busca por nome", setup:360, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-23", nome:"Catálogo Virtual Profissional", desc:"Até 200 produtos, categorias, busca, filtros, WhatsApp integrado", setup:620, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-24", nome:"Sistema Controle Cartão Crédito", desc:"Várias pessoas usando o cartão, perfil admin + usuário, controle de débitos", setup:360, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-25", nome:"Sistema Controle Vendas (Fiado)", desc:"Registro de compras fiado, botão de cobrança WhatsApp, cliente consulta débito", setup:360, mensal:0, cat:"cobranca", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-26", nome:"Sistema Financeiro Básico", desc:"Controle de entradas/saídas, cálculo de saldo, gráficos simples", setup:135, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-27", nome:"Sistema Financeiro Profissional", desc:"Tudo do básico + categorias, metas, relatórios avançados", setup:267, mensal:0, cat:"financeiro", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-28", nome:"Cardápio Virtual (c/ Painel Cozinha)", desc:"QR Code na mesa, pedido vai para planilha Drive + painel para cozinha", setup:360, mensal:0, cat:"cardapios", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-29", nome:"Cardápio Virtual (WhatsApp Direto)", desc:"QR Code na mesa, pedido vai direto para WhatsApp da cozinha", setup:267, mensal:0, cat:"cardapios", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-30", nome:"Controle de Estoque Básico", desc:"Até 100 produtos, cadastro, entrada/saída, alerta estoque baixo, relatório Excel", setup:167, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-31", nome:"Controle de Estoque Profissional", desc:"Até 500 produtos, categorias, fornecedores, gráficos simples", setup:340, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-32", nome:"Controle de Estoque Premium", desc:"Produtos ilimitados, dashboard avançado, produtos mais vendidos, backup automático", setup:520, mensal:0, cat:"servicos", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-33", nome:"Portfólio Digital Básico", desc:"Página HTML com até 5 projetos", setup:197, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-34", nome:"Portfólio Digital Profissional", desc:"Página completa com galeria, filtros por categoria, depoimentos, até 15 projetos", setup:297, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:true },
-    { codigo:"0753-35", nome:"Portfólio Digital Premium", desc:"Site completo com blog, integração GitHub, links para projetos, formulário avançado", setup:447, mensal:0, cat:"portfolio", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-1", nome:"Robô Python - Organizar Pastas no Drive", desc:"Automatiza a criação e organização de pastas no Google Drive", valor:137, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-2", nome:"Agendas Sincronizadas", desc:"Diversos modelos de Agendas sincronizadas com Google Forms, Agenda Google e planilhas", valor:337, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-3", nome:"Robô Python - Envio de E-mails em Massa", desc:"Disparo automatizado de e-mails com textos programados, ótimo para e-mail marketing", valor:167, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-4", nome:"Sete Artes para Posts Carrosel", desc:"Posts otimizados para engajar vendas no Instagram", valor:47, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-5", nome:"Cartão de Visita Virtual", desc:"Hiper moderno e estiloso, link compartilhável", valor:39.70, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-6", nome:"Montagem de Catálogo WhatsApp", desc:"Catálogo profissional com link compartilhável, carrinho e pedido via link", valor:77.01, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-7", nome:"Convites Digitais Interativos", desc:"Convite especial com link e botão confirmação sincronizado com Google Forms", valor:79.65, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-8", nome:"Currículo Digital", desc:"Currículo moderno, prático, link compartilhável", valor:59.70, cat:"portfolio", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-9", nome:"Dashboard Avançado", desc:"Painel com gráficos responsivo, moderno, sincronizado com planilhas Drive", valor:450, cat:"financeiro", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-10", nome:"Dashboard Básico", desc:"Painel com gráficos interativos sincronizado com planilhas Google Drive", valor:250, cat:"financeiro", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-11", nome:"Formulário Automatizado Google Drive", desc:"Formulário elaborado com respostas automatizadas para planilha", valor:25.70, cat:"formularios", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-12", nome:"Espaço para Novo Serviço", desc:"Disponível para personalização", valor:0, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-13", nome:"Organização do Drive", desc:"Pastas organizadas com página de acesso aos links", valor:110, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-14", nome:"Site Simples", desc:"Código e Domínio entregues ao Cliente", valor:196, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-15", nome:"Apresentação com Slides", desc:"Slides profissionais para PowerPoint/Google Slides (até 20 slides)", valor:94.80, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-16", nome:"Vídeos Animados", desc:"15 segundos de apresentação com seu produto ou anime com sua foto", valor:24.97, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-17", nome:"Posts que Engajam e Vendem", desc:"5 Posts Personalizados para Subir o Engajamento do seu produto", valor:44.70, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-18", nome:"Compactar Fotos no Drive", desc:"Liberar espaço organizando e compactando imagens no Drive", valor:45, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-19", nome:"Agenda Eletrônica Personalizada", desc:"Agenda simples personalizada conforme sua necessidade", valor:105, cat:"agendamentos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-20", nome:"Organização Instagram com Vitrine", desc:"Organização de Conta no Instagram com Vitrine e Catálogo WhatsApp", valor:270, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-21", nome:"Otimizar Celular", desc:"Melhorar o desempenho do seu dispositivo celular", valor:45, cat:"servicos", bloco:"Serviços Originais", novo:false },
+    { codigo:"0753-22", nome:"Catálogo Virtual Básico", desc:"Até 50 produtos, sincronização Google Sheets, busca por nome", valor:360, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-23", nome:"Catálogo Virtual Profissional", desc:"Até 200 produtos, categorias, busca, filtros, WhatsApp integrado", valor:620, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-24", nome:"Sistema Controle Cartão Crédito", desc:"Várias pessoas usando o cartão, perfil admin + usuário, controle de débitos", valor:360, cat:"financeiro", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-25", nome:"Sistema Controle Vendas (Fiado)", desc:"Registro de compras fiado, botão de cobrança WhatsApp, cliente consulta débito", valor:360, cat:"cobranca", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-26", nome:"Sistema Financeiro Básico", desc:"Controle de entradas/saídas, cálculo de saldo, gráficos simples", valor:135, cat:"financeiro", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-27", nome:"Sistema Financeiro Profissional", desc:"Tudo do básico + categorias, metas, relatórios avançados", valor:267, cat:"financeiro", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-28", nome:"Cardápio Virtual (c/ Painel Cozinha)", desc:"QR Code na mesa, pedido vai para planilha Drive + painel para cozinha", valor:360, cat:"cardapios", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-29", nome:"Cardápio Virtual (WhatsApp Direto)", desc:"QR Code na mesa, pedido vai direto para WhatsApp da cozinha", valor:267, cat:"cardapios", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-30", nome:"Controle de Estoque Básico", desc:"Até 100 produtos, cadastro, entrada/saída, alerta estoque baixo, relatório Excel", valor:167, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-31", nome:"Controle de Estoque Profissional", desc:"Até 500 produtos, categorias, fornecedores, gráficos simples", valor:340, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-32", nome:"Controle de Estoque Premium", desc:"Produtos ilimitados, dashboard avançado, produtos mais vendidos, backup automático", valor:520, cat:"servicos", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-33", nome:"Portfólio Digital Básico", desc:"Página HTML com até 5 projetos", valor:197, cat:"portfolio", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-34", nome:"Portfólio Digital Profissional", desc:"Página completa com galeria, filtros por categoria, depoimentos, até 15 projetos", valor:297, cat:"portfolio", bloco:"Serviços Originais", novo:true },
+    { codigo:"0753-35", nome:"Portfólio Digital Premium", desc:"Site completo com blog, integração GitHub, links para projetos, formulário avançado", valor:447, cat:"portfolio", bloco:"Serviços Originais", novo:true },
 
     // ==================== BLOCO 1: FORMULÁRIOS E LISTAS (0753-36 a 0753-45) ====================
-    { codigo:"0753-36", nome:"Churrascômetro Pro", desc:"Lista de compras colaborativa com rateio automático para churrascos. Cada convidado se candidata a levar itens.", setup:47, mensal:9.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-37", nome:"Presencômetro Eventos", desc:"Lista de presença digital com check-in por selfie e painel do organizador para workshops e palestras.", setup:77, mensal:19.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-38", nome:"Festômetro Infantil", desc:"Convite digital com confirmação de presença, alergias e brinquedo favorito da criança.", setup:37, mensal:14.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-39", nome:"Enquetômetro de Decisão", desc:"Enquete visual com fotos, prós/contras e prazo final de votação para decidir viagens e rolês.", setup:19.90, mensal:0, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-40", nome:"Pesquisador 5 Estrelas", desc:"Pesquisa NPS que filtra clientes felizes (4-5 estrelas) para avaliar no Google e insatisfeitos para feedback privado.", setup:97, mensal:24.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-41", nome:"Cota-Aí", desc:"Vaquinha online com barra de progresso, meta e cobrança automática para presente de amigo secreto ou formatura.", setup:57, mensal:12.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-42", nome:"Missão Volta às Aulas", desc:"Checklist de material escolar colaborativo para pais, com status de comprado e rateio.", setup:47, mensal:9.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-43", nome:"Checklist do Freela", desc:"Organizador de tarefas e entregas para freelancers, com status e prazos visuais.", setup:57, mensal:12.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-44", nome:"Enquete de Condomínio", desc:"Sistema de votação oficial com registro de votos e resultado final para decisões de condomínio.", setup:67, mensal:14.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
-    { codigo:"0753-45", nome:"Planejador de Cardápio Semanal", desc:"Lista de refeições da semana que gera lista de compras automática para a família.", setup:47, mensal:9.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-36", nome:"Churrascômetro Pro", desc:"Lista de compras colaborativa com rateio automático para churrascos. Cada convidado se candidata a levar itens.", valor:47, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-37", nome:"Presencômetro Eventos", desc:"Lista de presença digital com check-in por selfie e painel do organizador para workshops e palestras.", valor:77, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-38", nome:"Festômetro Infantil", desc:"Convite digital com confirmação de presença, alergias e brinquedo favorito da criança.", valor:37, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-39", nome:"Enquetômetro de Decisão", desc:"Enquete visual com fotos, prós/contras e prazo final de votação para decidir viagens e rolês.", valor:19.90, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-40", nome:"Pesquisador 5 Estrelas", desc:"Pesquisa NPS que filtra clientes felizes (4-5 estrelas) para avaliar no Google e insatisfeitos para feedback privado.", valor:97, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-41", nome:"Cota-Aí", desc:"Vaquinha online com barra de progresso, meta e cobrança automática para presente de amigo secreto ou formatura.", valor:57, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-42", nome:"Missão Volta às Aulas", desc:"Checklist de material escolar colaborativo para pais, com status de comprado e rateio.", valor:47, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-43", nome:"Checklist do Freela", desc:"Organizador de tarefas e entregas para freelancers, com status e prazos visuais.", valor:57, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-44", nome:"Enquete de Condomínio", desc:"Sistema de votação oficial com registro de votos e resultado final para decisões de condomínio.", valor:67, cat:"formularios", bloco:"Formulários e Listas", novo:true },
+    { codigo:"0753-45", nome:"Planejador de Cardápio Semanal", desc:"Lista de refeições da semana que gera lista de compras automática para a família.", valor:47, cat:"formularios", bloco:"Formulários e Listas", novo:true },
 
     // ==================== BLOCO 2: AGENDAMENTOS (0753-46 a 0753-55) ====================
-    { codigo:"0753-46", nome:"Agenda do Barbeiro Pro", desc:"Agendamento com lembrete de retorno automático (15 dias) e confirmação por WhatsApp.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-47", nome:"Consultório de Estética Inteligente", desc:"Agenda com confirmação 24h e protocolo de pele pós-atendimento enviado ao cliente.", setup:127, mensal:29.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-48", nome:"App do Personal Trainer Raiz", desc:"Agenda + ficha de treino viva + status de pagamento do aluno.", setup:127, mensal:34.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-49", nome:"Diarista Fidelizada", desc:"Agenda de faxina com dossiê da casa (cômodos, pets, preferências) e notas privadas.", setup:87, mensal:19.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-50", nome:"Agenda do Pet Shop", desc:"Banho e tosa com fila virtual, horários disponíveis e alerta 'pet pronto para buscar'.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-51", nome:"Fila do Barbeiro", desc:"Fila virtual com QR Code na barbearia, tempo estimado e notificação 'sua vez está chegando'.", setup:77, mensal:19.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-52", nome:"Agenda do Professor Particular", desc:"Confirmação de aula com liberação de horário automático se não houver resposta.", setup:87, mensal:22.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-53", nome:"Rota do Motorista Escolar", desc:"Painel de rota da van com notificação 'Cheguei na Escola' para os pais.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-54", nome:"Agenda do Músico de Banda", desc:"Agenda semanal multi-bandas com confirmação de presença e valor do cachê.", setup:77, mensal:19.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
-    { codigo:"0753-55", nome:"Agenda de Visitas Pastoral", desc:"CRM de visitas com pedidos de oração, histórico e lembretes de retorno.", setup:67, mensal:17.90, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-46", nome:"Agenda do Barbeiro Pro", desc:"Agendamento com lembrete de retorno automático (15 dias) e confirmação por WhatsApp.", valor:97, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-47", nome:"Consultório de Estética Inteligente", desc:"Agenda com confirmação 24h e protocolo de pele pós-atendimento enviado ao cliente.", valor:127, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-48", nome:"App do Personal Trainer Raiz", desc:"Agenda + ficha de treino viva + status de pagamento do aluno.", valor:127, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-49", nome:"Diarista Fidelizada", desc:"Agenda de faxina com dossiê da casa (cômodos, pets, preferências) e notas privadas.", valor:87, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-50", nome:"Agenda do Pet Shop", desc:"Banho e tosa com fila virtual, horários disponíveis e alerta 'pet pronto para buscar'.", valor:97, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-51", nome:"Fila do Barbeiro", desc:"Fila virtual com QR Code na barbearia, tempo estimado e notificação 'sua vez está chegando'.", valor:77, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-52", nome:"Agenda do Professor Particular", desc:"Confirmação de aula com liberação de horário automático se não houver resposta.", valor:87, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-53", nome:"Rota do Motorista Escolar", desc:"Painel de rota da van com notificação 'Cheguei na Escola' para os pais.", valor:97, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-54", nome:"Agenda do Músico de Banda", desc:"Agenda semanal multi-bandas com confirmação de presença e valor do cachê.", valor:77, cat:"agendamentos", bloco:"Agendamentos", novo:true },
+    { codigo:"0753-55", nome:"Agenda de Visitas Pastoral", desc:"CRM de visitas com pedidos de oração, histórico e lembretes de retorno.", valor:67, cat:"agendamentos", bloco:"Agendamentos", novo:true },
 
     // ==================== BLOCO 3: COBRANÇA E FIADO (0753-56 a 0753-62) ====================
-    { codigo:"0753-56", nome:"Caderneta Digital Inteligente", desc:"Registro de fiado da mercearia com cobrança diária e link de consulta para o cliente.", setup:97, mensal:24.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
-    { codigo:"0753-57", nome:"Acertador de Rolê", desc:"Divisor de conta de bar/restaurante com cobrança lúdica e link de pagamento.", setup:37, mensal:9.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
-    { codigo:"0753-58", nome:"Cobrador de Boleto Amigo", desc:"Follow-up automático de boleto com tom amigável e lembretes progressivos.", setup:77, mensal:19.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
-    { codigo:"0753-59", nome:"Caixa da Feira", desc:"PDV simples de feira com cálculo de total e controle de fiado por cliente.", setup:87, mensal:22.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
-    { codigo:"0753-60", nome:"Caderno de Fiado do Feirante", desc:"Histórico de fiado do cliente com alerta de cobrança na próxima feira.", setup:67, mensal:17.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
-    { codigo:"0753-61", nome:"Controle de Vendas da Sacoleira", desc:"Registro de vendas e fiado com meta pessoal e botão de cobrança via WhatsApp.", setup:77, mensal:19.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
-    { codigo:"0753-62", nome:"Cobrador de Mensalidade", desc:"Sistema de cobrança recorrente para serviços como aulas, consultorias e academias.", setup:97, mensal:24.90, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-56", nome:"Caderneta Digital Inteligente", desc:"Registro de fiado da mercearia com cobrança diária e link de consulta para o cliente.", valor:97, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-57", nome:"Acertador de Rolê", desc:"Divisor de conta de bar/restaurante com cobrança lúdica e link de pagamento.", valor:37, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-58", nome:"Cobrador de Boleto Amigo", desc:"Follow-up automático de boleto com tom amigável e lembretes progressivos.", valor:77, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-59", nome:"Caixa da Feira", desc:"PDV simples de feira com cálculo de total e controle de fiado por cliente.", valor:87, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-60", nome:"Caderno de Fiado do Feirante", desc:"Histórico de fiado do cliente com alerta de cobrança na próxima feira.", valor:67, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-61", nome:"Controle de Vendas da Sacoleira", desc:"Registro de vendas e fiado com meta pessoal e botão de cobrança via WhatsApp.", valor:77, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
+    { codigo:"0753-62", nome:"Cobrador de Mensalidade", desc:"Sistema de cobrança recorrente para serviços como aulas, consultorias e academias.", valor:97, cat:"cobranca", bloco:"Cobrança e Fiado", novo:true },
 
     // ==================== BLOCO 4: CARDÁPIOS E CATÁLOGOS (0753-63 a 0753-71) ====================
-    { codigo:"0753-63", nome:"Cardápio do Almoço", desc:"PF do bairro com combos diários e pedido direto sem iFood, com link de pagamento Pix.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-64", nome:"Cardápio do Boteco Raiz", desc:"Cardápio de uma tela com os 10 petiscos e aviso de pedido para o garçom via WhatsApp.", setup:77, mensal:19.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-65", nome:"Fila Inteligente de Mesas", desc:"Painel visual para garçom com status das mesas: livre, ocupada, pedindo a conta.", setup:87, mensal:22.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-66", nome:"Catálogo da Sacoleira Pro", desc:"Vitrine PWA com upsell e mensagem de pedido pronta no WhatsApp.", setup:97, mensal:19.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-67", nome:"Marmitaria do Bairro", desc:"Sistema de assinatura de marmitas semanais com relatório de produção.", setup:127, mensal:34.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-68", nome:"Cardápio do Açaí Turbinado", desc:"Upsell automático 'Complete seu açaí com um suco' com aumento de ticket médio.", setup:87, mensal:22.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-69", nome:"Vitrine do Instagram", desc:"Loja PWA integrada ao link da bio do Instagram com carrinho e pedido via WhatsApp.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-70", nome:"Encomenda da Doceira", desc:"Gestor de encomendas com alerta de data de entrega e cálculo automático de preço.", setup:77, mensal:19.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
-    { codigo:"0753-71", nome:"Cardápio da Pizzaria de Bairro", desc:"Sistema de montagem de pizza meia-a-meia com cálculo automático de preço.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-63", nome:"Cardápio do Almoço", desc:"PF do bairro com combos diários e pedido direto sem iFood, com link de pagamento Pix.", valor:97, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-64", nome:"Cardápio do Boteco Raiz", desc:"Cardápio de uma tela com os 10 petiscos e aviso de pedido para o garçom via WhatsApp.", valor:77, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-65", nome:"Fila Inteligente de Mesas", desc:"Painel visual para garçom com status das mesas: livre, ocupada, pedindo a conta.", valor:87, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-66", nome:"Catálogo da Sacoleira Pro", desc:"Vitrine PWA com upsell e mensagem de pedido pronta no WhatsApp.", valor:97, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-67", nome:"Marmitaria do Bairro", desc:"Sistema de assinatura de marmitas semanais com relatório de produção.", valor:127, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-68", nome:"Cardápio do Açaí Turbinado", desc:"Upsell automático 'Complete seu açaí com um suco' com aumento de ticket médio.", valor:87, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-69", nome:"Vitrine do Instagram", desc:"Loja PWA integrada ao link da bio do Instagram com carrinho e pedido via WhatsApp.", valor:97, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-70", nome:"Encomenda da Doceira", desc:"Gestor de encomendas com alerta de data de entrega e cálculo automático de preço.", valor:77, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
+    { codigo:"0753-71", nome:"Cardápio da Pizzaria de Bairro", desc:"Sistema de montagem de pizza meia-a-meia com cálculo automático de preço.", valor:97, cat:"cardapios", bloco:"Cardápios e Catálogos", novo:true },
 
     // ==================== BLOCO 5: ORÇAMENTOS (0753-72 a 0753-78) ====================
-    { codigo:"0753-72", nome:"Orçômetro do Marido de Aluguel", desc:"Formulário guiado por tipo de problema + fotos para eletricista/encanador.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
-    { codigo:"0753-73", nome:"Orçômetro do Pintor", desc:"Cálculo de m² e fotos para orçar pintura do sofá, sem visita técnica.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
-    { codigo:"0753-74", nome:"Orçômetro do Jardineiro", desc:"Guia visual de serviço e fotos do jardim para orçamento rápido.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
-    { codigo:"0753-75", nome:"Briefing Inteligente para Designer", desc:"Formulário de logo com referências do Pinterest e paleta de cores em botões visuais.", setup:97, mensal:24.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
-    { codigo:"0753-76", nome:"Orçamento Transparente", desc:"Gerador de PDF de plano de tratamento odontológico com parcelamento.", setup:127, mensal:29.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
-    { codigo:"0753-77", nome:"Orçamento de Buffet Express", desc:"Estimativa automática baseada em número de convidados e cardápio escolhido.", setup:97, mensal:24.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
-    { codigo:"0753-78", nome:"Orçômetro do Montador de Móveis", desc:"Guia com fotos do móvel desmontado e endereço para orçamento rápido.", setup:87, mensal:22.90, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-72", nome:"Orçômetro do Marido de Aluguel", desc:"Formulário guiado por tipo de problema + fotos para eletricista/encanador.", valor:87, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-73", nome:"Orçômetro do Pintor", desc:"Cálculo de m² e fotos para orçar pintura do sofá, sem visita técnica.", valor:87, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-74", nome:"Orçômetro do Jardineiro", desc:"Guia visual de serviço e fotos do jardim para orçamento rápido.", valor:87, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-75", nome:"Briefing Inteligente para Designer", desc:"Formulário de logo com referências do Pinterest e paleta de cores em botões visuais.", valor:97, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-76", nome:"Orçamento Transparente", desc:"Gerador de PDF de plano de tratamento odontológico com parcelamento.", valor:127, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-77", nome:"Orçamento de Buffet Express", desc:"Estimativa automática baseada em número de convidados e cardápio escolhido.", valor:97, cat:"orcamentos", bloco:"Orçamentos", novo:true },
+    { codigo:"0753-78", nome:"Orçômetro do Montador de Móveis", desc:"Guia com fotos do móvel desmontado e endereço para orçamento rápido.", valor:87, cat:"orcamentos", bloco:"Orçamentos", novo:true },
 
     // ==================== BLOCO 6: CURRÍCULO E PORTFÓLIO (0753-79 a 0753-83) ====================
-    { codigo:"0753-79", nome:"DevLink Pro", desc:"Currículo PWA para devs com gráfico de commits do GitHub e selo de competência.", setup:97, mensal:19.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
-    { codigo:"0753-80", nome:"Portfólio do Designer Vendedor", desc:"Botão 'Quero Este Estilo' em cada projeto que gera lead qualificado.", setup:97, mensal:24.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
-    { codigo:"0753-81", nome:"Portfólio Secreto do Fotógrafo", desc:"Galeria privada com senha e seleção de fotos favoritas pelo cliente.", setup:87, mensal:19.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
-    { codigo:"0753-82", nome:"Prova Online para Cliente Design", desc:"PWA de aprovação de logo com voto e comentário do cliente em cada versão.", setup:77, mensal:19.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
-    { codigo:"0753-83", nome:"Currículo do Corretor de Imóveis", desc:"Página pessoal com imóveis vendidos, depoimentos e botão de contato.", setup:87, mensal:17.90, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-79", nome:"DevLink Pro", desc:"Currículo PWA para devs com gráfico de commits do GitHub e selo de competência.", valor:97, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-80", nome:"Portfólio do Designer Vendedor", desc:"Botão 'Quero Este Estilo' em cada projeto que gera lead qualificado.", valor:97, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-81", nome:"Portfólio Secreto do Fotógrafo", desc:"Galeria privada com senha e seleção de fotos favoritas pelo cliente.", valor:87, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-82", nome:"Prova Online para Cliente Design", desc:"PWA de aprovação de logo com voto e comentário do cliente em cada versão.", valor:77, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
+    { codigo:"0753-83", nome:"Currículo do Corretor de Imóveis", desc:"Página pessoal com imóveis vendidos, depoimentos e botão de contato.", valor:87, cat:"portfolio", bloco:"Currículo e Portfólio", novo:true },
 
     // ==================== BLOCO 7: CARTÕES DE VISITA (0753-84 a 0753-86) ====================
-    { codigo:"0753-84", nome:"Cartão do Corretor de Alta Conversão", desc:"Link PWA com botão 'Quero Comprar' que já abre WhatsApp com mensagem pronta.", setup:57, mensal:14.90, cat:"portfolio", bloco:"Cartões de Visita", novo:true },
-    { codigo:"0753-85", nome:"Cartão do Consultor Exclusivo", desc:"Cartão adaptável à fonte do lead: palestra, Instagram, Google.", setup:67, mensal:17.90, cat:"portfolio", bloco:"Cartões de Visita", novo:true },
-    { codigo:"0753-86", nome:"Cartão do Restaurante", desc:"QR Code na mesa que abre cardápio + botão de pedir a conta.", setup:77, mensal:19.90, cat:"cardapios", bloco:"Cartões de Visita", novo:true },
+    { codigo:"0753-84", nome:"Cartão do Corretor de Alta Conversão", desc:"Link PWA com botão 'Quero Comprar' que já abre WhatsApp com mensagem pronta.", valor:57, cat:"portfolio", bloco:"Cartões de Visita", novo:true },
+    { codigo:"0753-85", nome:"Cartão do Consultor Exclusivo", desc:"Cartão adaptável à fonte do lead: palestra, Instagram, Google.", valor:67, cat:"portfolio", bloco:"Cartões de Visita", novo:true },
+    { codigo:"0753-86", nome:"Cartão do Restaurante", desc:"QR Code na mesa que abre cardápio + botão de pedir a conta.", valor:77, cat:"cardapios", bloco:"Cartões de Visita", novo:true },
 
     // ==================== BLOCO 8: CONTROLE FINANCEIRO (0753-87 a 0753-91) ====================
-    { codigo:"0753-87", nome:"Assassino de Assinaturas", desc:"Detector de cobranças recorrentes no cartão de crédito por leitura de fatura/notificação.", setup:97, mensal:24.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
-    { codigo:"0753-88", nome:"Calculadora da Liberdade", desc:"App que calcula % da meta para pedir demissão do emprego baseado em gastos.", setup:47, mensal:9.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
-    { codigo:"0753-89", nome:"Conta Casal Feliz", desc:"Classifica gastos do casal em 😡🕊️❤️ e gera um termômetro financeiro mensal do relacionamento.", setup:67, mensal:14.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
-    { codigo:"0753-90", nome:"Caixa do Autônomo", desc:"Controle financeiro simples de entradas e saídas para prestadores de serviço.", setup:77, mensal:19.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
-    { codigo:"0753-91", nome:"Painel do MEI", desc:"Dashboard que centraliza lembretes de DAS, faturamento e agenda do microempreendedor.", setup:97, mensal:24.90, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-87", nome:"Assassino de Assinaturas", desc:"Detector de cobranças recorrentes no cartão de crédito por leitura de fatura/notificação.", valor:97, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-88", nome:"Calculadora da Liberdade", desc:"App que calcula % da meta para pedir demissão do emprego baseado em gastos.", valor:47, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-89", nome:"Conta Casal Feliz", desc:"Classifica gastos do casal em 😡🕊️❤️ e gera um termômetro financeiro mensal do relacionamento.", valor:67, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-90", nome:"Caixa do Autônomo", desc:"Controle financeiro simples de entradas e saídas para prestadores de serviço.", valor:77, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
+    { codigo:"0753-91", nome:"Painel do MEI", desc:"Dashboard que centraliza lembretes de DAS, faturamento e agenda do microempreendedor.", valor:97, cat:"financeiro", bloco:"Controle Financeiro", novo:true },
 
     // ==================== BLOCO 9: CLÍNICAS, PETS E SAÚDE (0753-92 a 0753-95) ====================
-    { codigo:"0753-92", nome:"Dossiê do Paciente", desc:"Ficha médica digital com foto e histórico de consultas odontológicas.", setup:127, mensal:29.90, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
-    { codigo:"0753-93", nome:"AlertPet Vacina", desc:"Sistema de lembrete automático de vacinas para pets com notificação 15 dias antes.", setup:77, mensal:19.90, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
-    { codigo:"0753-94", nome:"Protocolo de Pele", desc:"Sistema de pós-atendimento de estética com fotos e recomendação de produtos.", setup:87, mensal:24.90, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
-    { codigo:"0753-95", nome:"Clube da Beleza", desc:"Sistema de assinatura mensal de procedimentos estéticos com controle de créditos.", setup:127, mensal:34.90, cat:"cobranca", bloco:"Clínicas, Pets e Saúde", novo:true },
+    { codigo:"0753-92", nome:"Dossiê do Paciente", desc:"Ficha médica digital com foto e histórico de consultas odontológicas.", valor:127, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
+    { codigo:"0753-93", nome:"AlertPet Vacina", desc:"Sistema de lembrete automático de vacinas para pets com notificação 15 dias antes.", valor:77, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
+    { codigo:"0753-94", nome:"Protocolo de Pele", desc:"Sistema de pós-atendimento de estética com fotos e recomendação de produtos.", valor:87, cat:"agendamentos", bloco:"Clínicas, Pets e Saúde", novo:true },
+    { codigo:"0753-95", nome:"Clube da Beleza", desc:"Sistema de assinatura mensal de procedimentos estéticos com controle de créditos.", valor:127, cat:"cobranca", bloco:"Clínicas, Pets e Saúde", novo:true },
 
     // ==================== BLOCO 10: FREELAS, EVENTOS E COMÉRCIO (0753-96 a 0753-102) ====================
-    { codigo:"0753-96", nome:"Promoções Relâmpago", desc:"Sistema de sorteio justo para Instagram com filtro de regras e validação.", setup:77, mensal:19.90, cat:"formularios", bloco:"Freelas, Eventos e Comércio", novo:true },
-    { codigo:"0753-97", nome:"Checklist do Evento Perfeito", desc:"Checklist mestre para organizador de casamentos e formaturas.", setup:87, mensal:22.90, cat:"formularios", bloco:"Freelas, Eventos e Comércio", novo:true },
-    { codigo:"0753-98", nome:"Encomenda do Sacolé", desc:"Gestor de encomendas de geladinho gourmet com controle de sabores.", setup:67, mensal:17.90, cat:"cardapios", bloco:"Freelas, Eventos e Comércio", novo:true },
-    { codigo:"0753-99", nome:"Agenda do Estúdio de Pilates", desc:"Agendamento de aulas com limite de vagas por turma e lista de espera.", setup:97, mensal:24.90, cat:"agendamentos", bloco:"Freelas, Eventos e Comércio", novo:true },
-    { codigo:"0753-100", nome:"Controle de Materiais do Autônomo", desc:"Mini-estoque no celular para prestadores de serviço.", setup:77, mensal:19.90, cat:"servicos", bloco:"Freelas, Eventos e Comércio", novo:true },
-    { codigo:"0753-101", nome:"Setlist Colaborativa", desc:"Setlist de show com link da cifra para cada músico da banda.", setup:57, mensal:14.90, cat:"agendamentos", bloco:"Freelas, Eventos e Comércio", novo:true },
-    { codigo:"0753-102", nome:"Tour Virtual Simples para Imóveis", desc:"Galeria de fotos do imóvel + botão de agendar visita.", setup:87, mensal:22.90, cat:"portfolio", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-96", nome:"Promoções Relâmpago", desc:"Sistema de sorteio justo para Instagram com filtro de regras e validação.", valor:77, cat:"formularios", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-97", nome:"Checklist do Evento Perfeito", desc:"Checklist mestre para organizador de casamentos e formaturas.", valor:87, cat:"formularios", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-98", nome:"Encomenda do Sacolé", desc:"Gestor de encomendas de geladinho gourmet com controle de sabores.", valor:67, cat:"cardapios", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-99", nome:"Agenda do Estúdio de Pilates", desc:"Agendamento de aulas com limite de vagas por turma e lista de espera.", valor:97, cat:"agendamentos", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-100", nome:"Controle de Materiais do Autônomo", desc:"Mini-estoque no celular para prestadores de serviço.", valor:77, cat:"servicos", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-101", nome:"Setlist Colaborativa", desc:"Setlist de show com link da cifra para cada músico da banda.", valor:57, cat:"agendamentos", bloco:"Freelas, Eventos e Comércio", novo:true },
+    { codigo:"0753-102", nome:"Tour Virtual Simples para Imóveis", desc:"Galeria de fotos do imóvel + botão de agendar visita.", valor:87, cat:"portfolio", bloco:"Freelas, Eventos e Comércio", novo:true },
 
     // ==================== BLOCO 11: IGREJAS E COMUNIDADES (0753-103 a 0753-104) ====================
-    { codigo:"0753-103", nome:"Dízimo Digital", desc:"Registro de ofertas e dízimos com relatório mensal e extrato por membro.", setup:67, mensal:17.90, cat:"financeiro", bloco:"Igrejas e Comunidades", novo:true },
-    { codigo:"0753-104", nome:"Escala de Ministérios", desc:"Publicador de escala de louvor com notificação automática para os membros.", setup:57, mensal:14.90, cat:"agendamentos", bloco:"Igrejas e Comunidades", novo:true },
+    { codigo:"0753-103", nome:"Dízimo Digital", desc:"Registro de ofertas e dízimos com relatório mensal e extrato por membro.", valor:67, cat:"financeiro", bloco:"Igrejas e Comunidades", novo:true },
+    { codigo:"0753-104", nome:"Escala de Ministérios", desc:"Publicador de escala de louvor com notificação automática para os membros.", valor:57, cat:"agendamentos", bloco:"Igrejas e Comunidades", novo:true },
 
     // ==================== BLOCO 12: FERRAMENTAS HORIZONTAIS (0753-105 a 0753-112) ====================
-    { codigo:"0753-105", nome:"Gestor de Pequenos Projetos", desc:"Kanban simples para o empreendedor organizar as tarefas da semana.", setup:77, mensal:19.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
-    { codigo:"0753-106", nome:"O Carrinho Abandonado", desc:"Sistema que salva o carrinho do cliente por WhatsApp e envia lembrete para finalizar a compra.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
-    { codigo:"0753-107", nome:"Assinaturas Vitalícias", desc:"Landing page modelo para vender os micro-sistemas como produto recorrente.", setup:127, mensal:19.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
-    { codigo:"0753-108", nome:"Estoque Fácil", desc:"Controle de estoque básico para lojistas com alerta de produto acabando.", setup:87, mensal:22.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
-    { codigo:"0753-109", nome:"Comanda Digital", desc:"Substituto da comanda de papel para bares e restaurantes via QR Code.", setup:97, mensal:24.90, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
-    { codigo:"0753-110", nome:"Catálogo de Serviços do Pet Shop", desc:"Vitrine PWA dos serviços do pet shop com agendamento integrado.", setup:87, mensal:24.90, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
-    { codigo:"0753-111", nome:"Lembrete do Condomínio", desc:"Sistema de envio de comunicados e alertas de pagamento da taxa condominial.", setup:67, mensal:17.90, cat:"cobranca", bloco:"Ferramentas Horizontais", novo:true },
-    { codigo:"0753-112", nome:"Agente de IA para MEI", desc:"Mini-chatbot treinado com dúvidas comuns do Sebrae e legislação MEI para WhatsApp.", setup:147, mensal:34.90, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true }
+    { codigo:"0753-105", nome:"Gestor de Pequenos Projetos", desc:"Kanban simples para o empreendedor organizar as tarefas da semana.", valor:77, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-106", nome:"O Carrinho Abandonado", desc:"Sistema que salva o carrinho do cliente por WhatsApp e envia lembrete para finalizar a compra.", valor:97, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-107", nome:"Assinaturas Vitalícias", desc:"Landing page modelo para vender os micro-sistemas como produto recorrente.", valor:127, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-108", nome:"Estoque Fácil", desc:"Controle de estoque básico para lojistas com alerta de produto acabando.", valor:87, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-109", nome:"Comanda Digital", desc:"Substituto da comanda de papel para bares e restaurantes via QR Code.", valor:97, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-110", nome:"Catálogo de Serviços do Pet Shop", desc:"Vitrine PWA dos serviços do pet shop com agendamento integrado.", valor:87, cat:"cardapios", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-111", nome:"Lembrete do Condomínio", desc:"Sistema de envio de comunicados e alertas de pagamento da taxa condominial.", valor:67, cat:"cobranca", bloco:"Ferramentas Horizontais", novo:true },
+    { codigo:"0753-112", nome:"Agente de IA para MEI", desc:"Mini-chatbot treinado com dúvidas comuns do Sebrae e legislação MEI para WhatsApp.", valor:147, cat:"servicos", bloco:"Ferramentas Horizontais", novo:true }
 ];
+
+// ============================================
+// FUNÇÕES DE PREÇO (ESTRATÉGIA NINJA)
+// ============================================
+function formatPreco(val) { return val.toFixed(2).replace('.', ','); }
+
+function renderPreco(valor) {
+    if (valor <= 0) {
+        return `<span style="color:var(--muted); font-style:italic;">Sob consulta</span>`;
+    }
+    
+    // Abaixo de R$ 50,00 = somente à vista, sem acréscimo
+    if (valor < 50) {
+        return `
+            <div class="preco-linha">
+                <span class="preco-label">💰 Valor Único</span>
+                <span class="preco-valor">R$ ${formatPreco(valor)}</span>
+            </div>
+            <div class="preco-linha">
+                <span class="preco-avista-badge"><i class="fa-solid fa-circle-check"></i> À vista</span>
+            </div>
+        `;
+    }
+    
+    // Acima de R$ 50,00 = preço inflado em 12% e parcelado em 10x "sem juros"
+    const valorInflado = valor * 1.12;
+    const parcela = valorInflado / 10;
+    
+    return `
+        <div class="preco-linha">
+            <span class="preco-label">💰 Valor Único</span>
+            <span class="preco-valor">R$ ${formatPreco(valorInflado)}</span>
+        </div>
+        <div class="preco-linha">
+            <span class="preco-parcelado">
+                <i class="fa-solid fa-credit-card"></i> 
+                <span class="parcela-vezes">10x de R$ ${formatPreco(parcela)}</span>
+                <span class="parcela-sem-juros">SEM JUROS</span>
+            </span>
+        </div>
+    `;
+}
 
 // ============================================
 // RENDERIZAÇÃO
@@ -570,7 +645,6 @@ const btnLimpar = document.getElementById('btnLimpar');
 
 let categoriaAtiva = 'todos';
 
-// Agrupar por bloco
 function agruparPorBloco(lista) {
     const grupos = {};
     lista.forEach(p => {
@@ -580,15 +654,8 @@ function agruparPorBloco(lista) {
     return grupos;
 }
 
-// Formatar preço
-function formatPreco(val) { return val.toFixed(2).replace('.', ','); }
-
-// Renderizar card
 function renderCard(p) {
-    const precoSetup = p.setup > 0 ? `<span class="card-preco-label">Setup</span><span class="card-preco-valor">R$ ${formatPreco(p.setup)}</span>` : '';
-    const precoMensal = p.mensal > 0 ? `<span class="card-preco-label">Mensal</span><span class="card-preco-valor">R$ ${formatPreco(p.mensal)}</span><span class="card-preco-mensal">/mês</span>` : (p.setup > 0 ? `<span class="card-preco-label">Pagamento</span><span class="card-preco-valor">À vista</span>` : '');
     const novoBadge = p.novo ? '<span class="card-novo">NOVO</span>' : '';
-
     return `
         <div class="produto-card" data-cat="${p.cat}" data-nome="${p.nome.toLowerCase()}" data-desc="${p.desc.toLowerCase()}" data-cod="${p.codigo}">
             <div class="card-top">
@@ -597,7 +664,9 @@ function renderCard(p) {
             </div>
             <div class="card-nome">${p.nome}</div>
             <div class="card-desc">${p.desc}</div>
-            <div class="card-precos">${precoSetup}${precoMensal}</div>
+            <div class="card-precos">
+                ${renderPreco(p.valor)}
+            </div>
             <div class="card-actions">
                 <a href="https://wa.me/5531984987116?text=Quero%20o%20*${encodeURIComponent(p.nome)}*%20(código%20${p.codigo})" class="btn-quero" target="_blank"><i class="fab fa-whatsapp"></i> Quero</a>
             </div>
@@ -609,9 +678,7 @@ function renderizarCatalogo() {
     const busca = buscaInput.value.toLowerCase();
     
     let filtrados = produtos.filter(p => {
-        // Filtro categoria
         if (categoriaAtiva !== 'todos' && p.cat !== categoriaAtiva) return false;
-        // Filtro busca
         if (busca && !p.nome.toLowerCase().includes(busca) && !p.desc.toLowerCase().includes(busca) && !p.codigo.includes(busca)) return false;
         return true;
     });
@@ -667,7 +734,6 @@ btnLimpar.addEventListener('click', () => {
     renderizarCatalogo();
 });
 
-// Render inicial
 renderizarCatalogo();
 </script>
 
