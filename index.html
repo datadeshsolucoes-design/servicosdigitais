@@ -586,6 +586,13 @@
       color: var(--primary);
     }
 
+    .price-installment {
+      font-size: 0.8rem;
+      color: var(--secondary-dark);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
     /* PROJECTS */
     .projects-grid {
       display: grid;
@@ -643,6 +650,18 @@
       margin-bottom: 20px;
     }
 
+    .catalog-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .catalog-card ul li i {
+      color: var(--primary);
+      margin-right: 8px;
+    }
+
     /* CLINICS */
     .clinic-wrap {
       background: linear-gradient(135deg, #0f172a 0%, #10243a 100%);
@@ -655,11 +674,22 @@
     .clinic-visual {
       padding: 40px;
       color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .clinic-visual h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
     }
 
     .clinic-pricing {
       background: white;
       padding: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     /* TESTIMONIALS */
@@ -676,12 +706,22 @@
       padding: 28px;
     }
 
+    .testimonial-card p {
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
     /* CTA */
     .cta {
       background: linear-gradient(135deg, #0c1426 0%, #0e1f34 55%, #0b2d36 100%);
       color: white;
       padding: 84px 0;
       text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 28px;
     }
 
     /* FOOTER */
@@ -742,7 +782,7 @@
       margin-right: 8px;
     }
 
-    /* WHATSAPP FLOAT ORIGINAL */
+    /* WHATSAPP FLOAT */
     .whatsapp-float {
       position: fixed;
       right: 20px;
@@ -759,7 +799,7 @@
       z-index: 999;
     }
 
-    /* NOVO BOTÃO DE FORMULÁRIO FLUTUANTE */
+    /* FORM FLOAT BUTTON */
     .form-float {
       position: fixed;
       right: 20px;
@@ -783,7 +823,7 @@
       transform: scale(1.05);
     }
 
-    /* MODAL DO FORMULÁRIO */
+    /* FORM MODAL */
     .modal-form {
       display: none;
       position: fixed;
@@ -981,12 +1021,12 @@
         <a href="#catalogos">Catálogos</a>
         <a href="#clinicas">Clínicas</a>
         <a href="#depoimentos">Depoimentos</a>
-        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" target="_blank" style="color:#f59e0b; font-weight:800;">💰 Tabela</a>
+        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" target="_blank" style="color:#f59e0b; font-weight:800;">📚 Catálogo</a>
       </nav>
       <div class="nav-actions">
         <a class="nav-icon-link desktop-only" href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a class="btn btn-light desktop-only" href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" target="_blank"><i class="fa-regular fa-file-lines"></i> Formulário</a>
-        <a class="btn btn-tabela desktop-only" href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" target="_blank"><i class="fa-solid fa-table-list"></i> Ver Tabela</a>
+        <a class="btn btn-tabela desktop-only" href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" target="_blank"><i class="fa-solid fa-table-list"></i> Ver Catálogo</a>
         <a class="btn btn-primary desktop-only" href="https://wa.me/5531984987116" target="_blank"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
         <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
       </div>
@@ -998,7 +1038,7 @@
       <a href="#catalogos">Catálogo Digital</a>
       <a href="#clinicas">Página para Clínicas</a>
       <a href="#depoimentos">Depoimentos</a>
-      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" target="_blank">💰 Ver Tabela de Preços</a>
+      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" target="_blank">📚 Ver Catálogo</a>
       <a href="https://wa.me/5531984987116" target="_blank">Falar no WhatsApp</a>
     </div>
   </div>
@@ -1011,11 +1051,11 @@
       <div class="hero-grid">
         <div class="hero-copy reveal">
           <div class="eyebrow"><i class="fa-solid fa-bolt"></i> +54 projetos já concluídos</div>
-          <h1>Crio Sites, Catálogos Digitais <span>Páginas, DashBords </span>e Ferramentas Virtuais automatizadas.</h1>
+          <h1>Crio Sites, Catálogos Digitais, <span>Páginas, Dashboards</span> e Ferramentas Virtuais automatizadas.</h1>
           <p>Soluções digitais com visual profissional que organizam sua apresentação e facilitam a decisão do cliente, materiais com foco em praticidade e vendas.</p>
           <div class="hero-actions">
             <a href="https://wa.me/5531984987116" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Quero minha solução</a>
-            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" target="_blank"><i class="fa-solid fa-table-list"></i> Ver Tabela de Preços</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" target="_blank"><i class="fa-solid fa-table-list"></i> Ver Catálogo</a>
             <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="btn btn-secondary" target="_blank"><i class="fa-regular fa-file-lines"></i> Formulário</a>
           </div>
           <div class="hero-mini-proof">
@@ -1033,7 +1073,10 @@
               <div class="mockup-card"><i class="fa-solid fa-hospital-user"></i><strong>Página para clínicas</strong></div>
               <div class="mockup-card"><i class="fa-solid fa-chart-line"></i><strong>Dashboards</strong></div>
             </div>
-            <div class="mockup-footer"><div>a partir de 3x de R$ 25,67</div><a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" style="padding: 10px 16px;">📊 Ver Tabela</a></div>
+            <div class="mockup-footer">
+              <div>A partir de R$ 219,52</div>
+              <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" style="padding: 10px 16px;">📚 Ver Catálogo</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1151,7 +1194,6 @@
     </div>
   </section>
 
-  
   <!-- SERVIÇOS -->
   <section id="servicos" class="section">
     <div class="container">
@@ -1160,44 +1202,63 @@
         <h2 class="section-title">O que eu <span>faço</span></h2>
       </div>
       <div class="services-grid">
+        <!-- Site Simples -->
         <div class="service-card reveal">
           <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
-          <h3>Sites profissionais</h3>
-          <p>Sites modernos e responsivos</p>
-          <div class="price-box"><div class="price-main"><strong>R$ 59,70</strong>/mês</div></div>
+          <h3>Site Simples</h3>
+          <p>Código e domínio entregues. Layout moderno e responsivo.</p>
+          <div class="price-box">
+            <div class="price-main"><strong>R$ 219,52</strong></div>
+            <div class="price-installment">ou 10x de R$ 21,95 sem juros</div>
+          </div>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://wa.me/5531984987116" class="btn btn-primary" style="flex:1;">Quero</a>
-            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" style="flex:1;" target="_blank">Ver Preços</a>
+            <a href="https://wa.me/5531984987116?text=Quero%20o%20*Site%20Simples*%20(R%24%20219%2C52)" class="btn btn-primary" style="flex:1;" target="_blank">Quero</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" style="flex:1;" target="_blank">Catálogo</a>
           </div>
         </div>
+        
+        <!-- Catálogo Virtual Básico -->
         <div class="service-card reveal">
           <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-          <h3>Catálogo digital</h3>
-          <p>Vitrine para WhatsApp</p>
-          <div class="price-box"><div class="price-main"><strong>R$ 25,67</strong>/mês</div></div>
+          <h3>Catálogo Virtual Básico</h3>
+          <p>Até 50 produtos, busca por nome, integrado ao WhatsApp</p>
+          <div class="price-box">
+            <div class="price-main"><strong>R$ 403,20</strong></div>
+            <div class="price-installment">ou 10x de R$ 40,32 sem juros</div>
+          </div>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://wa.me/5531984987116" class="btn btn-primary" style="flex:1;">Quero</a>
-            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" style="flex:1;" target="_blank">Ver Preços</a>
+            <a href="https://wa.me/5531984987116?text=Quero%20o%20*Cat%C3%A1logo%20Virtual%20B%C3%A1sico*%20(R%24%20403%2C20)" class="btn btn-primary" style="flex:1;" target="_blank">Quero</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" style="flex:1;" target="_blank">Catálogo</a>
           </div>
         </div>
+        
+        <!-- Página para Clínicas -->
         <div class="service-card reveal">
           <div class="service-icon"><i class="fa-solid fa-hospital-user"></i></div>
-          <h3>Página para clínicas</h3>
-          <p>Apresentação profissional</p>
-          <div class="price-box"><div class="price-main"><strong>R$ 39,40</strong>/mês</div></div>
+          <h3>Página para Clínicas</h3>
+          <p>Apresentação profissional para consultórios e clínicas</p>
+          <div class="price-box">
+            <div class="price-main"><strong>R$ 332,64</strong></div>
+            <div class="price-installment">ou 10x de R$ 33,26 sem juros</div>
+          </div>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://wa.me/5531984987116" class="btn btn-primary" style="flex:1;">Quero</a>
-            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" style="flex:1;" target="_blank">Ver Preços</a>
+            <a href="https://wa.me/5531984987116?text=Quero%20uma%20*P%C3%A1gina%20para%20Cl%C3%ADnicas*%20(R%24%20332%2C64)" class="btn btn-primary" style="flex:1;" target="_blank">Quero</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" style="flex:1;" target="_blank">Catálogo</a>
           </div>
         </div>
+        
+        <!-- Dashboard Básico -->
         <div class="service-card reveal">
           <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-          <h3>Dashboards</h3>
-          <p>Painéis interativos</p>
-          <div class="price-box"><div class="price-main"><strong>R$ 59,70</strong>/mês</div></div>
+          <h3>Dashboard Básico</h3>
+          <p>Painel com gráficos interativos sincronizado com planilhas</p>
+          <div class="price-box">
+            <div class="price-main"><strong>R$ 280,00</strong></div>
+            <div class="price-installment">ou 10x de R$ 28,00 sem juros</div>
+          </div>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://wa.me/5531984987116" class="btn btn-primary" style="flex:1;">Quero</a>
-            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" style="flex:1;" target="_blank">Ver Preços</a>
+            <a href="https://wa.me/5531984987116?text=Quero%20o%20*Dashboard%20B%C3%A1sico*%20(R%24%20280%2C00)" class="btn btn-primary" style="flex:1;" target="_blank">Quero</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" style="flex:1;" target="_blank">Catálogo</a>
           </div>
         </div>
       </div>
@@ -1210,10 +1271,28 @@
       <div class="section-header reveal">
         <div class="section-kicker"><i class="fa-solid fa-store"></i> Catálogo Digital</div>
         <h2 class="section-title"><span>Catálogo digital</span> profissional</h2>
+        <p class="section-subtitle">Vitrine virtual com carrinho, busca por nome e pedido direto via WhatsApp</p>
       </div>
       <div class="catalog-grid">
-        <div class="catalog-card reveal"><h3>Por que ter um catálogo digital?</h3><ul><li>✓ Visual organizado</li><li>✓ Categorias personalizadas</li><li>✓ Botão direto WhatsApp</li></ul></div>
-        <div class="catalog-card reveal"><h3>Preços</h3><div class="price-main"><strong>R$ 25,67</strong>/mês</div><div style="display: flex; gap: 8px; margin-top: 15px;"><a href="https://wa.me/5531984987116" class="btn btn-primary">Solicitar</a><a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" target="_blank">Ver Tabela</a></div></div>
+        <div class="catalog-card reveal">
+          <h3>Por que ter um catálogo digital?</h3>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Visual organizado e profissional</li>
+            <li><i class="fa-solid fa-check"></i> Categorias personalizadas</li>
+            <li><i class="fa-solid fa-check"></i> Botão direto para WhatsApp</li>
+            <li><i class="fa-solid fa-check"></i> Cliente monta o carrinho sozinho</li>
+          </ul>
+        </div>
+        <div class="catalog-card reveal">
+          <h3>Catálogo Virtual Básico</h3>
+          <p style="margin-top:8px;">Até 50 produtos • Busca por nome • WhatsApp integrado</p>
+          <div class="price-main" style="margin-top:15px;"><strong>R$ 403,20</strong></div>
+          <div class="price-installment">ou 10x de R$ 40,32 sem juros</div>
+          <div style="display: flex; gap: 8px; margin-top: 15px;">
+            <a href="https://wa.me/5531984987116?text=Quero%20o%20*Cat%C3%A1logo%20Virtual%20B%C3%A1sico*%20(R%24%20403%2C20)" class="btn btn-primary" target="_blank">Solicitar</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" target="_blank">Ver Catálogo</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1222,8 +1301,18 @@
   <section id="clinicas" class="section">
     <div class="container">
       <div class="clinic-wrap reveal">
-        <div class="clinic-visual"><h3>Página profissional para <span style="color:#8af3e5">clínicas e consultórios</span></h3><p>Estrutura completa para apresentar serviços, diferenciais e contato.</p></div>
-        <div class="clinic-pricing"><div class="price-main"><strong>R$ 39,40</strong>/mês</div><div style="display: flex; gap: 8px; margin-top: 15px;"><a href="https://wa.me/5531984987116" class="btn btn-primary">Quero</a><a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" target="_blank">Ver Tabela</a></div></div>
+        <div class="clinic-visual">
+          <h3>Página profissional para <span style="color:#8af3e5">clínicas e consultórios</span></h3>
+          <p>Estrutura completa para apresentar serviços, diferenciais, equipe e contato. Visual moderno que transmite credibilidade ao paciente.</p>
+        </div>
+        <div class="clinic-pricing">
+          <div class="price-main"><strong>R$ 332,64</strong></div>
+          <div class="price-installment">ou 10x de R$ 33,26 sem juros</div>
+          <div style="display: flex; gap: 8px; margin-top: 15px;">
+            <a href="https://wa.me/5531984987116?text=Quero%20uma%20*P%C3%A1gina%20para%20Cl%C3%ADnicas*%20(R%24%20332%2C64)" class="btn btn-primary" target="_blank">Quero</a>
+            <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" target="_blank">Ver Catálogo</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1236,9 +1325,18 @@
         <h2 class="section-title">Quem já usou <span>recomenda</span></h2>
       </div>
       <div class="testimonials-grid">
-        <div class="testimonial-card reveal"><p>"A página que a Ana criou trouxe muita credibilidade para minha clínica."</p><strong>Dra. Mariana L.</strong></div>
-        <div class="testimonial-card reveal"><p>"Meu catálogo digital antes era uma bagunça. Agora é profissional e as vendas aumentaram."</p><strong>Renata S.</strong></div>
-        <div class="testimonial-card reveal"><p>"Excelente profissional, entrega no prazo e resolveu todas as minhas dúvidas."</p><strong>Carlos A.</strong></div>
+        <div class="testimonial-card reveal">
+          <p>"A página que a Ana criou trouxe muita credibilidade para minha clínica."</p>
+          <strong>Dra. Mariana L.</strong>
+        </div>
+        <div class="testimonial-card reveal">
+          <p>"Meu catálogo digital antes era uma bagunça. Agora é profissional e as vendas aumentaram."</p>
+          <strong>Renata S.</strong>
+        </div>
+        <div class="testimonial-card reveal">
+          <p>"Excelente profissional, entrega no prazo e resolveu todas as minhas dúvidas."</p>
+          <strong>Carlos A.</strong>
+        </div>
       </div>
     </div>
   </section>
@@ -1249,7 +1347,7 @@
       <h2>Pronto para dar um upgrade digital no seu negócio?</h2>
       <div class="hero-actions" style="justify-content:center">
         <a href="https://wa.me/5531984987116" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Falar com Ana</a>
-        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="btn btn-tabela" target="_blank"><i class="fa-solid fa-table-list"></i> Ver Tabela Completa</a>
+        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" class="btn btn-tabela" target="_blank"><i class="fa-solid fa-table-list"></i> Ver Catálogo Completo</a>
         <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="btn btn-light">Formulário</a>
       </div>
     </div>
@@ -1271,7 +1369,7 @@
           <a href="#servicos">Serviços</a>
           <a href="#catalogos">Catálogos</a>
           <a href="#clinicas">Clínicas</a>
-          <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" target="_blank">💰 Tabela de Preços</a>
+          <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/catalogo.html" target="_blank">📚 Catálogo Completo</a>
         </div>
       </div>
       <div>
@@ -1292,12 +1390,12 @@
 <!-- Botão WhatsApp original -->
 <a href="https://wa.me/5531984987116" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<!-- NOVO BOTÃO FLUTUANTE DE FORMULÁRIO -->
+<!-- Botão flutuante de formulário -->
 <button class="form-float" id="openFormBtn">
   <i class="fa-regular fa-message"></i>
 </button>
 
-<!-- MODAL DO FORMULÁRIO -->
+<!-- Modal do formulário -->
 <div id="formModal" class="modal-form">
   <div class="modal-form-content">
     <button class="close-modal" id="closeModalBtn">&times;</button>
